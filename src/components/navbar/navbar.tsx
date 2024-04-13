@@ -9,6 +9,8 @@ import iep from "@/../public/icons/iep.svg";
 import manual from "@/../public/icons/manual.svg";
 import add from "@/../public/icons/chat-add.svg";
 import le from "@/../public/le.png";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 
 const parents = [
   { id: 0, profile: profile0, name: "황석준 보호자" },
@@ -19,7 +21,9 @@ const parents = [
   { id: 2, profile: profile2, name: "황석준 보호자" },
 ];
 
-export default function Navbar() {
+export default async function Navbar() {
+  const session: any = await getServerSession(authOptions);
+  console.log(session.user.user.profile)
   return (
     <div className={styles.navbar}>
       <div className={styles.navbar_background}>
@@ -54,14 +58,14 @@ export default function Navbar() {
         <div className={styles.user}>
           <Image
             className={styles.user_profile}
-            src={le}
+            src={session.user.user.profile || ''}
             alt="user profile img"
             width={1024}
             height={1024}
           />
           <div className={styles.user_info}>
-            <p className={styles.user_school}>한국디지털미디어고등학교</p>
-            <p className={styles.user_name}>김채원 선생님</p>
+            <p className={styles.user_school}>{session.user.user.school}</p>
+            <p className={styles.user_name}>{session.user.user.name} 선생님</p>
           </div>
         </div>
       </div>

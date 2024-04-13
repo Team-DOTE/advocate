@@ -6,17 +6,18 @@ export async function POST(request: NextRequest, response: NextResponse) {
   var now = new Date();
   var seconds = now.getSeconds();
   var profile;
-  const domain = "https://dote-advocate.vercel.app";
+  const domain = "https://dote-advocate.vercel.app/profile/";
   if (seconds % 3 == 0) {
-    profile = domain + "profile0";
+    profile = domain + "profile0.png";
   } else if (seconds % 3 == 1) {
-    profile = domain + "profile1";
+    profile = domain + "profile1.png";
   } else if (seconds % 3 == 2) {
-    profile = domain + "profile2";
+    profile = domain + "profile2.png";
   }
   const formData = await request.formData();
   const userid = formData.get("userid");
   const password: string | any = formData.get("password")?.toString();
+  const name = formData.get("name");
   const telephone = formData.get("telephone");
   const school = formData.get("school");
   const role = formData.get("role");
@@ -25,6 +26,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
   const user = {
     userid,
     password: hash,
+    name,
     telephone,
     school,
     role,

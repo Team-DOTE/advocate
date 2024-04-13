@@ -23,6 +23,13 @@ export default function Signup() {
             type="password"
             placeholder="비밀번호를 입력해주세요."
           />
+          <p className={styles.explain}>이름</p>
+          <input
+            required
+            name="name"
+            className={styles.input}
+            placeholder="이름를 입력해주세요."
+          />
           <p className={styles.explain}>전화번호</p>
           <input
             required
