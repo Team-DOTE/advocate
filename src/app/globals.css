@@ -1,0 +1,17 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: var(--background-color);
+}
+
+:root {
+  --background-color: #fafafa;
+  --primary-color: #fff;
+  --placeholder-color: #707070;
+  --active-color: #000;
+  --conversation-color: #ededed;
+}
