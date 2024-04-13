@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/app/signin/page.module.css";
+import styles from "@/app/signin/error/page.module.css";
 import Link from "next/link";
 import React, { useRef } from "react";
 import { signIn } from "next-auth/react";
@@ -28,6 +28,7 @@ export default function Signin() {
   return (
     <div className={styles.signin}>
       <p className={styles.header}>로그인</p>
+      <p className={styles.error}>아이디 혹은 비밀번호가 잘못되었습니다..</p>
       <div className={styles.input_wrap}>
         <input
           ref={useridRef}

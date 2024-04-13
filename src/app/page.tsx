@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 export default async function Home() {
   const session: any = await getServerSession(authOptions);
   if(session === null) {
-    redirect('/api/auth/signin')
+    redirect('/signin')
   }
   return (
     <main className={styles.main}>
