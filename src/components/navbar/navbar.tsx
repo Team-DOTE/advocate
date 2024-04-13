@@ -23,7 +23,6 @@ const parents = [
 
 export default async function Navbar() {
   const session: any = await getServerSession(authOptions);
-  console.log(session.user.user.profile)
   return (
     <div className={styles.navbar}>
       <div className={styles.navbar_background}>
