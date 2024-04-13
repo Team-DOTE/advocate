@@ -1,10 +1,11 @@
-import styles from "@/app/signup/page.module.css";
+import styles from "@/app/signup/error/page.module.css";
 import Link from "next/link";
 
 export default function Signup() {
   return (
     <div className={styles.signin}>
       <p className={styles.header}>회원가입</p>
+      <p className={styles.error}>해당 유저가 이미 존재합니다.</p>
       <form method="POST" action="/api/auth/register">
         <div className={styles.input_wrap}>
           <p className={styles.explain}>아이디</p>

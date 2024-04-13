@@ -22,10 +22,10 @@ export default function Signin() {
         로그인
       </button>
       <div className={styles.link_wrap}>
-        <Link className={styles.link} href="">
+        <Link className={styles.link} href="/signup">
           회원가입
         </Link>
-        <Link className={styles.link} href="">
+        <Link className={styles.link} href="#">
           비밀번호 분실
         </Link>
       </div>
