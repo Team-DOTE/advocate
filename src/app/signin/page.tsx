@@ -9,10 +9,13 @@ export default function Signin() {
         <input className={styles.input} placeholder="아이디를 입력해주세요." />
         <input
           className={styles.input}
+          type="password"
           placeholder="비밀번호를 입력해주세요."
         />
       </div>
-      <button className={styles.button}>로그인</button>
+      <button type="submit" className={styles.button}>
+        로그인
+      </button>
       <div className={styles.link_wrap}>
         <Link className={styles.link} href="">
           회원가입
