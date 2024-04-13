@@ -10,12 +10,14 @@ export default function Signup() {
           <p className={styles.explain}>아이디</p>
           <input
             required
+            name="userid"
             className={styles.input}
             placeholder="아이디를 입력해주세요."
           />
           <p className={styles.explain}>비밀번호</p>
           <input
             required
+            name="password"
             className={styles.input}
             type="password"
             placeholder="비밀번호를 입력해주세요."
@@ -23,12 +25,15 @@ export default function Signup() {
           <p className={styles.explain}>전화번호</p>
           <input
             required
+            name="telephone"
+            type="tel"
             className={styles.input}
             placeholder="전화번호를 입력해주세요."
           />
           <p className={styles.explain}>학교명</p>
           <input
             required
+            name="school"
             className={styles.input}
             placeholder="학교명를 입력해주세요."
           />

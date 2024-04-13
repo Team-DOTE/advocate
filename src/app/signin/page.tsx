@@ -6,8 +6,13 @@ export default function Signin() {
     <div className={styles.signin}>
       <p className={styles.header}>로그인</p>
       <div className={styles.input_wrap}>
-        <input className={styles.input} placeholder="아이디를 입력해주세요." />
         <input
+          name="userid"
+          className={styles.input}
+          placeholder="아이디를 입력해주세요."
+        />
+        <input
+          name="password"
           className={styles.input}
           type="password"
           placeholder="비밀번호를 입력해주세요."

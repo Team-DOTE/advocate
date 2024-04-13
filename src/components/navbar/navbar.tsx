@@ -56,6 +56,8 @@ export default function Navbar() {
             className={styles.user_profile}
             src={le}
             alt="user profile img"
+            width={1024}
+            height={1024}
           />
           <div className={styles.user_info}>
             <p className={styles.user_school}>한국디지털미디어고등학교</p>
