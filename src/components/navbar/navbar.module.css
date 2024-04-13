@@ -21,7 +21,7 @@
 .class_img {
   width: 36px;
   height: 36px;
-  margin: 0;
+  border-radius: 100px;
 }
 
 .class_name {
@@ -150,6 +150,7 @@
   height: 28px;
   margin-left: 16px;
   margin-right: 8px;
+  border-radius: 100px;
 }
 
 .message_name {
@@ -167,6 +168,7 @@
 .user_profile {
   width: 40px;
   height: 40px;
+  border-radius: 100px;
   margin-right: 8px;
 }
 
@@ -174,15 +176,23 @@
 }
 
 .user_school {
+  width: 142px;
   font-size: 12px;
   font-weight: 500;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: var(--placeholder-color);
 }
 
 .user_name {
+  width: 142px;
   font-size: 16px;
   font-weight: 600;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: var(--active-color);
 }
