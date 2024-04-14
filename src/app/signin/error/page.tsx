@@ -4,7 +4,7 @@ import styles from "@/app/signin/error/page.module.css";
 import Link from "next/link";
 import React, { useRef } from "react";
 import { signIn } from "next-auth/react";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function Signin() {
   const router = useRouter();
@@ -39,6 +39,7 @@ export default function Signin() {
           className={styles.input}
           placeholder="아이디를 입력해주세요."
           autoFocus={true}
+          autoCapitalize="off"
         />
         <input
           ref={passwordRef}

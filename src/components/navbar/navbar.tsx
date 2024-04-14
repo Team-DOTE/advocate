@@ -8,21 +8,23 @@ import user from "@/../public/icons/user.svg";
 import iep from "@/../public/icons/iep.svg";
 import manual from "@/../public/icons/manual.svg";
 import add from "@/../public/icons/chat-add.svg";
-import le from "@/../public/le.png";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
+import ProfileModal from "../profileModal/profileModal";
 
-const parents = [
-  { id: 0, profile: profile0, name: "황석준 보호자" },
-  { id: 1, profile: profile1, name: "황석준 보호자" },
-  { id: 2, profile: profile2, name: "황석준 보호자" },
-  { id: 2, profile: profile2, name: "황석준 보호자" },
-  { id: 2, profile: profile2, name: "황석준 보호자" },
-  { id: 2, profile: profile2, name: "황석준 보호자" },
-];
+const parents =
+  [
+    { id: 0, profile: profile0, name: "황석준 보호자" },
+    { id: 1, profile: profile1, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+  ] || "";
 
 export default async function Navbar() {
   const session: any = await getServerSession(authOptions);
+
   return (
     <div className={styles.navbar}>
       <div className={styles.navbar_background}>
@@ -44,24 +46,19 @@ export default async function Navbar() {
               <p className={styles.message_title}>매세지</p>
               <Image className={styles.message_icon} src={add} alt="add icon" />
             </div>
-
-            {parents.map((parent, index) => (
-              <Message
-                key={index}
-                profile={parent.profile}
-                name={parent.name}
-              />
-            ))}
+            {parents
+              ? parents.map((parent, index) => (
+                  <Message
+                    key={index}
+                    profile={parent.profile}
+                    name={parent.name}
+                  />
+                ))
+              : ""}
           </div>
         </div>
         <div className={styles.user}>
-          <Image
-            className={styles.user_profile}
-            src={session.user.user.profile || ''}
-            alt="user profile img"
-            width={1024}
-            height={1024}
-          />
+          <ProfileModal profile={session.user.user.profile} />
           <div className={styles.user_info}>
             <p className={styles.user_school}>{session.user.user.school}</p>
             <p className={styles.user_name}>{session.user.user.name} 선생님</p>

@@ -14,6 +14,7 @@ export default function Signup() {
             name="userid"
             className={styles.input}
             placeholder="아이디를 입력해주세요."
+            autoCapitalize="off"
           />
           <p className={styles.explain}>비밀번호</p>
           <input
