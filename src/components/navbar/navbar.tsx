@@ -3,7 +3,6 @@ import Image from "next/image";
 import profile0 from "@/../public/profile/profile0.png";
 import profile1 from "@/../public/profile/profile1.png";
 import profile2 from "@/../public/profile/profile2.png";
-import arrow from "@/../public/icons/class-arrow.svg";
 import user from "@/../public/icons/user.svg";
 import iep from "@/../public/icons/iep.svg";
 import manual from "@/../public/icons/manual.svg";
@@ -11,6 +10,7 @@ import add from "@/../public/icons/chat-add.svg";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import ProfileModal from "../profileModal/profileModal";
+import ClassModal from "../classModal/classModal";
 
 const parents =
   [
@@ -28,11 +28,8 @@ export default async function Navbar() {
   return (
     <div className={styles.navbar}>
       <div className={styles.navbar_background}>
-        <div className={styles.class_info}>
-          <Image src={profile0} className={styles.class_img} alt="profile" />
-          <p className={styles.class_name}>조성민님의 클래스</p>
-          <Image src={arrow} className={styles.class_icon} alt="profile" />
-        </div>
+        <ClassModal />
+
         <div className={styles.scroll}>
           <div className={styles.menu}>
             <p className={styles.menu_header}>메뉴</p>

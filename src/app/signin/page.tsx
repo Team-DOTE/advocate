@@ -19,7 +19,7 @@ export default function Signin() {
       userid: useridRef.current,
       password: passwordRef.current,
       redirect: false,
-      callbackUrl: "/",
+      callbackUrl: "/signin",
     });
     if (result?.ok === true) {
       toast.dismiss();

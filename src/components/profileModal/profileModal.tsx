@@ -4,7 +4,7 @@ import styles from "@/components/profileModal/profileModal.module.css";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { use, useState } from "react";
+import { useState } from "react";
 
 export default function ProfileModal({ profile }: { profile: string }) {
   const [visible, serVisible] = useState<boolean>(false);
