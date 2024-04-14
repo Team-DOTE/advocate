@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/components/profileModal/profileModal.module.css";
+import styles from "@/components/profile/profile.module.css";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,7 +32,6 @@ export default function ProfileModal({ profile }: { profile: string }) {
             setModalStyle(styles.modal_in);
             serVisible(true);
           }
-          console.log(modalStyle);
         }}
         className={styles.user_profile}
         src={profile}

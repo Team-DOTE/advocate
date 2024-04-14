@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import AuthSession from "@/provider/AuthSession";
 import ToastProvider from "@/provider/ToastProvider";
+import Navbar from "@/components/navbar/navbar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dote-advocate.vercel.app"),

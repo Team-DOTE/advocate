@@ -6,8 +6,8 @@ import { redirect } from "next/navigation";
 
 export default async function Home() {
   const session: any = await getServerSession(authOptions);
-  if(session === null) {
-    redirect('/signin')
+  if (session === null) {
+    redirect("/signin");
   }
   return (
     <main className={styles.main}>

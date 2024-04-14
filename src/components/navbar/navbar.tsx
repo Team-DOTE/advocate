@@ -9,8 +9,8 @@ import manual from "@/../public/icons/manual.svg";
 import add from "@/../public/icons/chat-add.svg";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
-import ProfileModal from "../profileModal/profileModal";
-import ClassModal from "../classModal/classModal";
+import ProfileModal from "../profile/profile";
+import ClassModal from "../class/class";
 
 const parents =
   [

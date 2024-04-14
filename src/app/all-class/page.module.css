@@ -1,0 +1,43 @@
+.all_class {
+}
+
+.class_add {
+}
+
+.class {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding: 0 36px 0 36px;
+  background-color: aqua;
+  border-radius: 30px;
+  display: flex;
+}
+
+.class_img {
+  width: 48px;
+  height: 48px;
+  border-radius: 100px;
+}
+
+.class_name {
+  margin-left: 16px;
+}
+
+.class_button {
+  padding: 12px 20px 12px 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: var(--conversation-color);
+  transition: all 0.3s;
+}
+
+.class_button:hover {
+  background-color: var(--primary-color);
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/components/classModal/classModal.module.css";
+import styles from "@/components/class/class.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -24,14 +24,13 @@ export default function ClassModal() {
               setModalStyle(styles.modal_in);
               serVisible(true);
             }
-            console.log(modalStyle);
           }}
           src={arrow}
           className={styles.class_icon}
           alt="profile"
         />
         <div style={visible ? {} : {}} className={modalStyle}>
-          <Link className={styles.modal_option} href="/classes">
+          <Link className={styles.modal_option} href="/all-class">
             클래스 목록
           </Link>
         </div>
