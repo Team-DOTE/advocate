@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import AuthSession from "@/components/AuthSession";
+import AuthSession from "@/provider/AuthSession";
+import ToastProvider from "@/provider/ToastProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dote-advocate.vercel.app"),
@@ -24,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <AuthSession>{children}</AuthSession>
+        <AuthSession>
+          <ToastProvider>{children}</ToastProvider>
+        </AuthSession>
       </body>
     </html>
   );

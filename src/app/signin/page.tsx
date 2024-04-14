@@ -2,9 +2,11 @@
 
 import styles from "@/app/signin/page.module.css";
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { alert } from "@/utils/alert";
+import { toast } from "react-toastify";
 
 export default function Signin() {
   const router = useRouter();
@@ -12,6 +14,7 @@ export default function Signin() {
   const passwordRef = useRef(null);
 
   const handleSubmit = async () => {
+    alert.loading("로딩중", { autoClose: false });
     const result = await signIn("credentials", {
       userid: useridRef.current,
       password: passwordRef.current,
@@ -19,9 +22,13 @@ export default function Signin() {
       callbackUrl: "/",
     });
     if (result?.ok === true) {
+      toast.dismiss();
       router.push("/");
+      alert.success("로그인에 성공하였습니다.");
     } else {
-      router.push("/signin/error");
+      toast.dismiss();
+      router.push("/");
+      alert.error("아이디 혹은 비밀번호가 잘못되었습니다.");
     }
   };
 
