@@ -7,7 +7,7 @@ import { useState } from "react";
 import arrow from "@/../public/icons/class-arrow.svg";
 import profile0 from "@/../public/profile/profile0.png";
 
-export default function ClassModal() {
+export default function Class() {
   const [visible, serVisible] = useState<boolean>(false);
   const [modalStyle, setModalStyle] = useState(styles.modal_none);
   return (

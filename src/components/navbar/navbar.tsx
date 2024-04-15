@@ -9,8 +9,8 @@ import manual from "@/../public/icons/manual.svg";
 import add from "@/../public/icons/chat-add.svg";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
-import ProfileModal from "../profile/profile";
-import ClassModal from "../class/class";
+import Class from "../class/class";
+import Profile from "../profile/profile";
 
 const parents =
   [
@@ -28,8 +28,7 @@ export default async function Navbar() {
   return (
     <div className={styles.navbar}>
       <div className={styles.navbar_background}>
-        <ClassModal />
-
+        <Class />
         <div className={styles.scroll}>
           <div className={styles.menu}>
             <p className={styles.menu_header}>메뉴</p>
@@ -55,7 +54,7 @@ export default async function Navbar() {
           </div>
         </div>
         <div className={styles.user}>
-          <ProfileModal profile={session.user.user.profile} />
+          <Profile profile={session.user.user.profile} />
           <div className={styles.user_info}>
             <p className={styles.user_school}>{session.user.user.school}</p>
             <p className={styles.user_name}>{session.user.user.name} 선생님</p>
