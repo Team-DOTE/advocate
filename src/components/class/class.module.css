@@ -15,8 +15,11 @@
 
 .class_img {
   width: 48px;
-  height: 48px;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
   margin-right: 16px;
+  border-radius: 100px;
 }
 
 .class_name {
