@@ -9,8 +9,8 @@ import manual from "@/../public/icons/manual.svg";
 import add from "@/../public/icons/chat-add.svg";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
-import Class from "../class/class";
 import Profile from "../profile/profile";
+import ClassInfo from "../class-info/class-info";
 
 const parents =
   [
@@ -28,7 +28,7 @@ export default async function Navbar() {
   return (
     <div className={styles.navbar}>
       <div className={styles.navbar_background}>
-        <Class />
+        <ClassInfo />
         <div className={styles.scroll}>
           <div className={styles.menu}>
             <p className={styles.menu_header}>메뉴</p>

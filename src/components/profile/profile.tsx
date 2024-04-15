@@ -15,7 +15,9 @@ export default function Profile({ profile }: { profile: string }) {
         <p
           style={{ margin: 0 }}
           className={styles.modal_option}
-          onClick={() => signOut()}
+          onClick={() => {
+            signOut();
+          }}
         >
           로그아웃
         </p>
