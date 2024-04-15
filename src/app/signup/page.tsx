@@ -37,7 +37,9 @@ export default function Signup() {
             type="tel"
             className={styles.input}
             placeholder="전화번호를 입력해주세요. (숫자만 작성)"
-            pattern="[0-9]{11}"
+            pattern="[0-9]"
+            minLength={10}
+            maxLength={12}
           />
           <p className={styles.explain}>학교명</p>
           <input

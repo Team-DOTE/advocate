@@ -30,7 +30,7 @@ export default function ClassInfo() {
           alt="profile"
         />
         <div style={visible ? {} : {}} className={modalStyle}>
-          <Link className={styles.modal_option} href="/all-class">
+          <Link className={styles.modal_option} href="/class/all">
             클래스 목록
           </Link>
         </div>
