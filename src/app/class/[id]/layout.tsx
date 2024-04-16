@@ -31,7 +31,6 @@ export default async function ClassLayout({
         classprofile={userClass[0].profile}
         classid={params.id}
       />
-      {/* <div style={{ marginLeft: "30px" }}></div> */}
       {children}
     </div>
   );
