@@ -1,4 +1,4 @@
-@import url('https://webfontworld.github.io/sunn/SUIT.css');
+@import url("https://webfontworld.github.io/sunn/SUIT.css");
 
 html {
   height: 100%;
@@ -8,7 +8,8 @@ body {
   margin: 0;
   height: 100%;
   background-color: var(--background-color);
-  font-family: 'SUIT';
+  font-family: "SUIT";
+  overflow: hidden;
 }
 
 :root {
@@ -17,5 +18,5 @@ body {
   --placeholder-color: #707070;
   --active-color: #000;
   --conversation-color: #ededed;
-  --warning-color: #F75D5D;
+  --warning-color: #f75d5d;
 }

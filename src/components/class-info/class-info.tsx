@@ -7,14 +7,26 @@ import { useState } from "react";
 import arrow from "@/../public/icons/class-arrow.svg";
 import profile0 from "@/../public/profile/profile0.png";
 
-export default function ClassInfo() {
+export default function ClassInfo({
+  profile,
+  name,
+}: {
+  profile: string;
+  name: string;
+}) {
   const [visible, setVisible] = useState<boolean>(false);
   const [modalStyle, setModalStyle] = useState(styles.modal_none);
   return (
     <div>
       <div className={styles.class_info}>
-        <Image src={profile0} className={styles.class_img} alt="profile" />
-        <p className={styles.class_name}>조성민님의 클래스</p>
+        <Image
+          width={36}
+          height={36}
+          src={profile}
+          className={styles.class_img}
+          alt="profile"
+        />
+        <p className={styles.class_name}>{name}</p>
         <Image
           onClick={() => {
             if (visible === true) {

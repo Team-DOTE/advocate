@@ -8,8 +8,6 @@ import user from "@/../public/icons/user.svg";
 import iep from "@/../public/icons/iep.svg";
 import manual from "@/../public/icons/manual.svg";
 import add from "@/../public/icons/chat-add.svg";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { getServerSession } from "next-auth";
 import Profile from "../profile/profile";
 import ClassInfo from "../class-info/class-info";
 import { useState } from "react";
@@ -24,26 +22,26 @@ const parents =
     { id: 2, profile: profile2, name: "황석준 보호자" },
   ] || "";
 
-const session = {
-  user: {
-    user: {
-      profile: "https://dote-advocate.vercel.app/profile/profile0.png",
-      name: "조성민",
-      school: "한국디지털미디어고등학교",
-    },
-  },
-};
-
-export default function Navbar() {
-  // const session: any = await getServerSession(authOptions);
+export default function Navbar({
+  profile,
+  name,
+  school,
+  classname,
+  classprofile,
+}: {
+  profile: string;
+  name: string;
+  school: string;
+  classname: string;
+  classprofile: string;
+}) {
   const [visible, setVisible] = useState(true);
-  const [containerStyle, setContainerStyle] = useState(styles.container_in);
-  const [navbarStyle, setNavbarStyle] = useState(styles.navbar);
+
   return (
     <div className={styles.container}>
       <div style={visible ? {} : { display: "none" }} className={styles.navbar}>
         <div className={styles.navbar_background}>
-          <ClassInfo />
+          <ClassInfo name={classname} profile={classprofile} />
           <div className={styles.scroll}>
             <div className={styles.menu}>
               <p className={styles.menu_header}>메뉴</p>
@@ -73,12 +71,10 @@ export default function Navbar() {
             </div>
           </div>
           <div className={styles.user}>
-            <Profile profile={session.user.user.profile} />
+            <Profile profile={profile} />
             <div className={styles.user_info}>
-              <p className={styles.user_school}>{session.user.user.school}</p>
-              <p className={styles.user_name}>
-                {session.user.user.name} 선생님
-              </p>
+              <p className={styles.user_school}>{school}</p>
+              <p className={styles.user_name}>{name} 선생님</p>
             </div>
           </div>
         </div>
@@ -88,12 +84,8 @@ export default function Navbar() {
         onClick={() => {
           setVisible(!visible);
           if (visible === true) {
-            setContainerStyle(styles.container_out);
-            setNavbarStyle(styles.navbar_out);
             setVisible(false);
           } else {
-            setContainerStyle(styles.container_in);
-            setNavbarStyle(styles.navbar);
             setVisible(true);
           }
         }}
