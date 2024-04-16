@@ -29,7 +29,7 @@ export default async function AddClass() {
           <input
             placeholder="클래스 이름을 입력해주세요."
             className={styles.input}
-            defaultValue={session.user.user.name + "의 클래스"}
+            defaultValue={session.user.user.name + "님의 클래스"}
             name="name"
           />
           <p className={styles.content}>클래스 생성자</p>
