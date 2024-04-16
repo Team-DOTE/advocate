@@ -5,15 +5,18 @@ import Title from "@/components/title/title";
 import { connectDB } from "@/utils/database";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function AllClass() {
   const session: any = await getServerSession(authOptions);
+  if (session === null) {
+    redirect("/signin");
+  }
   let db = (await connectDB).db("advocate");
   let userClass = await db
     .collection("class")
     .find({ ownerid: session.user.user._id })
     .toArray();
-  // console.log(userClass);
   return (
     <div className={styles.all_class}>
       <Title title="클래스 관리" />

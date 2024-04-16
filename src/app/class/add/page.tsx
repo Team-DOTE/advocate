@@ -2,9 +2,13 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import styles from "@/app/class/add/page.module.css";
 import Title from "@/components/title/title";
 import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 export default async function AddClass() {
   const session: any = await getServerSession(authOptions);
+  if (session === null) {
+    redirect("/signin");
+  }
   var now = new Date();
   var seconds = now.getSeconds();
   var profile;
