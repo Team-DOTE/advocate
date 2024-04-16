@@ -1,3 +1,7 @@
+.container {
+  display: flex;
+}
+
 .navbar {
   width: 200px;
   background-color: var(--primary-color);
@@ -171,4 +175,20 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   color: var(--active-color);
+}
+
+.toggle_wrap {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle {
+  width: 6px;
+  height: 40px;
+  border-radius: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--active-color);
 }

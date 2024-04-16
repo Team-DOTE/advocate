@@ -8,7 +8,7 @@ import arrow from "@/../public/icons/class-arrow.svg";
 import profile0 from "@/../public/profile/profile0.png";
 
 export default function ClassInfo() {
-  const [visible, serVisible] = useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(false);
   const [modalStyle, setModalStyle] = useState(styles.modal_none);
   return (
     <div>
@@ -19,10 +19,10 @@ export default function ClassInfo() {
           onClick={() => {
             if (visible === true) {
               setModalStyle(styles.modal_out);
-              serVisible(false);
+              setVisible(false);
             } else {
               setModalStyle(styles.modal_in);
-              serVisible(true);
+              setVisible(true);
             }
           }}
           src={arrow}
