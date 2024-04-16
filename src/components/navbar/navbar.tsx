@@ -11,6 +11,7 @@ import add from "@/../public/icons/chat-add.svg";
 import Profile from "../profile/profile";
 import ClassInfo from "../class-info/class-info";
 import { useState } from "react";
+import Link from "next/link";
 
 const parents =
   [
@@ -28,12 +29,14 @@ export default function Navbar({
   school,
   classname,
   classprofile,
+  classid,
 }: {
   profile: string;
   name: string;
   school: string;
   classname: string;
   classprofile: string;
+  classid: string;
 }) {
   const [visible, setVisible] = useState(true);
 
@@ -45,9 +48,24 @@ export default function Navbar({
           <div className={styles.scroll}>
             <div className={styles.menu}>
               <p className={styles.menu_header}>메뉴</p>
-              <Menu src={user} alt="user icon" title="학생 관리" />
-              <Menu src={iep} alt="iep icon" title="IEP 생성" />
-              <Menu src={manual} alt="manual icon" title="대처 메뉴얼" />
+              <Menu
+                link={"/class/" + classid + "/students"}
+                src={user}
+                alt="user icon"
+                title="학생 관리"
+              />
+              <Menu
+                link={"/class/" + classid + "/iep"}
+                src={iep}
+                alt="iep icon"
+                title="IEP 생성"
+              />
+              <Menu
+                link={"/class/" + classid + "/manual"}
+                src={manual}
+                alt="manual icon"
+                title="대처 메뉴얼"
+              />
             </div>
 
             <div className={styles.message}>
@@ -97,12 +115,22 @@ export default function Navbar({
   );
 }
 
-function Menu({ src, alt, title }: { src: any; alt: string; title: string }) {
+function Menu({
+  src,
+  alt,
+  title,
+  link,
+}: {
+  src: any;
+  alt: string;
+  title: string;
+  link: string;
+}) {
   return (
-    <div className={styles.menu_button}>
+    <Link href={link} className={styles.menu_button}>
       <Image className={styles.menu_icon} src={src} alt={alt} />
       <p className={styles.menu_text}>{title}</p>
-    </div>
+    </Link>
   );
 }
 

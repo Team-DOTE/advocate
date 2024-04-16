@@ -29,6 +29,7 @@ export default async function ClassLayout({
         school={session.user.user.school}
         classname={userClass[0].name}
         classprofile={userClass[0].profile}
+        classid={params.id}
       />
       {/* <div style={{ marginLeft: "30px" }}></div> */}
       {children}
