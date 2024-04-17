@@ -1,10 +1,10 @@
 import Title from "@/components/title/title";
 import Image from "next/image";
-import styles from "@/app/class/[id]/students/details/page.module.css";
+import styles from "@/app/class/[id]/students/detail/page.module.css";
 
 export default function Details() {
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%", overflow: "scroll" }}>
       <Title title="학생 관리" />
       <div className={styles.student_head}>
         <Image
