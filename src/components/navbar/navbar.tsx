@@ -12,6 +12,7 @@ import Profile from "../profile/profile";
 import ClassInfo from "../class-info/class-info";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const parents =
   [
@@ -53,18 +54,21 @@ export default function Navbar({
                 src={user}
                 alt="user icon"
                 title="학생 관리"
+                name="students"
               />
               <Menu
                 link={"/class/" + classid + "/iep"}
                 src={iep}
                 alt="iep icon"
                 title="IEP 생성"
+                name="iep"
               />
               <Menu
                 link={"/class/" + classid + "/manual"}
                 src={manual}
                 alt="manual icon"
                 title="대처 메뉴얼"
+                name="manual"
               />
             </div>
 
@@ -120,14 +124,23 @@ function Menu({
   alt,
   title,
   link,
+  name,
 }: {
   src: any;
   alt: string;
   title: string;
   link: string;
+  name: string;
 }) {
+  const pathname = usePathname();
+  const path = pathname.split("/")[3];
   return (
-    <Link href={link} className={styles.menu_button}>
+    <Link
+      href={link}
+      className={
+        path == name ? styles.menu_button_selected : styles.menu_button
+      }
+    >
       <Image className={styles.menu_icon} src={src} alt={alt} />
       <p className={styles.menu_text}>{title}</p>
     </Link>

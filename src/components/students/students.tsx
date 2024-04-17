@@ -14,9 +14,6 @@ export default function Student({
   image: string;
   id: string;
 }) {
-  const router = useRouter();
-  console.log(router);
-  const newUrl = `/details/`;
   return (
     <div className={styles.students}>
       <div className={styles.students_info}>

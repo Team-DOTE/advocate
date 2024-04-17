@@ -24,7 +24,7 @@ export default function Class({
         />
         <p className={styles.class_name}>{name}</p>
       </div>
-      <Link className={styles.class_button} href={"/class/" + id}>
+      <Link className={styles.class_button} href={"/class/" + id + "/students"}>
         입장하기
       </Link>
     </div>

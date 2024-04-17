@@ -21,6 +21,7 @@ export default async function ClassLayout({
     .collection("class")
     .find({ _id: new ObjectId(params.id) })
     .toArray();
+
   return (
     <div style={{ display: "flex", height: "100%" }}>
       <Navbar
