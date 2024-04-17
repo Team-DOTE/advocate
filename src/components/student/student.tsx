@@ -1,9 +1,7 @@
-"use client";
 import styles from "@/components/student/student.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import profile1 from "@/../public/profile/profile1.png";
-import { useRouter } from "next/navigation";
+import { connectDB } from "@/utils/database";
 
 export default function Student({
   name,
@@ -15,7 +13,7 @@ export default function Student({
   id: string;
 }) {
   return (
-    <Link href="#" className={styles.student}>
+    <Link href={"#"} className={styles.student}>
       <div className={styles.student_info}>
         <Image
           className={styles.profile}

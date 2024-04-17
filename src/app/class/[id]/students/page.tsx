@@ -1,10 +1,9 @@
 import styles from "@/app/class/[id]/students/page.module.css";
 import Title from "@/components/title/title";
 import Student from "@/components/student/student";
-import profile0 from "@/../public/profile/profile0.png";
 import Link from "next/link";
 
-export default function Students() {
+export default async function Students() {
   let UserStudents = [
     { name: "황석준1" },
     { name: "황석준2" },
@@ -21,7 +20,7 @@ export default function Students() {
       <Title title="학생 관리" />
       {UserStudents.map((student1, i) => (
         <Student
-          id={"abcd"}
+          id={"abc"}
           key={i}
           name={student1.name}
           image={"https://dote-advocate.vercel.app/profile/profile0.png"}
