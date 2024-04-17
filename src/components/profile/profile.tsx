@@ -38,8 +38,8 @@ export default function Profile({ profile }: { profile: string }) {
         className={styles.user_profile}
         src={profile}
         alt="user profile img"
-        width={1024}
-        height={1024}
+        width={40}
+        height={40}
       />
     </div>
   );

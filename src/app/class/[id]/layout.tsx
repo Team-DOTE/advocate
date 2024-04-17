@@ -21,8 +21,9 @@ export default async function ClassLayout({
     .collection("class")
     .find({ _id: new ObjectId(params.id) })
     .toArray();
+
   return (
-    <div style={{ display: "flex", height: "100%" }}>
+    <div style={{ display: "flex", height: "100%", overflow: "hidden" }}>
       <Navbar
         profile={session.user.user.profile}
         name={session.user.user.name}
@@ -31,7 +32,6 @@ export default async function ClassLayout({
         classprofile={userClass[0].profile}
         classid={params.id}
       />
-      {/* <div style={{ marginLeft: "30px" }}></div> */}
       {children}
     </div>
   );

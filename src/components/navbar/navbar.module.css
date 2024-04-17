@@ -1,5 +1,7 @@
 .container {
   display: flex;
+
+  top: 0px;
 }
 
 .navbar {
@@ -81,6 +83,22 @@
 }
 
 .menu_button:hover {
+  background-color: var(--conversation-color);
+}
+
+.menu_button_selected {
+  display: flex;
+  align-items: center;
+  width: 190px;
+  height: 48px;
+  border-radius: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: var(--active-color);
   background-color: var(--conversation-color);
 }
 
