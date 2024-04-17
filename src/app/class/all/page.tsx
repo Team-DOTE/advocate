@@ -34,6 +34,7 @@ export default async function AllClass() {
           />
         ))}
       </div>
+      <div style={{ marginBottom: "36px" }}></div>
     </div>
   );
 }

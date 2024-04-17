@@ -1,6 +1,6 @@
 import styles from "@/app/class/[id]/iep/page.module.css";
 import Title from "@/components/title/title";
-import Link from "next/link";
+
 export default function Iep() {
   return (
     <div style={{ width: "100%" }}>
