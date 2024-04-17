@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "@/components/class/class.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,13 +19,20 @@ export default function Class({
       <div className={styles.class_info}>
         <Image
           className={styles.class_img}
-          src={image} //image
+          src={image || ""} //image
           alt="class-img"
           width={48}
           height={48}
         />
         <p className={styles.class_name}>{name}</p>
       </div>
+
+      <form method="POST" action="/api/class/delete">
+        <button name="id" value={id}>
+          delete
+        </button>
+      </form>
+
       <Link className={styles.class_button} href={"/class/" + id + "/students"}>
         입장하기
       </Link>
