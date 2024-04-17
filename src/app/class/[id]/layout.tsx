@@ -23,7 +23,7 @@ export default async function ClassLayout({
     .toArray();
 
   return (
-    <div style={{ display: "flex", height: "100%" }}>
+    <div style={{ display: "flex", height: "100%", overflow: "hidden" }}>
       <Navbar
         profile={session.user.user.profile}
         name={session.user.user.name}

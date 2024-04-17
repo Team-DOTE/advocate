@@ -1,5 +1,5 @@
 "use client";
-import styles from "@/components/students/students.module.css";
+import styles from "@/components/student/student.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import profile1 from "@/../public/profile/profile1.png";
@@ -15,20 +15,17 @@ export default function Student({
   id: string;
 }) {
   return (
-    <div className={styles.students}>
-      <div className={styles.students_info}>
+    <Link href="#" className={styles.student}>
+      <div className={styles.student_info}>
         <Image
-          className={styles.students_img}
+          className={styles.profile}
           src={image} //image
           alt="students-img"
           width={48}
           height={48}
         />
-        <p className={styles.students_name}>{name}</p>
+        <p className={styles.name}>{name}</p>
       </div>
-      <Link className={styles.students_button} href="">
-        학생 설정
-      </Link>
-    </div>
+    </Link>
   );
 }

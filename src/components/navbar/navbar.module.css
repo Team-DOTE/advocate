@@ -1,5 +1,7 @@
 .container {
   display: flex;
+
+  top: 0px;
 }
 
 .navbar {
