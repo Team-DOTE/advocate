@@ -23,8 +23,8 @@ export default async function Setting() {
           }
           alt="profile"
           className={styles.profile}
-          width={150}
-          height={150}
+          width={100}
+          height={100}
         />
 
         <div className={styles.user_info}>
@@ -40,6 +40,7 @@ export default async function Setting() {
       <p className={styles.class}>클래스 목록</p>
       {userClass.map((class1, i) => (
         <Class
+          delopt={true}
           key={i}
           name={class1.name}
           image={class1.profile}

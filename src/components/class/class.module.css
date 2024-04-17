@@ -35,4 +35,7 @@
   background-color: var(--conversation-color);
   padding: 12px 20px 12px 20px;
   border-radius: 30px;
+  border: none;
+  margin-left: 20px;
+  cursor: pointer;
 }

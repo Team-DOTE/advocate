@@ -9,10 +9,12 @@ export default function Class({
   name,
   image,
   id,
+  delopt,
 }: {
   name: string;
   image: string;
   id: string;
+  delopt: boolean;
 }) {
   return (
     <div className={styles.class}>
@@ -27,15 +29,24 @@ export default function Class({
         <p className={styles.class_name}>{name}</p>
       </div>
 
-      <form method="POST" action="/api/class/delete">
-        <button name="id" value={id}>
-          delete
-        </button>
-      </form>
+      <div style={{ display: "flex" }}>
+        <form
+          style={delopt ? {} : { display: "none" }}
+          method="POST"
+          action="/api/class/delete"
+        >
+          <button className={styles.class_button} name="id" value={id}>
+            delete
+          </button>
+        </form>
 
-      <Link className={styles.class_button} href={"/class/" + id + "/students"}>
-        입장하기
-      </Link>
+        <Link
+          className={styles.class_button}
+          href={"/class/" + id + "/students"}
+        >
+          입장하기
+        </Link>
+      </div>
     </div>
   );
 }

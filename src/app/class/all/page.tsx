@@ -26,6 +26,7 @@ export default async function AllClass() {
         </Link>
         {userClass.map((class1, i) => (
           <Class
+            delopt={false}
             key={i}
             name={class1.name}
             image={class1.profile}
