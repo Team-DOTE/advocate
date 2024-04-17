@@ -17,7 +17,7 @@ export default function Students() {
     { name: "황석준4" },
   ];
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%", overflow: "scroll" }}>
       <Title title="학생 관리" />
       {UserStudents.map((student1, i) => (
         <Student
