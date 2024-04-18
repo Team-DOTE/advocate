@@ -14,7 +14,7 @@ export default function StudentView({
   classid: string;
 }) {
   return (
-    <Link href={`/class/${classid}/student/${id}`} className={styles.student}>
+    <Link href={`/class/${classid}/students/${id}`} className={styles.student}>
       <div className={styles.student_info}>
         <Image
           className={styles.profile}
