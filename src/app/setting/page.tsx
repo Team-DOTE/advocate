@@ -29,13 +29,13 @@ export default async function Setting() {
         />
 
         <div className={styles.user_info}>
-          <p className={styles.user_name}>조성민 선생님</p>
-          <p className={styles.user_school}>한국디지털미디어고등학교</p>
+          <p className={styles.user_name}>{session.user.user.name} 선생님</p>
+          <p className={styles.user_school}>{session.user.user.school}</p>
         </div>
       </div>
       <div className={styles.tel_wrap}>
         <p className={styles.tel}>전화번호</p>
-        <p className={styles.user_tel}>010-9356-3160</p>
+        <p className={styles.user_tel}>{session.user.user.telephone}</p>
       </div>
 
       <p className={styles.class}>클래스 목록</p>
