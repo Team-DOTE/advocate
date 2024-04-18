@@ -15,7 +15,8 @@ body {
   --background-color: #fafafa;
   --primary-color: #fff;
   --placeholder-color: #707070;
-  --active-color: #000;
-  --conversation-color: #ededed;
+  --button-color: #000;
+  --input-color: #ededed;
+  --sign-button-color: #ededed;
   --warning-color: #f75d5d;
 }

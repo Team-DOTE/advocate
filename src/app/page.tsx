@@ -1,6 +1,5 @@
-import styles from "./page.module.css";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 
 export default async function Home() {

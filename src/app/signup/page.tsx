@@ -1,51 +1,79 @@
+"use client";
+
 import styles from "@/app/signup/page.module.css";
+import SignButton from "@/components/sign/button/button";
+import SignHeader from "@/components/sign/header/header";
+import SignInput from "@/components/sign/input/input";
+import SignLabel from "@/components/sign/label/label";
+import { alert } from "@/utils/alert";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Signup() {
+  const params = useSearchParams();
+  useEffect(() => {
+    if (params.get("error") === "true") {
+      alert.error("해당 아이디는 이미 사용중입니다.");
+    }
+  });
+  const [inputValue, setInputValue] = useState("");
+  const handlePress = (e: any) => {
+    const regex = /^[0-9\b -]{0,13}$/;
+    if (regex.test(e.target.value)) {
+      setInputValue(e.target.value);
+    }
+  };
+  useEffect(() => {
+    if (inputValue.replace(/-/g, "").length === 10) {
+      setInputValue(
+        inputValue
+          .replace(/-/g, "")
+          .replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
+      );
+    }
+    if (inputValue.replace(/-/g, "").length === 11) {
+      setInputValue(
+        inputValue
+          .replace(/-/g, "")
+          .replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
+      );
+    }
+    if (inputValue.replace(/-/g, "").length <= 8) {
+      setInputValue(inputValue.replace(/-/g, ""));
+    }
+  }, [inputValue]);
   return (
     <div className={styles.signin}>
-      <p className={styles.header}>회원가입</p>
+      <SignHeader content="회원가입" />
       <form method="POST" action="/api/auth/register">
         <div className={styles.input_wrap}>
-          <p className={styles.explain}>아이디</p>
-          <input
-            required
+          <SignLabel content="아이디" />
+          <SignInput
             name="userid"
-            className={styles.input}
             placeholder="아이디를 입력해주세요."
-            autoCapitalize="off"
+            autoFocus={true}
           />
-          <p className={styles.explain}>비밀번호</p>
-          <input
-            required
+          <SignLabel content="비밀번호" />
+          <SignInput
             name="password"
-            className={styles.input}
-            type="password"
             placeholder="비밀번호를 입력해주세요."
+            type="password"
           />
-          <p className={styles.explain}>이름</p>
-          <input
-            required
-            name="name"
-            className={styles.input}
-            placeholder="이름를 입력해주세요."
-          />
-          <p className={styles.explain}>전화번호</p>
+          <SignLabel content="이름" />
+          <SignInput name="name" placeholder="이름을 입력해주세요." />
+          <SignLabel content="전화번호" />
           <input
             required
             name="telephone"
-            type="tel"
+            type="text"
             className={styles.input}
-            placeholder="전화번호를 입력해주세요. (숫자만 작성)"
-            pattern="[0-9]{11}"
+            placeholder="010-1234-5678 (-없이)"
+            onChange={handlePress}
+            value={inputValue}
           />
-          <p className={styles.explain}>학교명</p>
-          <input
-            required
-            name="school"
-            className={styles.input}
-            placeholder="학교명를 입력해주세요."
-          />
+          <SignLabel content="학교명" />
+          <SignInput name="school" placeholder="학교명을 입력해주세요." />
           <div className={styles.radio_wrap}>
             <input
               required
@@ -78,10 +106,9 @@ export default function Signup() {
             을 읽었으며, 이에 동의합니다.
           </div>
         </div>
-        <button type="submit" className={styles.button}>
-          회원가입
-        </button>
+        <SignButton content="회원가입" />
       </form>
+      <div style={{ height: "100px" }}></div>
     </div>
   );
 }
