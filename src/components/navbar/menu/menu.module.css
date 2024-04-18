@@ -13,6 +13,10 @@
   color: var(--active-color);
 }
 
+.menu_button:hover {
+  background-color: var(--navbar-hover-color);
+}
+
 .menu_button_selected {
   display: flex;
   align-items: center;
