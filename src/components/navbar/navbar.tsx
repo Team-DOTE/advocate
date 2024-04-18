@@ -8,11 +8,11 @@ import user from "@/../public/icons/user.svg";
 import iep from "@/../public/icons/iep.svg";
 import manual from "@/../public/icons/manual.svg";
 import add from "@/../public/icons/chat-add.svg";
-import Profile from "../profile/profile";
-import ClassInfo from "../class-info/class-info";
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import UserInfo from "./info/user/user";
+import ClassInfo from "./info/class/class";
+import Menu from "@/components/navbar/menu/menu";
+import Message from "./message/message";
 
 const parents =
   [
@@ -71,7 +71,6 @@ export default function Navbar({
                 name="manual"
               />
             </div>
-
             <div className={styles.message}>
               <div className={styles.message_header}>
                 <p className={styles.message_title}>매세지</p>
@@ -93,7 +92,7 @@ export default function Navbar({
             </div>
           </div>
           <div className={styles.user}>
-            <Profile profile={profile} />
+            <UserInfo profile={profile} />
             <div className={styles.user_info}>
               <p className={styles.user_school}>{school}</p>
               <p className={styles.user_name}>{name} 선생님</p>
@@ -115,47 +114,6 @@ export default function Navbar({
       >
         <div className={styles.toggle}></div>
       </div>
-    </div>
-  );
-}
-
-function Menu({
-  src,
-  alt,
-  title,
-  link,
-  name,
-}: {
-  src: any;
-  alt: string;
-  title: string;
-  link: string;
-  name: string;
-}) {
-  const pathname = usePathname();
-  const path = pathname.split("/")[3];
-  return (
-    <Link
-      href={link}
-      className={
-        path == name ? styles.menu_button_selected : styles.menu_button
-      }
-    >
-      <Image className={styles.menu_icon} src={src} alt={alt} />
-      <p className={styles.menu_text}>{title}</p>
-    </Link>
-  );
-}
-
-function Message({ profile, name }: { profile: any; name: string }) {
-  return (
-    <div className={styles.message_button}>
-      <Image
-        className={styles.message_profile}
-        src={profile}
-        alt="profile img"
-      />
-      <p className={styles.message_name}>{name}</p>
     </div>
   );
 }

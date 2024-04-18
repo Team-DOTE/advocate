@@ -14,6 +14,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
   } else if (seconds % 3 == 2) {
     profile = domain + "profile2.png";
   }
+
   const formData = await request.formData();
   const userid = formData.get("userid");
   const password: string | any = formData.get("password")?.toString();
@@ -41,7 +42,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
   let dbuser = await db.collection("users").findOne({ userid });
 
   if (dbuser) {
-    return Response.redirect(process.env.URL + "/signup/error" || "");
+    return Response.redirect(process.env.URL + "/signup/?error=true" || "");
   }
 
   try {

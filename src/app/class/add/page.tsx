@@ -1,6 +1,9 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import styles from "@/app/class/add/page.module.css";
-import Title from "@/components/title/title";
+import ClassButton from "@/components/class/button/button";
+import ClassHeader from "@/components/class/header/header";
+import ClassInput from "@/components/class/input/input";
+import ClassWrap from "@/components/class/wrap/wrap";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
@@ -20,37 +23,32 @@ export default async function AddClass() {
   } else if (seconds % 3 == 2) {
     profile = domain + "profile2.png";
   }
+
   return (
-    <div>
-      <Title title="클래스 생성" />
-      <div className={styles.container}>
-        <form method="POST" action="/api/class">
-          <p className={styles.content}>클래스 이름을 입력해주세요.</p>
-          <input
-            placeholder="클래스 이름을 입력해주세요."
-            className={styles.input}
-            defaultValue={session.user.user.name + "님의 클래스"}
-            name="name"
-          />
-          <p className={styles.content}>클래스 생성자</p>
-          <input
-            value={session.user.user.userid}
-            className={styles.input}
-            name="owner"
-            readOnly
-          />
-          <p className={styles.content}>클래스 프로필 사진</p>
-          <input
-            placeholder="프로필 사진 주소를 입력해주세요."
-            className={styles.input}
-            name="profile"
-            defaultValue={profile}
-          />
-          <button type="submit" className={styles.button}>
-            클래스 생성
-          </button>
-        </form>
-      </div>
-    </div>
+    <ClassWrap>
+      <ClassHeader content="클래스 생성" />
+      <form method="POST" action="/api/class/add">
+        <ClassInput
+          content="클래스 이름을 입력해주세요."
+          name="name"
+          placeholder="클래스이름을 입력해주세요."
+          defaultValue={session.user.user.name + "님의 클래스"}
+        />
+        <ClassInput
+          content="클래스 생성자"
+          name="owner"
+          placeholder="클래스 생성자"
+          defaultValue={session.user.user.userid}
+          readonly={true}
+        />
+        <ClassInput
+          content="클래스 프로필 사진 주소를 입력해주세요."
+          name="profile"
+          placeholder="프로필 사진 주소를 입력해주세요."
+          defaultValue={profile}
+        />
+        <ClassButton content="클래스 생성" />
+      </form>
+    </ClassWrap>
   );
 }
