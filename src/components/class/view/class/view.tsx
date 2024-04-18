@@ -40,9 +40,7 @@ export default function ClassView({
         <Link
           className={styles.class_button}
           href={"/class/" + id + "/students"}
-        >
-          입장하기
-        </Link>
+        ></Link>
       </div>
     </div>
   );
