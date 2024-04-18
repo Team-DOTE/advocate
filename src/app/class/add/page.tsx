@@ -27,8 +27,7 @@ export default async function AddClass() {
   return (
     <ClassWrap>
       <ClassHeader content="클래스 생성" />
-
-      <form method="POST" action="/api/class">
+      <form method="POST" action="/api/class/add">
         <ClassInput
           content="클래스 이름을 입력해주세요."
           name="name"

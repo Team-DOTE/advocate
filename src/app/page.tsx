@@ -7,6 +7,6 @@ export default async function Home() {
   if (session === null) {
     redirect("/signin");
   } else {
-    redirect("/class/all");
+    redirect("/class");
   }
 }

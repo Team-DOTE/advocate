@@ -1,0 +1,41 @@
+.class {
+  padding: 12px 36px 12px 36px;
+  display: flex;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.class_info {
+  display: flex;
+  align-items: center;
+}
+
+.class_img {
+  width: 48px;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  margin-right: 16px;
+  border-radius: 100px;
+}
+
+.class_name {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.class_button {
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-black-color);
+  background-color: var(--class-enter-button-color);
+  padding: 12px 20px 12px 20px;
+  border-radius: 30px;
+  border: none;
+  margin-left: 20px;
+  cursor: pointer;
+}
