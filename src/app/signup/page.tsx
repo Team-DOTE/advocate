@@ -68,7 +68,7 @@ export default function Signup() {
             name="telephone"
             type="text"
             className={styles.input}
-            placeholder="010-1234-5678 (-없이)"
+            placeholder="010-1234-5678 (-없이 입력)"
             onChange={handlePress}
             value={inputValue}
           />
