@@ -14,7 +14,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     await db
       .collection("class")
       .deleteOne({ _id: new ObjectId(id?.toString()) });
-    // 해당 클래스를 가지고 있는 학생 전체 삭제
+    await db.collection("student").deleteMany({ classid: id });
     return Response.redirect(settingUrl.href);
   } catch (error) {
     return Response.json({ status: 500, error });

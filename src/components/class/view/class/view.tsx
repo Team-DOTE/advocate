@@ -1,6 +1,7 @@
 import styles from "@/components/class/view/class/view.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import trash from "@/../public/icons/delete.svg";
 
 export default function ClassView({
   name,
@@ -26,14 +27,14 @@ export default function ClassView({
         <p className={styles.class_name}>{name}</p>
       </div>
 
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", alignItems: "center" }}>
         <form
           style={delopt ? {} : { display: "none" }}
           method="POST"
           action="/api/class/delete"
         >
-          <button className={styles.class_button} name="id" value={id}>
-            delete
+          <button className={styles.class_button_del} name="id" value={id}>
+            <Image className={styles.icon} src={trash} alt="delete icon" />
           </button>
         </form>
         <Link
