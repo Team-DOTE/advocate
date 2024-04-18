@@ -1,0 +1,124 @@
+.container {
+  display: flex;
+
+  top: 0px;
+}
+
+.navbar {
+  width: 200px;
+  background-color: var(--primary-color);
+  height: 100%;
+}
+
+.navbar_background {
+  width: 230px;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  height: 100%;
+}
+
+.scroll {
+  height: calc(100% - 156px);
+  overflow-y: scroll;
+}
+
+.scroll::-webkit-scrollbar {
+  display: block;
+  width: 8px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  display: none;
+}
+
+.scroll::-webkit-scrollbar-button {
+  display: none;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  border-width: 1px;
+  border-radius: 30px;
+  background-color: var(--navbar-scroll-color);
+}
+
+.menu {
+  padding-top: 16px;
+  padding-bottom: 28px;
+}
+
+.menu_header {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+.message {
+}
+
+.message_header {
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+.message_title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  margin-right: 137px;
+}
+
+.message_icon {
+  width: 16px;
+  height: 16px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px 20px 20px;
+  height: 40px;
+}
+
+.user_info {
+}
+
+.user_school {
+  width: 142px;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--placeholder-color);
+}
+
+.user_name {
+  width: 142px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--active-color);
+}
+
+.toggle_wrap {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle {
+  width: 6px;
+  height: 40px;
+  border-radius: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--navbar-toggle-color);
+}

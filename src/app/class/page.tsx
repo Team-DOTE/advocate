@@ -6,7 +6,7 @@ import { connectDB } from "@/utils/database";
 import ClassHeader from "@/components/class/header/header";
 import ClassLink from "@/components/class/link/link";
 import ClassWrap from "@/components/class/wrap/wrap";
-import ClassView from "@/components/class/class-view/class-view";
+import ClassView from "@/components/class/view/class/view";
 
 export default async function Class() {
   const session: any = await getServerSession(authOptions);
@@ -18,9 +18,6 @@ export default async function Class() {
     .collection("class")
     .find({ ownerid: session.user.user._id })
     .toArray();
-
-  console.log(session.user.user._id);
-  console.log(userClass);
 
   return (
     <ClassWrap>

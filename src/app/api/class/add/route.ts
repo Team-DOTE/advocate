@@ -11,7 +11,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
   const owner = formData.get("owner");
   const ownerid = session.user.user._id;
   const profile = formData.get("profile");
-  console.log("!!!!!!!!!!!!!");
 
   const class1 = {
     name,
