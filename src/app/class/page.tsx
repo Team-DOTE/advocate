@@ -3,10 +3,10 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import { connectDB } from "@/utils/database";
-import ClassHeader from "@/components/class/header/header";
 import ClassLink from "@/components/class/link/link";
 import ClassWrap from "@/components/class/wrap/wrap";
 import ClassView from "@/components/class/view/class/view";
+import ClassLogout from "@/components/class/logout/logout";
 
 export default async function Class() {
   const session: any = await getServerSession(authOptions);
@@ -21,7 +21,10 @@ export default async function Class() {
 
   return (
     <ClassWrap>
-      <ClassHeader content="클래스 관리" />
+      <div className={styles.header}>
+        <p className={styles.title}>클래스 관리</p>
+        <ClassLogout />
+      </div>
       <div className={styles.class_wrap}>
         <ClassLink content="클래스 추가" href="/class/add" />
         {userClass.map((class1, i) => (
