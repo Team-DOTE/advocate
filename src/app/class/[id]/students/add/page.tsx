@@ -5,11 +5,13 @@ import ClassButton from "@/components/class/button/button";
 import ClassHeader from "@/components/class/header/header";
 import ClassInput from "@/components/class/input/input";
 import ClassWrap from "@/components/class/wrap/wrap";
+import { alert } from "@/utils/alert";
 import { useSession } from "next-auth/react";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { FormEvent, useEffect, useState } from "react";
 
 export default function AddStudent() {
+  const router = useRouter();
   const pathname = usePathname();
   const path = pathname.split("/")[2];
   const { data: session, status } = useSession();
@@ -53,11 +55,31 @@ export default function AddStudent() {
     }
   }, [inputValue]);
 
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const response = await fetch("/api/student/add", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success == true) {
+      alert.success("학생 추가가 완료되었습니다.");
+      router.push(`/class/${path}/students`);
+    } else {
+      alert.error("학생 추가가 실패했습니다.");
+      router.push(`/class/${path}/students`);
+    }
+  }
+
   return (
     <ClassWrap>
       <ClassHeader content="학생 추가" />
       <div className={styles.container}>
-        <form method="POST" action="/api/student/add">
+        <form onSubmit={onSubmit}>
           <ClassInput
             content="이름을 입력해주세요."
             name="name"
