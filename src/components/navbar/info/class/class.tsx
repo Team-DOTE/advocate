@@ -1,7 +1,6 @@
 import styles from "@/components/navbar/info/class/class.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import arrow from "@/../public/icons/class-arrow.svg";
 
 export default function ClassInfo({
@@ -11,8 +10,6 @@ export default function ClassInfo({
   profile: string;
   name: string;
 }) {
-  const [visible, setVisible] = useState<boolean>(false);
-  const [modalStyle, setModalStyle] = useState(styles.modal_none);
   return (
     <div>
       <div className={styles.class_info}>
@@ -24,22 +21,12 @@ export default function ClassInfo({
           alt="profile"
         />
         <p className={styles.class_name}>{name}</p>
-        <Image
-          onClick={() => {
-            if (visible === true) {
-              setModalStyle(styles.modal_out);
-              setVisible(false);
-            } else {
-              setModalStyle(styles.modal_in);
-              setVisible(true);
-            }
-          }}
-          src={arrow}
-          className={styles.class_icon}
-          alt="profile"
-        />
-        <div style={visible ? {} : {}} className={modalStyle}>
-          <Link className={styles.modal_option} href="/class">
+        <input type="checkbox" className={styles.toggle} id="class-toggle" />
+        <label className={styles.toggle_wrap} htmlFor="class-toggle">
+          <Image src={arrow} className={styles.class_icon} alt="arrow icon" />
+        </label>
+        <div className={styles.modal}>
+          <Link className={styles.link} href="/class">
             클래스 목록
           </Link>
         </div>
