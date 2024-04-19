@@ -17,6 +17,7 @@ export default function ClassInput({
     <div>
       <p className={styles.content}>{content}</p>
       <input
+        required
         className={styles.input}
         placeholder={placeholder}
         defaultValue={defaultValue}
@@ -28,6 +29,7 @@ export default function ClassInput({
     <div>
       <p className={styles.content}>{content}</p>
       <input
+        required
         className={styles.input}
         placeholder={placeholder}
         defaultValue={defaultValue}

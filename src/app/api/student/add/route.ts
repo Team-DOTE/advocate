@@ -32,13 +32,14 @@ export async function POST(request: NextRequest, response: NextResponse) {
     classid,
   };
 
-  const studentsUrl = new URL(`/class/${classid}/students`, request.url);
-  studentsUrl.searchParams.set("from", request.nextUrl.pathname);
+  // const studentsUrl = new URL(`/class/${classid}/students`, request.url);
+  // studentsUrl.searchParams.set("from", request.nextUrl.pathname);
 
   try {
     let db = (await connectDB).db("advocate");
     await db.collection("student").insertOne(student);
-    return Response.redirect(studentsUrl.href);
+    // return Response.redirect(studentsUrl.href);
+    return Response.json({ status: 200, success: true });
   } catch (error) {
     return Response.json({ status: 500, error });
   }
