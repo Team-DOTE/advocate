@@ -1,10 +1,13 @@
 import styles from "@/app/setting/page.module.css";
-import Class from "@/components/class/class";
-import Title from "@/components/title/title";
+
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { connectDB } from "@/utils/database";
+import ClassView from "@/components/class/view/class/view";
+import ClassHeader from "@/components/class/header/header";
+import ClassWrap from "@/components/class/wrap/wrap";
+import ClassLink from "@/components/class/link/link";
 
 export default async function Setting() {
   const session: any = await getServerSession(authOptions);
@@ -14,13 +17,11 @@ export default async function Setting() {
     .find({ ownerid: session.user.user._id })
     .toArray();
   return (
-    <div>
-      <Title title="설정" />
+    <ClassWrap>
+      <ClassHeader content="설정" />
       <div className={styles.user_default}>
         <Image
-          src={
-            "https://cdn.hkbs.co.kr/news/photo/202104/628798_374207_2710.png"
-          }
+          src={session.user.user.profile}
           alt="profile"
           className={styles.profile}
           width={100}
@@ -28,18 +29,18 @@ export default async function Setting() {
         />
 
         <div className={styles.user_info}>
-          <p className={styles.user_name}>조성민 선생님</p>
-          <p className={styles.user_school}>한국디지털미디어고등학교</p>
+          <p className={styles.user_name}>{session.user.user.name} 선생님</p>
+          <p className={styles.user_school}>{session.user.user.school}</p>
         </div>
       </div>
       <div className={styles.tel_wrap}>
         <p className={styles.tel}>전화번호</p>
-        <p className={styles.user_tel}>010-9356-3160</p>
+        <p className={styles.user_tel}>{session.user.user.telephone}</p>
       </div>
 
       <p className={styles.class}>클래스 목록</p>
       {userClass.map((class1, i) => (
-        <Class
+        <ClassView
           delopt={true}
           key={i}
           name={class1.name}
@@ -48,6 +49,7 @@ export default async function Setting() {
         />
       ))}
       <div style={{ height: "36px" }}></div>
-    </div>
+      <ClassLink content="클래스 관리" href="/" />
+    </ClassWrap>
   );
 }

@@ -15,7 +15,14 @@ body {
   --background-color: #fafafa;
   --primary-color: #fff;
   --placeholder-color: #707070;
-  --active-color: #000;
-  --conversation-color: #ededed;
+  --button-color: #000;
+  --sign-input-color: #ededed;
+  --sign-button-color: #ededed;
+  --class-enter-button-color: #ededed;
   --warning-color: #f75d5d;
+  --text-black-color: #000;
+  --navbar-border-color: #ededed;
+  --navbar-scroll-color: #ededed;
+  --navbar-toggle-color: #777777;
+  --navbar-hover-color: #ededed;
 }

@@ -1,0 +1,13 @@
+.wrap {
+  padding: 36px 36px 0px 36px;
+  width: calc(100% - 72px);
+  overflow: scroll;
+}
+
+@media (max-width: 820px) {
+  .wrap {
+    padding: 36px 20px 0px 20px;
+    width: calc(100% - 40px);
+    overflow: scroll;
+  }
+}

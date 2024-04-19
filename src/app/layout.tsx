@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 import AuthSession from "@/provider/AuthSession";
 import ToastProvider from "@/provider/ToastProvider";
-import Navbar from "@/components/navbar/navbar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dote-advocate.vercel.app"),
   title: "advocate",
-  description: "개별화교육계획을 수립하는 새로운 방법",
+  description: "특수교육의 새로운 패러다임을 열다.",
   openGraph: {
     title: "advocate",
-    description: "개별화교육계획을 수립하는 새로운 방법",
+    description: "특수교육의 새로운 패러다임을 열다.",
     url: "https://dote-advocate.vercel.app",
     images: [{ url: "" }],
     locale: "ko_KR",

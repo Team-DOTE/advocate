@@ -4,23 +4,9 @@
   align-items: center;
 }
 
-.header {
-  font-size: 24px;
-  font-weight: 600;
-  margin-top: 100px;
-  margin-bottom: 40px;
-}
-
 .input_wrap {
   display: flex;
   flex-direction: column;
-}
-
-.explain {
-  font-size: 16px;
-  font-weight: 500;
-  margin: 0;
-  margin-bottom: 16px;
 }
 
 .input {
@@ -28,7 +14,7 @@
   font-size: 16px;
   font-weight: 500;
   border: none;
-  background-color: var(--conversation-color);
+  background-color: var(--sign-input-color);
   padding: 16px 0 16px 32px;
   border-radius: 50px;
   margin-bottom: 20px;
@@ -49,18 +35,4 @@
 .link {
   text-decoration: none;
   color: #2a8cff;
-}
-
-.button {
-  width: 332px;
-  height: 50px;
-  border: none;
-  background-color: var(--active-color);
-  color: var(--background-color);
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 50px;
-  cursor: pointer;
-  margin-top: 20px;
-  margin-bottom: 100px;
 }

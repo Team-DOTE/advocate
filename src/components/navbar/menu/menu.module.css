@@ -1,0 +1,46 @@
+.menu_button {
+  display: flex;
+  align-items: center;
+  width: 190px;
+  height: 48px;
+  border-radius: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: var(--active-color);
+}
+
+.menu_button:hover {
+  background-color: var(--navbar-hover-color);
+}
+
+.menu_button_selected {
+  display: flex;
+  align-items: center;
+  width: 190px;
+  height: 48px;
+  border-radius: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: var(--active-color);
+  background-color: var(--navbar-hover-color);
+}
+
+.menu_icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 16px;
+}
+
+.menu_text {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 8px;
+}

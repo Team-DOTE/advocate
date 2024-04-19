@@ -35,8 +35,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
   const studentsUrl = new URL(`/class/${classid}/students`, request.url);
   studentsUrl.searchParams.set("from", request.nextUrl.pathname);
 
-  let db = (await connectDB).db("advocate");
-
   try {
     let db = (await connectDB).db("advocate");
     await db.collection("student").insertOne(student);

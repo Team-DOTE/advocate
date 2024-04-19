@@ -1,7 +1,6 @@
 .user_default {
   display: flex;
   align-items: center;
-  margin-left: 36px;
   margin-top: 36px;
 }
 
@@ -36,7 +35,7 @@
   display: flex;
   background-color: var(--primary-color);
   border-radius: 30px;
-  margin: 24px 36px 0 36px;
+  margin-top: 24px;
   justify-content: space-between;
   align-items: center;
 }
@@ -54,7 +53,7 @@
   font-weight: 400;
   margin: 0;
   margin-top: 4px;
-  color: var(--active-color);
+  color: var(--text-black-color);
 }
 
 .class {
@@ -62,6 +61,5 @@
   font-weight: 500;
   margin: 0;
   margin-top: 36px;
-  margin-left: 36px;
-  color: var(--active-color);
+  color: var(--text-black-color);
 }
