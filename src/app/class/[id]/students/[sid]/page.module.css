@@ -45,3 +45,18 @@
 .disability_wrap {
   width: 50%;
 }
+
+@media (max-width: 1050px) {
+  .feature_wrap {
+    flex-direction: column;
+  }
+
+  .info_wrap {
+    width: 100%;
+    margin: 0;
+  }
+
+  .disability_wrap {
+    width: 100%;
+  }
+}
