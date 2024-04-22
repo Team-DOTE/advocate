@@ -46,6 +46,14 @@
   width: 50%;
 }
 
+.report {
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-black-color);
+  margin: 0;
+}
+
 @media (max-width: 1050px) {
   .feature_wrap {
     flex-direction: column;
