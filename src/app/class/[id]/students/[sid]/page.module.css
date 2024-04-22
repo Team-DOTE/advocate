@@ -29,3 +29,19 @@
   margin-top: 4px;
   color: var(--placeholder-color);
 }
+
+.feature_wrap {
+  display: flex;
+  margin-top: 32px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.info_wrap {
+  width: 50%;
+  margin-right: 36px;
+}
+
+.disability_wrap {
+  width: 50%;
+}
