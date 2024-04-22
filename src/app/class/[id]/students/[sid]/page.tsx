@@ -12,19 +12,19 @@ import Link from "next/link";
 export default async function StudentDetail({
   params,
 }: {
-  params: { sid: string };
+  params: { id: string; sid: string };
 }) {
   const report: boolean = true;
   function BasicReport() {
     if (report === false) {
       return (
-        <Link className={styles.report} href={"#"}>
+        <Link className={styles.report} href={`/report/${params.sid}`}>
           없음 (작성하기)
         </Link>
       );
     } else {
       return (
-        <Link className={styles.report} href={"#"}>
+        <Link className={styles.report} href={`/report/${params.sid}`}>
           보기
         </Link>
       );

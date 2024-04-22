@@ -4,18 +4,17 @@ import styles from "@/app/class/[id]/students/add/page.module.css";
 import ClassButton from "@/components/class/button/button";
 import ClassHeader from "@/components/class/header/header";
 import ClassInput from "@/components/class/input/input";
+import ClassTextarea from "@/components/class/textarea/textarea";
 import ClassWrap from "@/components/class/wrap/wrap";
 import { alert } from "@/utils/alert";
 import { useSession } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useRef, useState } from "react";
 
-export default function AddStudent() {
+export default function AddStudent({ params }: { params: { id: string } }) {
   const router = useRouter();
-  const pathname = usePathname();
-  const path = pathname.split("/")[2];
-  const { data: session, status } = useSession();
 
+  const { data: session, status } = useSession();
   var now = new Date();
   var seconds = now.getSeconds();
   var profile;
@@ -68,28 +67,14 @@ export default function AddStudent() {
 
     if (data.success == true) {
       alert.success("학생 추가가 완료되었습니다.");
-      router.push(`/class/${path}/students`);
+      router.push(`/class/${params.id}/students`);
     } else {
       alert.error("학생 추가가 실패했습니다.");
-      router.push(`/class/${path}/students`);
+      router.push(`/class/${params.id}/students`);
     }
   }
 
-  const [text, setText] = useState("");
-  const textarea = useRef(null);
-
-  const resizeHeight = (
-    textarea: React.RefObject<HTMLTextAreaElement>,
-    e: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    if (textarea.current) {
-      textarea.current.style.height = "auto";
-      textarea.current.style.height = textarea.current.scrollHeight + "px";
-      setText(e.target.value);
-    }
-  };
-
-  https: return (
+  return (
     <ClassWrap>
       <ClassHeader content="학생 추가" />
       <div className={styles.container}>
@@ -142,15 +127,19 @@ export default function AddStudent() {
             name="disability"
             placeholder="장애사항을 알려주세요."
           />
-          <p className={styles.content}>특이사항을 입력해주세요.</p>
-          <textarea
+          {/* <textarea
             placeholder="특이사항을 입력해주세요."
             className={styles.textarea}
             ref={textarea}
             value={text}
             onChange={(e) => resizeHeight(textarea, e)}
             name="significant"
-          ></textarea>
+          ></textarea> */}
+          <ClassTextarea
+            content="특이사항을 입력해주세요."
+            placeholder="특이사항을 입력해주세요."
+            name="significant"
+          />
           <ClassInput
             content="학생 사진 주소를 입력해주세요."
             name="profile"
@@ -165,7 +154,7 @@ export default function AddStudent() {
           <input
             style={{ display: "none" }}
             name="classid"
-            defaultValue={path}
+            defaultValue={params.id}
           />
           <ClassButton content="학생 추가" />
         </form>
