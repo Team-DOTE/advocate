@@ -1,5 +1,4 @@
 import styles from "@/app/class/[id]/students/page.module.css";
-import Link from "next/link";
 import { connectDB } from "@/utils/database";
 import StudentView from "@/components/class/view/student/view";
 import ClassHeader from "@/components/class/header/header";

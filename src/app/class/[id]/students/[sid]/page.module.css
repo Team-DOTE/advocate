@@ -1,0 +1,62 @@
+.user_default {
+  display: flex;
+  align-items: center;
+  margin-top: 36px;
+}
+
+.profile {
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 100px;
+}
+
+.user_info {
+  margin-left: 16px;
+}
+
+.user_name {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.user_school {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  margin-top: 4px;
+  color: var(--placeholder-color);
+}
+
+.feature_wrap {
+  display: flex;
+  margin-top: 32px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.info_wrap {
+  width: 50%;
+  margin-right: 36px;
+}
+
+.disability_wrap {
+  width: 50%;
+}
+
+@media (max-width: 1050px) {
+  .feature_wrap {
+    flex-direction: column;
+  }
+
+  .info_wrap {
+    width: 100%;
+    margin: 0;
+  }
+
+  .disability_wrap {
+    width: 100%;
+  }
+}

@@ -8,7 +8,7 @@ import ClassWrap from "@/components/class/wrap/wrap";
 import { alert } from "@/utils/alert";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 
 export default function AddStudent() {
   const router = useRouter();
@@ -75,7 +75,21 @@ export default function AddStudent() {
     }
   }
 
-  return (
+  const [text, setText] = useState("");
+  const textarea = useRef(null);
+
+  const resizeHeight = (
+    textarea: React.RefObject<HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    if (textarea.current) {
+      textarea.current.style.height = "auto";
+      textarea.current.style.height = textarea.current.scrollHeight + "px";
+      setText(e.target.value);
+    }
+  };
+
+  https: return (
     <ClassWrap>
       <ClassHeader content="학생 추가" />
       <div className={styles.container}>
@@ -88,7 +102,7 @@ export default function AddStudent() {
           <ClassInput
             content="생년월일을 입력해주세요."
             name="birthdate"
-            placeholder="생년월일을 입력해주세요"
+            placeholder="YYYY년 M월 D일 (2007년 1월 1일)"
           />
           <ClassInput
             content="학교명을 입력해주세요."
@@ -98,14 +112,22 @@ export default function AddStudent() {
           <ClassInput
             content="학년, 반, 번호를 입력해주세요."
             name="studentid"
-            placeholder="학년, 반, 번호를 입력해주세요."
+            placeholder="G학년 C반 N번 (2학년 4반 27번)"
           />
-          <ClassInput
-            content="성별을 입력해주세요."
+          <p className={styles.content}>성별을 선택해주세요.</p>
+          <select
+            required
+            className={styles.select}
             name="sex"
-            placeholder="성별을 입력해주세요."
-          />
-          <p className={styles.content}>보호자 전화번호를 입력해주세요</p>
+            defaultValue={""}
+          >
+            <option value="" disabled hidden>
+              성별
+            </option>
+            <option value="남자">남자</option>
+            <option value="여자">여자</option>
+          </select>
+          <p className={styles.content}>보호자 전화번호를 입력해주세요.</p>
           <input
             required
             name="telephone"
@@ -120,11 +142,15 @@ export default function AddStudent() {
             name="disability"
             placeholder="장애사항을 알려주세요."
           />
-          <ClassInput
-            content="특이사항을 입력해주세요."
-            name="significant"
+          <p className={styles.content}>특이사항을 입력해주세요.</p>
+          <textarea
             placeholder="특이사항을 입력해주세요."
-          />
+            className={styles.textarea}
+            ref={textarea}
+            value={text}
+            onChange={(e) => resizeHeight(textarea, e)}
+            name="significant"
+          ></textarea>
           <ClassInput
             content="학생 사진 주소를 입력해주세요."
             name="profile"
