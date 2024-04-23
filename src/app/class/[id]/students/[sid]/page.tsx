@@ -14,27 +14,28 @@ export default async function StudentDetail({
 }: {
   params: { id: string; sid: string };
 }) {
-  const report: boolean = true;
-  function BasicReport() {
-    if (report === false) {
-      return (
-        <Link className={styles.report} href={`/report/${params.sid}`}>
-          없음 (작성하기)
-        </Link>
-      );
-    } else {
-      return (
-        <Link className={styles.report} href={`/report/${params.sid}`}>
-          보기
-        </Link>
-      );
-    }
-  }
   let db = (await connectDB).db("advocate");
   let student = await db
     .collection("student")
     .find({ _id: new ObjectId(params.sid) })
     .toArray();
+
+  const report: boolean = student[0].report;
+  function BasicReport() {
+    if (report === true) {
+      return (
+        <Link className={styles.report} href={`/report/${params.sid}`}>
+          보기
+        </Link>
+      );
+    } else {
+      return (
+        <Link className={styles.report} href={`/report/${params.sid}`}>
+          없음 (작성하기)
+        </Link>
+      );
+    }
+  }
 
   return (
     <ClassWrap>

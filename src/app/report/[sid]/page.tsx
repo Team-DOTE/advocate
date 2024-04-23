@@ -2,6 +2,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import styles from "@/app/report/[sid]/page.module.css";
 import ClassButton from "@/components/class/button/button";
 import ClassHeader from "@/components/class/header/header";
+import ClassShare from "@/components/class/share/share";
 import ClassTextarea from "@/components/class/textarea/textarea";
 import ClassWrap from "@/components/class/wrap/wrap";
 import { connectDB } from "@/utils/database";
@@ -30,7 +31,11 @@ export default async function StudentReport({
 
   return (
     <ClassWrap>
-      <ClassHeader content={`${student[0].name} 학생의 기초 정보`} />
+      <div className={styles.header}>
+        <p className={styles.title}>클래스 관리</p>
+        <ClassShare />
+      </div>
+
       <form
         method="POST"
         action={
@@ -39,12 +44,6 @@ export default async function StudentReport({
             : "/api/student/report/add"
         }
       >
-        <p>
-          {student[0].report}{" "}
-          {student[0].report
-            ? "/api/student/report/update"
-            : "/api/student/report/add"}
-        </p>
         <ClassTextarea
           content="1. 적응행동"
           placeholder="학생이 일상생활에서 먹기, 입고 벗기, 화장실 사용 등의 기술을 얼마나 잘 수행하는지 설명해주세요."
