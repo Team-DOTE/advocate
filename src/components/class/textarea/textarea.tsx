@@ -7,10 +7,12 @@ export default function ClassTextarea({
   content,
   placeholder,
   name,
+  defaultValue,
 }: {
   content: string;
   placeholder: string;
   name: string;
+  defaultValue?: string;
 }) {
   const [text, setText] = useState("");
   const textarea = useRef(null);
@@ -32,9 +34,9 @@ export default function ClassTextarea({
         placeholder={placeholder}
         className={styles.textarea}
         ref={textarea}
-        value={text}
         onChange={(e) => resizeHeight(textarea, e)}
         name={name}
+        defaultValue={defaultValue}
       ></textarea>
     </div>
   );

@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/utils/database";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { ObjectId } from "mongodb";
 
 export async function POST(request: NextRequest, response: NextResponse) {
   const session: any = await getServerSession(authOptions);
@@ -42,14 +41,8 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
   try {
     let db = (await connectDB).db("advocate");
-    await db
-      .collection("student")
-      .updateOne(
-        { _id: new ObjectId(student?.toString()) },
-        { $set: { report: true } }
-      );
-    await db.collection("report").insertOne(report);
-    return Response.json({ status: 200, success: true, add: true });
+    await db.collection("report").updateOne({ student }, { $set: report });
+    return Response.json({ status: 200, success: true, update: true });
   } catch (error) {
     return Response.json({ status: 500, error });
   }
