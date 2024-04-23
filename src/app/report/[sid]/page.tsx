@@ -1,7 +1,6 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import styles from "@/app/report/[sid]/page.module.css";
 import ClassButton from "@/components/class/button/button";
-import ClassHeader from "@/components/class/header/header";
 import ClassShare from "@/components/class/share/share";
 import ClassTextarea from "@/components/class/textarea/textarea";
 import ClassWrap from "@/components/class/wrap/wrap";

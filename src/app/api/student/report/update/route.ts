@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/utils/database";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { ObjectId } from "mongodb";
 
 export async function POST(request: NextRequest, response: NextResponse) {
   const session: any = await getServerSession(authOptions);
@@ -39,11 +40,27 @@ export async function POST(request: NextRequest, response: NextResponse) {
     modifytime: `${hours}시 ${minutes}분 ${seconds}초`,
   };
 
+  let db = (await connectDB).db("advocate");
+  const studentInfo = await db
+    .collection("student")
+    .findOne({ _id: new ObjectId(student?.toString()) });
+
+  const classid = studentInfo?.classid;
+
+  const redirectUrl =
+    session.user.user.role === "teacher"
+      ? new URL(`/class/${classid}/students/${student}`, request.url)
+      : new URL("/");
+  redirectUrl.searchParams.set("from", request.nextUrl.pathname);
+
   try {
     let db = (await connectDB).db("advocate");
     await db.collection("report").updateOne({ student }, { $set: report });
-    return Response.json({ status: 200, success: true, update: true });
+    // return Response.json({ status: 200, success: true, update: true });
+    return Response.redirect(redirectUrl.href);
   } catch (error) {
     return Response.json({ status: 500, error });
   }
 }
+
+// redirect

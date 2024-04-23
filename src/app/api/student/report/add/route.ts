@@ -9,7 +9,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
   var now = new Date();
   var year = now.getFullYear();
   var month = now.getMonth() + 1;
-  var date = now.getDate();
   var day = now.getDay();
   var hours = now.getHours();
   var minutes = now.getMinutes();
@@ -40,6 +39,19 @@ export async function POST(request: NextRequest, response: NextResponse) {
     modifytime: `${hours}시 ${minutes}분 ${seconds}초`,
   };
 
+  let db = (await connectDB).db("advocate");
+  const studentInfo = await db
+    .collection("student")
+    .findOne({ _id: new ObjectId(student?.toString()) });
+
+  const classid = studentInfo?.classid;
+
+  const redirectUrl =
+    session.user.user.role === "teacher"
+      ? new URL(`/class/${classid}/students/${student}`, request.url)
+      : new URL("/");
+  redirectUrl.searchParams.set("from", request.nextUrl.pathname);
+
   try {
     let db = (await connectDB).db("advocate");
     await db
@@ -49,8 +61,11 @@ export async function POST(request: NextRequest, response: NextResponse) {
         { $set: { report: true } }
       );
     await db.collection("report").insertOne(report);
-    return Response.json({ status: 200, success: true, add: true });
+    // return Response.json({ status: 200, success: true, add: true });
+    return Response.redirect(redirectUrl.href);
   } catch (error) {
     return Response.json({ status: 500, error });
   }
 }
+
+// redirect
