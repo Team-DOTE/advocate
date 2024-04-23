@@ -30,7 +30,7 @@ export default function StudentDelete({ id }: { id: string }) {
   const path = pathname.split("/")[2];
   return (
     <form onSubmit={onSubmit}>
-      <input style={{ display: "none" }} name="id" value={id} />
+      <input style={{ display: "none" }} name="id" defaultValue={id} />
       <button type="submit" className={styles.button}>
         학생 삭제
       </button>

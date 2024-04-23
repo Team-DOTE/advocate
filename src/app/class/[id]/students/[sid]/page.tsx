@@ -7,17 +7,35 @@ import ClassWrap from "@/components/class/wrap/wrap";
 import { connectDB } from "@/utils/database";
 import { ObjectId } from "mongodb";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function StudentDetail({
   params,
 }: {
-  params: { sid: string };
+  params: { id: string; sid: string };
 }) {
   let db = (await connectDB).db("advocate");
   let student = await db
     .collection("student")
     .find({ _id: new ObjectId(params.sid) })
     .toArray();
+
+  const report: boolean = student[0].report;
+  function BasicReport() {
+    if (report === true) {
+      return (
+        <Link className={styles.report} href={`/report/${params.sid}`}>
+          보기
+        </Link>
+      );
+    } else {
+      return (
+        <Link className={styles.report} href={`/report/${params.sid}`}>
+          없음 (작성하기)
+        </Link>
+      );
+    }
+  }
 
   return (
     <ClassWrap>
@@ -49,6 +67,7 @@ export default async function StudentDetail({
         </div>
       </div>
       <StudentFeature title="특이사항" content={student[0].significant} />
+      <StudentInfo title="기초 조사서" content={<BasicReport />} />
       <StudentDelete id={params.sid} />
     </ClassWrap>
   );
