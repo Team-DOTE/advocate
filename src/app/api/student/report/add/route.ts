@@ -24,6 +24,13 @@ export async function POST(request: NextRequest, response: NextResponse) {
   const postscript = formData.get("postscript");
   const student = formData.get("student");
 
+  let db = (await connectDB).db("advocate");
+  const studentInfo = await db
+    .collection("student")
+    .findOne({ _id: new ObjectId(student?.toString()) });
+
+  const classid = studentInfo?.classid;
+
   const report = {
     adaption,
     exercise,
@@ -34,17 +41,11 @@ export async function POST(request: NextRequest, response: NextResponse) {
     family,
     postscript,
     student,
+    classid,
     editor: session.user.user._id,
     modifydate: `${year}년 ${month}월 ${day}일`,
     modifytime: `${hours}시 ${minutes}분 ${seconds}초`,
   };
-
-  let db = (await connectDB).db("advocate");
-  const studentInfo = await db
-    .collection("student")
-    .findOne({ _id: new ObjectId(student?.toString()) });
-
-  const classid = studentInfo?.classid;
 
   const redirectUrl =
     session.user.user.role === "teacher"
