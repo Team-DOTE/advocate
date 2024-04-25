@@ -1,5 +1,5 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import styles from "@/app/class/add/page.module.css";
+import styles from "@/app/(teacher)/class/add/page.module.css";
 import ClassButton from "@/components/class/button/button";
 import ClassHeader from "@/components/class/header/header";
 import ClassInput from "@/components/class/input/input";

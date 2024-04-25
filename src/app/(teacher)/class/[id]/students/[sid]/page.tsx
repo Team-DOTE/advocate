@@ -1,4 +1,4 @@
-import styles from "@/app/class/[id]/students/[sid]/page.module.css";
+import styles from "@/app/(teacher)/class/[id]/students/[sid]/page.module.css";
 import ClassHeader from "@/components/class/header/header";
 import StudentDelete from "@/components/class/student/delete/delete";
 import StudentFeature from "@/components/class/student/feature/feature";

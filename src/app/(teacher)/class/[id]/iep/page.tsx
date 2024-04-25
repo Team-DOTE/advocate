@@ -1,4 +1,4 @@
-import styles from "@/app/class/[id]/iep/page.module.css";
+import styles from "@/app/(teacher)/class/[id]/iep/page.module.css";
 import ClassButton from "@/components/class/button/button";
 import ClassHeader from "@/components/class/header/header";
 import ClassInput from "@/components/class/input/input";

@@ -1,6 +1,6 @@
-import styles from "@/app/class/page.module.css";
+import styles from "@/app/(teacher)/class/page.module.css";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "../../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import { connectDB } from "@/utils/database";
 import ClassLink from "@/components/class/link/link";

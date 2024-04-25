@@ -1,8 +1,8 @@
-import styles from "@/app/setting/page.module.css";
+import styles from "@/app/(teacher)/setting/page.module.css";
 
 import { getServerSession } from "next-auth";
 import Image from "next/image";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "../../api/auth/[...nextauth]/route";
 import { connectDB } from "@/utils/database";
 import ClassView from "@/components/class/view/class/view";
 import ClassHeader from "@/components/class/header/header";
