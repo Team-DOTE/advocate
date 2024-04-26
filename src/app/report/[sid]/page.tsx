@@ -31,7 +31,7 @@ export default async function StudentReport({
   return (
     <ClassWrap>
       <div className={styles.header}>
-        <p className={styles.title}>클래스 관리</p>
+        <p className={styles.title}>{`${student[0].name}의 기초 조사서`}</p>
         <ClassShare />
       </div>
 

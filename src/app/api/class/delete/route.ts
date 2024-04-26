@@ -14,6 +14,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     await db
       .collection("class")
       .deleteOne({ _id: new ObjectId(id?.toString()) });
+    await db.collection("report").deleteMany({ classid: id });
     await db.collection("student").deleteMany({ classid: id });
     return Response.redirect(settingUrl.href);
   } catch (error) {

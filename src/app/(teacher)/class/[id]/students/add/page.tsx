@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/app/class/[id]/students/add/page.module.css";
+import styles from "@/app/(teacher)/class/[id]/students/add/page.module.css";
 import ClassButton from "@/components/class/button/button";
 import ClassHeader from "@/components/class/header/header";
 import ClassInput from "@/components/class/input/input";
