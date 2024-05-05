@@ -8,7 +8,6 @@ import user from "@/../public/icons/user.svg";
 import iep from "@/../public/icons/iep.svg";
 import manual from "@/../public/icons/manual.svg";
 import add from "@/../public/icons/chat-add.svg";
-import { useState } from "react";
 import UserInfo from "./info/user/user";
 import ClassInfo from "./info/class/class";
 import Menu from "@/components/navbar/menu/menu";
@@ -18,9 +17,6 @@ const parents =
   [
     { id: 0, profile: profile0, name: "황석준 보호자" },
     { id: 1, profile: profile1, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
     { id: 2, profile: profile2, name: "황석준 보호자" },
   ] || "";
 
