@@ -19,6 +19,16 @@ export default function BottomTab() {
   );
 }
 
+function returnFirstPath(input: string) {
+  const secondSlashIndex = input.indexOf("/", 1);
+
+  if (secondSlashIndex !== -1) {
+    return input.substring(0, secondSlashIndex);
+  } else {
+    return input;
+  }
+}
+
 function Tab({
   href,
   icon,
@@ -32,13 +42,19 @@ function Tab({
   return (
     <Link href={href} className={styles.wrap}>
       <Image
-        style={href === path ? { opacity: 1 } : { opacity: 0.4 }}
+        style={
+          returnFirstPath(path) === href ? { opacity: 1 } : { opacity: 0.4 }
+        }
         className={styles.icon}
         src={icon}
         alt="tab-icon"
       />
       <p
-        style={href === path ? { color: "black" } : { color: "#707070" }}
+        style={
+          returnFirstPath(path) === href
+            ? { color: "black" }
+            : { color: "#707070" }
+        }
         className={styles.content}
       >
         {content}
