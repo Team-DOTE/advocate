@@ -1,0 +1,17 @@
+.wrap {
+  padding: 36px 36px 0px 36px;
+  width: calc(100% - 72px);
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.wrap:-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .wrap {
+    padding: 36px 20px 0px 20px;
+    width: calc(100% - 40px);
+  }
+}
