@@ -1,12 +1,19 @@
 import BottomTab from "@/components/parent/bottomtab/bottomtab";
 import ParentWrap from "@/components/parent/wrap/wrap";
+import { getServerSession } from "next-auth";
 import React from "react";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
 
-export default function ParentRoot({
+export default async function ParentRoot({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session: any = await getServerSession(authOptions);
+  if (session == null || session.user.user.role !== "parent") {
+    redirect("/signin");
+  }
   return (
     <div style={{ height: "100%" }}>
       <ParentWrap>{children}</ParentWrap>

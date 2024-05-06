@@ -10,7 +10,7 @@ import ClassLogout from "@/components/class/logout/logout";
 
 export default async function Class() {
   const session: any = await getServerSession(authOptions);
-  if (session === null) {
+  if (session.user.user.role !== "teacher") {
     redirect("/signin");
   }
   let db = (await connectDB).db("advocate");

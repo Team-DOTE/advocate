@@ -32,7 +32,7 @@ function Tab({
   return (
     <Link href={href} className={styles.wrap}>
       <Image
-        style={href === path ? { opacity: 1 } : { opacity: 0.7 }}
+        style={href === path ? { opacity: 1 } : { opacity: 0.4 }}
         className={styles.icon}
         src={icon}
         alt="tab-icon"

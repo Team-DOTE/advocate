@@ -42,7 +42,7 @@
 
 .tel {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0;
   margin-top: 4px;
   color: var(--placeholder-color);
@@ -50,7 +50,7 @@
 
 .user_tel {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0;
   margin-top: 4px;
   color: var(--text-black-color);
