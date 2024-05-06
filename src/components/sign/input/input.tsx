@@ -7,6 +7,7 @@ export default function SignInput({
   autoFocus,
   pattern,
   onChange,
+  nonRequired,
 }: {
   name: string;
   placeholder: string;
@@ -14,6 +15,7 @@ export default function SignInput({
   autoFocus?: boolean | null;
   pattern?: string | null;
   onChange?: any | null;
+  nonRequired?: boolean | null;
 }) {
   return (
     <input
@@ -23,7 +25,7 @@ export default function SignInput({
       type={type ? type : ""}
       autoFocus={autoFocus ? autoFocus : false}
       autoCapitalize="off"
-      required
+      required={nonRequired ? false : true}
       pattern={pattern ? pattern : undefined}
       onChange={onChange}
     />
