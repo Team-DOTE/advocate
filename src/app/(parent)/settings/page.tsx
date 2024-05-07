@@ -32,7 +32,7 @@ export default async function Settings() {
       <div className={styles.button_wrap}>
         <SettingButton href="/settings" icon={students} title="학생관리" />
         <div style={{ width: "20px" }} />
-        <SettingButton href="/settings" icon={info} title="정보" />
+        <SettingButton href="/settings/info" icon={info} title="정보" />
       </div>
     </div>
   );
