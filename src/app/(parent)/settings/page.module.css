@@ -39,3 +39,8 @@
   margin: 0;
   color: var(--placeholder-color);
 }
+
+.button_wrap {
+  display: flex;
+  margin-top: 20px;
+}

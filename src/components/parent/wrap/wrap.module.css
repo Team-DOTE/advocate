@@ -1,6 +1,7 @@
 .wrap {
   padding: 36px 36px 0px 36px;
   width: calc(100% - 72px);
+  height: calc(100% - 126px);
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
