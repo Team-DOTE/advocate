@@ -1,11 +1,7 @@
-import styles from "@/app/(teacher)/class/[id]/students/[sid]/page.module.css";
-import ClassHeader from "@/components/class/header/header";
-import StudentDelete from "@/components/class/student/delete/delete";
-import StudentFeature from "@/components/class/student/feature/feature";
-import StudentInfo from "@/components/class/student/info/info";
-import ClassWrap from "@/components/class/wrap/wrap";
+import styles from "@/app/(parent)/students/[sid]/page.module.css";
 import ParentHeader from "@/components/parent/header/header";
-import ParentWrap from "@/components/parent/wrap/wrap";
+import StudentFeature from "@/components/parent/student/feature/feature";
+import StudentInfo from "@/components/parent/student/info/info";
 import { connectDB } from "@/utils/database";
 import { ObjectId } from "mongodb";
 import Image from "next/image";
@@ -42,6 +38,22 @@ export default async function StudentDetail({
   return (
     <div>
       <ParentHeader content="학생 관리" />
+      <Image
+        className={styles.profile}
+        src={student[0].profile}
+        alt="student profile"
+        width={150}
+        height={150}
+      />
+      <p className={styles.name}>{student[0].name + " 학생"}</p>
+      <p className={styles.school}>{student[0].school}</p>
+      <p className={styles.studentid}>{student[0].studentid}</p>
+      <StudentInfo title="성별" content={student[0].sex} />
+      <StudentInfo title="생년월일" content={student[0].birthdate} />
+      <StudentInfo title="전화번호" content={student[0].telephone} />
+      <StudentFeature title="장애사항" content={student[0].disability} />
+      <StudentFeature title="특이사항" content={student[0].significant} />
+      <div style={{ height: "32px" }} />
     </div>
   );
 }

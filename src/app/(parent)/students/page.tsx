@@ -17,7 +17,7 @@ export default async function Students() {
       {userStudents.map((student1, index) => (
         <StudentView
           key={index}
-          name={student1.name}
+          name={student1.name + " 학생"}
           image={student1.profile}
           id={student1._id.toString()}
         />
