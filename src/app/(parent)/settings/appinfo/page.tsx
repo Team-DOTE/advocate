@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function SettingInfo() {
   return (
     <div>
-      <ParentHeader content="정보" />
+      <ParentHeader content="앱 정보" />
       <Image className={styles.logo} src={logo} alt="logo" />
       <Link
         href="https://github.com/team-dote/advocate"
