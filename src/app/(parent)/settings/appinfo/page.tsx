@@ -1,4 +1,4 @@
-import styles from "@/app/(parent)/settings/info/page.module.css";
+import styles from "@/app/(parent)/settings/appinfo/page.module.css";
 import Image from "next/image";
 import logo from "@/../public/logo.png";
 import ParentHeader from "@/components/parent/header/header";
