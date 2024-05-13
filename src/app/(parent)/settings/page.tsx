@@ -6,6 +6,7 @@ import { getServerSession } from "next-auth";
 import Image from "next/image";
 import students from "@/../public/icons/students.svg";
 import info from "@/../public/icons/info.svg";
+import SettingMenu from "@/components/parent/setting/menu/menu";
 
 export default async function Settings() {
   const session: any = await getServerSession(authOptions);
@@ -34,6 +35,8 @@ export default async function Settings() {
         <div style={{ width: "20px" }} />
         <SettingButton href="/settings/info" icon={info} title="정보" />
       </div>
+      <div style={{ height: "40px" }} />
+      <SettingMenu href="/settings/appinfo" icon={info} title="앱 정보" />
     </div>
   );
 }

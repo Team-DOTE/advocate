@@ -1,7 +1,7 @@
-import styles from "@/components/parent/student/info/info.module.css";
+import styles from "@/components/parent/setting/info/info.module.css";
 import React from "react";
 
-export default function StudentInfo({
+export default function SettingUserInfo({
   title,
   content,
 }: {
