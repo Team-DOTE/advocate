@@ -84,10 +84,12 @@ export default function AddStudent({ params }: { params: { id: string } }) {
             name="name"
             placeholder="이름을 입력해주세요."
           />
-          <ClassInput
-            content="생년월일을 입력해주세요."
+          <p className={styles.content}>생년월일을 압력해주세요.</p>
+          <input
+            className={styles.date}
+            type="date"
             name="birthdate"
-            placeholder="YYYY년 M월 D일 (2007년 1월 1일)"
+            required
           />
           <ClassInput
             content="학교명을 입력해주세요."
@@ -127,14 +129,6 @@ export default function AddStudent({ params }: { params: { id: string } }) {
             name="disability"
             placeholder="장애사항을 알려주세요."
           />
-          {/* <textarea
-            placeholder="특이사항을 입력해주세요."
-            className={styles.textarea}
-            ref={textarea}
-            value={text}
-            onChange={(e) => resizeHeight(textarea, e)}
-            name="significant"
-          ></textarea> */}
           <ClassTextarea
             content="특이사항을 입력해주세요."
             placeholder="특이사항을 입력해주세요."
