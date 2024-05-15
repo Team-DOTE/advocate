@@ -53,6 +53,7 @@ export default async function StudentDetail({
       <StudentInfo title="전화번호" content={student[0].telephone} />
       <StudentFeature title="장애사항" content={student[0].disability} />
       <StudentFeature title="특이사항" content={student[0].significant} />
+      <StudentInfo title="ID" content={student[0]._id.toString()} />
       <div style={{ height: "32px" }} />
     </div>
   );
