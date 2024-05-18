@@ -21,7 +21,11 @@ interface TagInfo {
 
 function generateTagInfo(): TagInfo[] {
   const tagInfoList: TagInfo[] = [];
-
+  tagInfoList.push({
+    tag: "all",
+    count: allTags.length,
+    link: "all"
+  })
   uniqueTags.forEach((tag) => {
     tagInfoList.push({
       tag: tag,

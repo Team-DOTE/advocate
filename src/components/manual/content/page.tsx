@@ -6,18 +6,19 @@ interface ContentProps {
   link: string;
   title: string;
   tag: string;
+  id: string;
 }
 
-export default function Content({ link, title, tag }: ContentProps) {
+export default function Content({ link, title, tag, id }: ContentProps) {
   return (
     <div>
       
-        <Link href={link} style={{textDecoration:"none"}}>
+        <Link href={`/class/${id}/contents/${link}`} style={{textDecoration:"none"}}>
         <div className={styles.content}>
           <div className={styles.title}>{title}</div>
         
         <div className={styles.tag}>
-          <Tag link={"none"} tag={tag} />
+          <Tag link={"none"} tag={tag} id="none"/>
         </div>
         </div>
         </Link>

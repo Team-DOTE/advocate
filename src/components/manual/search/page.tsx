@@ -3,7 +3,7 @@ import styles from "@/components/manual/search/page.module.css";
 import Image from "next/image";
 import search from "@/../public/icons/search.svg";
 
-export default function Search({ search_content, link }: any) {
+export default function Search({ search_content, link, id }: any) {
   return (
     <div>
       {search_content == "none" ? (

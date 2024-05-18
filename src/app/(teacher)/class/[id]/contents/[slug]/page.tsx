@@ -32,15 +32,15 @@ export default function Post({ params }: any) {
   const link = tags.filter((tag) => tag.tag == props.meta.tag);
   return (
     <ClassWrap>
-      <ClassHeader content="대처 매뉴얼" />
       <article>
-        <div style={{ display: "flex" }}>
-          <Tag link={`./manual/tags/${link[0].link}`} tag={props.meta.tag} />
-        </div>
-
-        <Link href="../" style={{textDecoration:"none"}}>
+        <div style={{height: 20}}/>
+        <Link href={`/class/${params.id}/manual/tags/all`} style={{textDecoration:"none"}}>
           <div style={{ color: "gray" }}>돌아가기</div>
         </Link>
+        <div style={{height: 20}}/>
+        <div style={{ display: "flex" }}>
+          <Tag link={`${link[0].link}`} tag={props.meta.tag} id={params.id}/>
+        </div>
         <div className={styles.content}>
           <h1>{props.meta.title}</h1>
           <p>{props.meta.description}</p>

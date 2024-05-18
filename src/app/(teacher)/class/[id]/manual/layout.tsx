@@ -7,30 +7,32 @@ import Tag from "@/components/manual/tag/page";
 import allContents from "@/utils/getContents";
 import { tags } from "@/utils/getTags";
 
-export default function Manual() {
+
+export default function Manual({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { id: string };
+}) {
+  
   return (
     <ClassWrap>
       <ClassHeader content="대처 매뉴얼" />
       <div>
-        <Search search_content="none" link="first" />
+        <Search search_content="none" tag="all" id={params.id} />
         <div>
-          <div style={{ display: "flex" }}>
-            {tags.map((tag, index) => (
-              <div key={index} style={{ margin: "5px" }}>
-                <Tag link={`./manual/tags/${tag.link}`} tag={tag.tag} />
-              </div>
-            ))}
-          </div>
           <div style={{ height: 20 }} />
-          {allContents.map((content, index) => (
-            <div key={index}>
-              <Content
-                link={`./manual/contents/${content.slug}`}
-                title={content.meta.title}
-                tag={content.meta.tag}
-              />
-            </div>
-          ))}
+          <div style={{ display: "flex" }}>
+          {tags.map((tag, index) =>
+            tag.tag === "all" ? null : (
+              <div key={index} style={{ margin: "5px" }}>
+                <Tag link={tag.link} tag={tag.tag} id={params.id} />
+              </div>
+            )
+          )}
+        </div>
+          {children}
         </div>
       </div>
     </ClassWrap>
