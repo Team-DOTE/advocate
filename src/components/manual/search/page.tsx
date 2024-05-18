@@ -15,7 +15,7 @@ export default function Search({ search_content, tag, id }: any) {
             className={styles.input}
             placeholder="검색할 상황을 입력해주세요."
             onKeyDown={(e: any) => {
-              if (e.key == "Enter") {
+              if (e.key == "Enter" && e.target.value.trim() !== "") {
                 window.location.href = `/class/${id}/manual/tags/${tag}/search/${e.target.value}`;
               }
             }}
@@ -30,7 +30,7 @@ export default function Search({ search_content, tag, id }: any) {
             className={styles.input}
             placeholder="검색할 상황을 입력해주세요."
             onKeyDown={(e: any) => {
-              if (e.key == "Enter") {
+              if (e.key == "Enter" && e.target.value.trim() !== "") {
                 window.location.href = `./${e.target.value}`;
               }
             }}
