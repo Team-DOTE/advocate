@@ -34,12 +34,12 @@ export default function Post({ params }: any) {
     <ClassWrap>
       <article>
         <div style={{height: 20}}/>
-        <Link href={`/class/${params.id}/manual/tags/all`} style={{textDecoration:"none"}}>
+        <Link href={`/class/${params.id}/manual/tags/all/search/all`} style={{textDecoration:"none"}}>
           <div style={{ color: "gray" }}>돌아가기</div>
         </Link>
         <div style={{height: 20}}/>
         <div style={{ display: "flex" }}>
-          <Tag link={`${link[0].link}`} tag={props.meta.tag} id={params.id}/>
+          <Tag link={`${link[0].link}`} tag={props.meta.tag} id={params.id} value="all"/>
         </div>
         <div className={styles.content}>
           <h1>{props.meta.title}</h1>

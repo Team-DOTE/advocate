@@ -61,7 +61,7 @@ export default function Navbar({
               name="iep"
             />
             <Menu
-              link={"/class/" + classid + "/manual/tags/all"}
+              link={"/class/" + classid + "/manual/tags/all/search/all"}
               src={manual}
               alt="manual icon"
               title="대처 메뉴얼"

@@ -2,6 +2,8 @@ import allContents from "@/utils/getContents";
 import { tags } from "@/utils/getTags";
 import Link from "next/link";
 import Content from "@/components/manual/content/page";
+import Search from "@/components/manual/search/page";
+import Tag from "@/components/manual/tag/page";
 
 export default function Find({
   params,
@@ -11,12 +13,16 @@ export default function Find({
   const filterTags =
     params.slug === "all"
       ? tags
-      : tags.filter((tag) => tag.link == params.slug);
+      : tags.filter((tag) => tag.link == decodeURIComponent(params.slug));
   const filterContents =
     params.slug === "all"
-      ? allContents.filter((content) =>
-          content.meta.title.includes(decodeURIComponent(params.value))
-        )
+      ? params.value === "all"
+        ? allContents
+        : allContents.filter((content) =>
+            content.meta.title.includes(decodeURIComponent(params.value))
+          )
+      : params.value === "all"
+      ? allContents.filter((content) => content.meta.tag == filterTags[0].tag)
       : allContents
           .filter((content) => content.meta.tag == filterTags[0].tag)
           .filter((content) =>
@@ -25,7 +31,21 @@ export default function Find({
 
   return (
     <div>
-      <Link href="../" style={{ textDecoration: "none" }}>
+      <Search search_content={params.value} tag={params.slug} id={params.id} />
+      <div style={{ height: 20 }} />
+      <div style={{ display: "flex" }}>
+        {tags.map((tag, index) =>
+          tag.tag === "all" ? null : (
+            <div key={index} style={{ margin: "5px" }}>
+              <Tag link={tag.link} tag={tag.tag} id={params.id} value={params.value} />
+            </div>
+          )
+        )}
+      </div>
+      <Link
+        href={`/class/${params.id}/manual/${params.slug}/search/all`}
+        style={{ textDecoration: "none" }}
+      >
         <div style={{ color: "gray", margin: "10px" }}>돌아가기</div>
       </Link>
       <div style={{ height: 20 }} />

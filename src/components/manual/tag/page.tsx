@@ -5,15 +5,16 @@ interface TagProps {
   link: string;
   tag: string;
   id: string;
+  value: any;
 }
 
-export default function Tag({ link, tag, id }: TagProps) {
+export default function Tag({ link, tag, id, value }: TagProps) {
   return (
     <div className={styles.tagwrap}>
       {link === "none" ? (
         <div className={styles.tag}>#{tag}</div>
       ) : (
-        <Link href={`/class/${id}/manual/tags/${link}`} style={{textDecoration:"none"}}>
+        <Link href={`/class/${id}/manual/tags/${link}/search/${value}`} style={{textDecoration:"none"}}>
           <div className={styles.tag}>#{tag}</div>
         </Link>
       )}
