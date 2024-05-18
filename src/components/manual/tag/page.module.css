@@ -1,0 +1,8 @@
+.tag {
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 15px;
+  background-color: var(--button-color);
+  color: var(--primary-color);
+  text-decoration: none;
+}
