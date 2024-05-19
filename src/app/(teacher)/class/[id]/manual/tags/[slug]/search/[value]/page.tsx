@@ -64,7 +64,7 @@ export default function Find({
           ))}
           <div>
             <div id="list"></div>
-            <div style={{ fontWeight: 500, fontSize: "30px" }}>
+            <div style={{ fontWeight: 500, fontSize: "25px" }}>
               <Link
                 href="#list"
                 style={{ color: "black", textDecoration: "none" }}
@@ -86,10 +86,9 @@ export default function Find({
       {params.value == "all" && params.slug == "all" ? null : (
         <div style={{ margin: "10px", fontSize: "20px" }}>
           검색 된 내용 : {filterContents.length}
+          <div style={{ height: 20 }} />
         </div>
       )}
-
-      <div style={{ height: 20 }} />
       {filterContents.length !== 0 ? (
         filterContents.map((content, index) => (
           <div key={index}>
@@ -103,9 +102,8 @@ export default function Find({
           </div>
         ))
       ) : (
-        <div>찾으시는 결과가 없네요ㅠ</div>
+        <div style={{padding:"10px"}}>찾으시는 결과가 없네요ㅠ</div>
       )}
-      <div style={{ height: 20 }} />
     </div>
   );
 }
