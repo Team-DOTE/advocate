@@ -5,6 +5,7 @@ import Content from "@/components/manual/content/page";
 import Search from "@/components/manual/search/page";
 import Tag from "@/components/manual/tag/page";
 import ReferenceItem from "@/components/manual/reference/page";
+import styles from "@/app/(teacher)/class/[id]/manual/tags/[slug]/search/[value]/page.module.css"
 
 export default function Find({
   params,
@@ -68,7 +69,7 @@ export default function Find({
             <div style={{ fontWeight: 500, fontSize: "25px" }}>
               <Link
                 href="#list"
-                style={{ color: "black", textDecoration: "none" }}
+                className={styles.link}
               >
                 전체목록
               </Link>
@@ -80,7 +81,7 @@ export default function Find({
           href={`/class/${params.id}/manual/tags/all/search/all`}
           style={{ textDecoration: "none" }}
         >
-          <div style={{ color: "gray", margin: "10px" }}>돌아가기</div>
+          <div className={styles.back}>돌아가기</div>
         </Link>
       )}
       <div style={{ height: 20 }} />
@@ -103,7 +104,7 @@ export default function Find({
           </div>
         ))
       ) : (
-        <div style={{padding:"10px"}}>찾으시는 결과가 없네요ㅠ</div>
+        <div style={{ padding: "10px" }}>찾으시는 결과가 없네요ㅠ</div>
       )}
     </div>
   );

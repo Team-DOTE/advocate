@@ -6,14 +6,14 @@
   background-color: var(--primary-color);
   border-radius: 10px;
   align-items: center;
-  color: var(--button-color);
+  color: var(--text-black-color);
 }
 .content_head {
   display: flex;
   width: 100%;
   font-size: 20px;
   align-items: center;
-  color: black;
+  color: var(--text-black-color);
 }
 .content_content {
   display: flex;
@@ -21,13 +21,13 @@
   padding-top: 15px;
   font-size: 15px;
   align-items: center;
-  color: var(--placeholder-color)
+  font-weight: 400;
+  color: var(--text-gray-color);
 }
 .title {
   width: 70%;
   font-size: 30px;
-  position: relative;
-  left: 20px;
+  padding-left: 20px;
   font-weight: 600;
 }
 .tag {

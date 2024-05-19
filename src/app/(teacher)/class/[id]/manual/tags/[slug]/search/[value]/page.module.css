@@ -1,0 +1,8 @@
+.link {
+  color: var(--text-black-color);
+  text-decoration: none;
+}
+.back {
+  margin: 10px;
+  color: var(--text-gray-color);
+}

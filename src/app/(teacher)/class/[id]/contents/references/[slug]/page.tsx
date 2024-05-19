@@ -34,7 +34,7 @@ export default function Post({ params }: any) {
           href={`/class/${params.id}/manual/tags/all/search/all`}
           style={{ textDecoration: "none" }}
         >
-          <div style={{ color: "gray" }}>돌아가기</div>
+          <div className={styles.back}>돌아가기</div>
         </Link>
         <div style={{ height: 20 }} />
         <div className={styles.content}>

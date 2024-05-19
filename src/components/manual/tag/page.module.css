@@ -3,22 +3,26 @@
   padding: 8px 15px;
   font-size: 15px;
   transition: all 0.3s;
-  background-color: rgb(211, 211, 211);
-  color: black;
+  background-color: var(--manual-tag-color);
+  color: var(--text-black-color);
   text-decoration: none;
 }
 .tag:hover {
-  background-color: gray;
+  background-color: var(--manual-tag-hover-color);
 }
 .tag_selected{
   border-radius: 20px;
   padding: 8px 15px;
   font-size: 15px;
-  background-color: gray;
-  color: black;
+  background-color: var(--manual-tag-hover-color);
+  color: var(--text-black-color);
   text-decoration: none;
 }
 .image_tag{
-  color: rgb(159, 158, 158);
-  font-size: 20px;
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 15px;
+  background-color: var(--manual-tag-color);
+  color: var(--text-black-color);
+  text-decoration: none;
 }

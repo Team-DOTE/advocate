@@ -21,8 +21,13 @@ body {
   --class-enter-button-color: #ededed;
   --warning-color: #f75d5d;
   --text-black-color: #000;
+  --text-gray-color: #707070;
+  --shadow-color: #707070;
   --navbar-border-color: #ededed;
   --navbar-scroll-color: #ededed;
   --navbar-toggle-color: #777777;
   --navbar-hover-color: #ededed;
+  --manual-tag-color: #d3d3d3;
+  --manual-tag-hover-color: #777777;
+
 }
