@@ -1,0 +1,28 @@
+.tag {
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 15px;
+  transition: all 0.3s;
+  background-color: var(--manual-tag-color);
+  color: var(--text-black-color);
+  text-decoration: none;
+}
+.tag:hover {
+  background-color: var(--manual-tag-hover-color);
+}
+.tag_selected{
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 15px;
+  background-color: var(--manual-tag-hover-color);
+  color: var(--text-black-color);
+  text-decoration: none;
+}
+.image_tag{
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 15px;
+  background-color: var(--manual-tag-color);
+  color: var(--text-black-color);
+  text-decoration: none;
+}

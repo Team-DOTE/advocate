@@ -1,4 +1,5 @@
 .wrap {
+  scroll-behavior: smooth; /*추가함!*/
   padding: 36px 36px 0px 36px;
   width: calc(100% - 72px);
   overflow: scroll;
