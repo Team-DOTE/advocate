@@ -1,6 +1,6 @@
 import posts from "@/utils/getContents";
 
-const allTags = posts.map((post) => post.meta.tag);
+const allTags = posts.map((post) => post.meta.tag).filter((tag) => tag !== "reference");
 function getCount(tag: any) {
   return allTags.filter((postTag) => postTag == tag).length;
 }

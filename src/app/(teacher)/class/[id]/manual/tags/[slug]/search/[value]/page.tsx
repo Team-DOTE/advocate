@@ -4,12 +4,14 @@ import Link from "next/link";
 import Content from "@/components/manual/content/page";
 import Search from "@/components/manual/search/page";
 import Tag from "@/components/manual/tag/page";
+import ReferenceItem from "@/components/manual/reference/page";
 
 export default function Find({
   params,
 }: {
   params: { slug: string; id: string; value: string };
 }) {
+  const Reference = allContents.filter((post) => post.meta.tag === "reference");
   const filterTags =
     params.slug === "all"
       ? tags
@@ -17,10 +19,12 @@ export default function Find({
   const filterContents =
     params.slug === "all"
       ? params.value === "all"
-        ? allContents
-        : allContents.filter((content) =>
-            content.meta.title.includes(decodeURIComponent(params.value))
-          )
+        ? allContents.filter((post) => post.meta.tag !== "reference")
+        : allContents
+            .filter((content) =>
+              content.meta.title.includes(decodeURIComponent(params.value))
+            )
+            .filter((post) => post.meta.tag !== "reference")
       : params.value === "all"
       ? allContents.filter((content) => content.meta.tag == filterTags[0].tag)
       : allContents
@@ -47,7 +51,30 @@ export default function Find({
           )
         )}
       </div>
-      {params.value == "all" && params.slug == "all" ? null : (
+      {params.value == "all" && params.slug == "all" ? (
+        <div>
+          {Reference.map((content, index) => (
+            <div key={index}>
+              <ReferenceItem
+                link={content.meta.link}
+                title={content.meta.title}
+                id={params.id}
+              />
+            </div>
+          ))}
+          <div>
+            <div id="list"></div>
+            <div style={{ fontWeight: 500, fontSize: "30px" }}>
+              <Link
+                href="#list"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                전체목록
+              </Link>
+            </div>
+          </div>
+        </div>
+      ) : (
         <Link
           href={`/class/${params.id}/manual/tags/all/search/all`}
           style={{ textDecoration: "none" }}
