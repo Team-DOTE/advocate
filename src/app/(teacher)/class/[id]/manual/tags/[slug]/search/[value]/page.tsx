@@ -6,6 +6,7 @@ import Search from "@/components/manual/search/page";
 import Tag from "@/components/manual/tag/page";
 import ReferenceItem from "@/components/manual/reference/page";
 import styles from "@/app/(teacher)/class/[id]/manual/tags/[slug]/search/[value]/page.module.css"
+import Alllistext from "@/components/manual/alllisttext/page";
 
 export default function Find({
   params,
@@ -71,7 +72,7 @@ export default function Find({
                 href="#list"
                 className={styles.link}
               >
-                전체목록
+                <Alllistext/>
               </Link>
             </div>
           </div>

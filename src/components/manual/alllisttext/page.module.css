@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  vertical-align: middle;
+  text-align: center;
+}
+.arrow {
+  margin-left: 10px;
+  display: flex;
+  position: relative;
+  top: 5px;
+  vertical-align: middle;
+  text-align: center;
+  opacity: 1;
+  transition: all 0.5s;
+}
+.arrow_hide {
+  margin-left: 10px;
+  display: flex;
+  position: relative;
+  top: 0px;
+  vertical-align: middle;
+  opacity: 0;
+}
