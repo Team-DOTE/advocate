@@ -9,6 +9,7 @@ import Tag from "@/components/manual/tag/page";
 import { tags } from "@/utils/getTags";
 import Link from "next/link";
 import ClassWrap from "@/components/class/wrap/wrap";
+import Back from "@/components/manual/back/page";
 
 const options: any = {
   mdxOptions: {
@@ -37,7 +38,7 @@ export default function Post({ params }: any) {
           href={`/class/${params.id}/manual/tags/all/search/all`}
           style={{ textDecoration: "none" }}
         >
-          <div style={{ color: "gray" }}>돌아가기</div>
+          <div><Back/></div>
         </Link>
         <div style={{ height: 20 }} />
         <div className={styles.content}>
