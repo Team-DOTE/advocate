@@ -37,17 +37,24 @@ export default function Find({
         {tags.map((tag, index) =>
           tag.tag === "all" ? null : (
             <div key={index} style={{ margin: "5px" }}>
-              <Tag link={tag.link} tag={tag.tag} id={params.id} value={params.value} />
+              <Tag
+                link={tag.link}
+                tag={tag.tag}
+                id={params.id}
+                value={params.value}
+              />
             </div>
           )
         )}
       </div>
-      <Link
-        href={`/class/${params.id}/manual/${params.slug}/search/all`}
-        style={{ textDecoration: "none" }}
-      >
-        <div style={{ color: "gray", margin: "10px" }}>돌아가기</div>
-      </Link>
+      {params.value == "all" && params.slug == "all" ? null : (
+        <Link
+          href={`/class/${params.id}/manual/tags/all/search/all`}
+          style={{ textDecoration: "none" }}
+        >
+          <div style={{ color: "gray", margin: "10px" }}>돌아가기</div>
+        </Link>
+      )}
       <div style={{ height: 20 }} />
       <div style={{ margin: "10px", fontSize: "20px" }}>
         검색 된 내용 : {filterContents.length}

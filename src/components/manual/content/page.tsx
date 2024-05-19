@@ -18,7 +18,7 @@ export default function Content({ link, title, tag, id }: ContentProps) {
           <div className={styles.title}>{title}</div>
         
         <div className={styles.tag}>
-          <Tag link={"none"} tag={tag} id="none"/>
+          <Tag link={"none"} tag={tag} id="none" value="all"/>
         </div>
         </div>
         </Link>
