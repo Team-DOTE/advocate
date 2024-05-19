@@ -64,6 +64,7 @@ export default function Find({
           ))}
           <div>
             <div id="list"></div>
+            <div style={{ height: 10 }} />
             <div style={{ fontWeight: 500, fontSize: "25px" }}>
               <Link
                 href="#list"
