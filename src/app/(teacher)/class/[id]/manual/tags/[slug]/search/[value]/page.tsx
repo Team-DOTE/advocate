@@ -68,6 +68,7 @@ export default function Find({
               title={content.meta.title}
               tag={content.meta.tag}
               id={params.id}
+              content={content.content}
             />
           </div>
         ))
