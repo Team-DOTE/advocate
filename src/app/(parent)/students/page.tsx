@@ -1,5 +1,7 @@
+import styles from "@/app/(parent)/students/page.module.css";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import ParentHeader from "@/components/parent/header/header";
+import ParentLink from "@/components/parent/link/link";
 import StudentView from "@/components/parent/view/student/view";
 import { connectDB } from "@/utils/database";
 import { getServerSession } from "next-auth";

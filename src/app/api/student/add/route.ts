@@ -20,7 +20,9 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
   const student = {
     name,
-    birthdate,
+    birthdate: `${birthdate?.toString().substring(0, 4)}년 ${birthdate
+      ?.toString()
+      .substring(5, 7)}월 ${birthdate?.toString().substring(8, 10)}일`,
     school,
     studentid,
     sex,

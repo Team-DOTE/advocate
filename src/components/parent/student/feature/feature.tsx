@@ -1,4 +1,4 @@
-import styles from "@/components/class/student/feature/feature.module.css";
+import styles from "@/components/parent/student/feature/feature.module.css";
 
 export default function StudentFeature({
   title,
