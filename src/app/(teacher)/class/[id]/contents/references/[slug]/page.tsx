@@ -7,6 +7,7 @@ import rehypeSlug from "rehype-slug";
 import remarkToc from "remark-toc";
 import Link from "next/link";
 import ClassWrap from "@/components/class/wrap/wrap";
+import Back from "@/components/manual/back/page";
 
 const options: any = {
   mdxOptions: {
@@ -34,7 +35,7 @@ export default function Post({ params }: any) {
           href={`/class/${params.id}/manual/tags/all/search/all`}
           style={{ textDecoration: "none" }}
         >
-          <div className={styles.back}>돌아가기</div>
+          <div><Back/></div>
         </Link>
         <div style={{ height: 20 }} />
         <div className={styles.content}>

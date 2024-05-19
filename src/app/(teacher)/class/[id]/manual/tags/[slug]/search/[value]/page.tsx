@@ -7,6 +7,7 @@ import Tag from "@/components/manual/tag/page";
 import ReferenceItem from "@/components/manual/reference/page";
 import styles from "@/app/(teacher)/class/[id]/manual/tags/[slug]/search/[value]/page.module.css"
 import Alllistext from "@/components/manual/alllisttext/page";
+import Back from "@/components/manual/back/page";
 
 export default function Find({
   params,
@@ -82,7 +83,7 @@ export default function Find({
           href={`/class/${params.id}/manual/tags/all/search/all`}
           style={{ textDecoration: "none" }}
         >
-          <div className={styles.back}>돌아가기</div>
+          <div className={styles.back}><div><Back/></div></div>
         </Link>
       )}
       <div style={{ height: 20 }} />
