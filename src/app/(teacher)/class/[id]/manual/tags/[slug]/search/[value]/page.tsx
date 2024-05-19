@@ -56,9 +56,12 @@ export default function Find({
         </Link>
       )}
       <div style={{ height: 20 }} />
-      <div style={{ margin: "10px", fontSize: "20px" }}>
-        검색 된 내용 : {filterContents.length}
-      </div>
+      {params.value == "all" && params.slug == "all" ? null : (
+        <div style={{ margin: "10px", fontSize: "20px" }}>
+          검색 된 내용 : {filterContents.length}
+        </div>
+      )}
+
       <div style={{ height: 20 }} />
       {filterContents.length !== 0 ? (
         filterContents.map((content, index) => (
