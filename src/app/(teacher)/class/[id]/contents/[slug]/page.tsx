@@ -33,16 +33,25 @@ export default function Post({ params }: any) {
   return (
     <ClassWrap>
       <article>
-        <div style={{height: 20}}/>
-        <Link href={`/class/${params.id}/manual/tags/all/search/all`} style={{textDecoration:"none"}}>
+        <div style={{ height: 20 }} />
+        <Link
+          href={`/class/${params.id}/manual/tags/${link[0].link}/search/all`}
+          style={{ textDecoration: "none" }}
+        >
           <div style={{ color: "gray" }}>돌아가기</div>
         </Link>
-        <div style={{height: 20}}/>
-        <div style={{ display: "flex" }}>
-          <Tag link={`${link[0].link}`} tag={props.meta.tag} id={params.id} value="all"/>
-        </div>
+        <div style={{ height: 20 }} />
         <div className={styles.content}>
           <h1>{props.meta.title}</h1>
+          <div className={styles.tag}>
+            <span style={{ paddingRight: 10 }}>유형:</span>
+            <Tag
+              link={`${link[0].link}`}
+              tag={props.meta.tag}
+              id={params.id}
+              value="all"
+            />
+          </div>
           <p>{props.meta.description}</p>
 
           <MDXRemote source={props.content} options={options} />
