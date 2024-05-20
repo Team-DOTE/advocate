@@ -1,15 +1,11 @@
 .content {
-  width: 90%;
-  font-size: 20px;
-  padding: 20px 20px;
-  font-weight: 600;
-  margin: 50px 0px;
-  background-color: rgb(222, 235, 253);
+  display: flex;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 20px 36px;
+  background-color: var(--primary-color);
   border-radius: 30px;
   align-items: center;
-  color: var(--button-color);
-  transition: all 0.3s;
-}
-.content:hover {
-  background-color: rgb(179, 208, 249);
+  color: var(--text-black-color);
+  margin-bottom: 20px;
 }

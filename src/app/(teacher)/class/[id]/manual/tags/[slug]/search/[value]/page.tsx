@@ -5,9 +5,7 @@ import Content from "@/components/manual/content/page";
 import Search from "@/components/manual/search/page";
 import Tag from "@/components/manual/tag/page";
 import ReferenceItem from "@/components/manual/reference/page";
-import styles from "@/app/(teacher)/class/[id]/manual/tags/[slug]/search/[value]/page.module.css"
-import Alllistext from "@/components/manual/alllisttext/page";
-import Back from "@/components/manual/back/page";
+import styles from "@/app/(teacher)/class/[id]/manual/tags/[slug]/search/[value]/page.module.css";
 
 export default function Find({
   params,
@@ -39,23 +37,22 @@ export default function Find({
   return (
     <div>
       <Search search_content={params.value} tag={params.slug} id={params.id} />
-      <div style={{ height: 20 }} />
-      <div style={{ display: "flex" }}>
+      <div className={styles.tag_wrap}>
         {tags.map((tag, index) =>
           tag.tag === "all" ? null : (
-            <div key={index} style={{ margin: "5px" }}>
-              <Tag
-                link={tag.link}
-                tag={tag.tag}
-                id={params.id}
-                value={params.value}
-              />
-            </div>
+            <Tag
+              key={index}
+              link={tag.link}
+              tag={tag.tag}
+              id={params.id}
+              value={params.value}
+            />
           )
         )}
       </div>
       {params.value == "all" && params.slug == "all" ? (
         <div>
+          <p style={{ fontSize: 24, fontWeight: 500 }}>참고 레퍼런스</p>
           {Reference.map((content, index) => (
             <div key={index}>
               <ReferenceItem
@@ -65,34 +62,18 @@ export default function Find({
               />
             </div>
           ))}
-          <div>
-            <div id="list"></div>
-            <div style={{ height: 10 }} />
-            <div style={{ fontWeight: 500, fontSize: "25px" }}>
-              <Link
-                href="#list"
-                className={styles.link}
-              >
-                <Alllistext/>
-              </Link>
-            </div>
-          </div>
         </div>
       ) : (
-        <Link
-          href={`/class/${params.id}/manual/tags/all/search/all`}
-          style={{ textDecoration: "none" }}
-        >
-          <div className={styles.back}><div><Back/></div></div>
-        </Link>
+        ""
       )}
-      <div style={{ height: 20 }} />
-      {params.value == "all" && params.slug == "all" ? null : (
-        <div style={{ margin: "10px", fontSize: "20px" }}>
-          검색 된 내용 : {filterContents.length}
-          <div style={{ height: 20 }} />
-        </div>
+      {params.value == "all" && params.slug == "all" ? (
+        <p style={{ fontSize: 24, fontWeight: 500 }}>전체 내용</p>
+      ) : (
+        <p style={{ fontSize: 24, fontWeight: 500, marginBottom: 24 }}>
+          검색 된 내용: {filterContents.length}
+        </p>
       )}
+
       {filterContents.length !== 0 ? (
         filterContents.map((content, index) => (
           <div key={index}>
@@ -106,7 +87,7 @@ export default function Find({
           </div>
         ))
       ) : (
-        <div style={{ padding: "10px" }}>찾으시는 결과가 없네요ㅠ</div>
+        <div style={{ padding: "10px" }}>검색결과가 존재하지 않습니다.</div>
       )}
     </div>
   );

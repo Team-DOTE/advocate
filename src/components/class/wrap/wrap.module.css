@@ -1,11 +1,12 @@
 .wrap {
-  scroll-behavior: smooth; /*추가함!*/
+  scroll-behavior: smooth;
   padding: 36px 36px 0px 36px;
   width: calc(100% - 72px);
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  overflow-x:hidden; overflow-y:auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .wrap:-webkit-scrollbar {
   display: none;
@@ -15,6 +16,5 @@
   .wrap {
     padding: 36px 20px 0px 20px;
     width: calc(100% - 40px);
-    
   }
 }

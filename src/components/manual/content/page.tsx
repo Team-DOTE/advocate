@@ -17,30 +17,25 @@ export default function Content({
   id,
   content,
 }: ContentProps) {
-  const truncateContent = (text:string, maxLength:number) => {
+  const truncateContent = (text: string, maxLength: number) => {
     if (text.length > maxLength) {
-      return text.substring(0, maxLength) + '...';
+      return text.substring(0, maxLength) + "...";
     }
     return text;
   };
   return (
-    <div>
-      <Link
-        href={`/class/${id}/contents/${link}`}
-        style={{ textDecoration: "none" }}
-      >
-        <div className={styles.content}>
-          <div className={styles.content_head}>
-            <div className={styles.title}>{title}</div>
-            <div className={styles.tag}>
-              <Tag link={"none"} tag={tag} id="none" value="all" />
-            </div>
-          </div>
-          <div className={styles.content_content}>
-            {truncateContent(content, 700)}
-          </div>
-        </div>
-      </Link>
-    </div>
+    <Link
+      className={styles.content}
+      href={`/class/${id}/contents/${link}`}
+      style={{ textDecoration: "none" }}
+    >
+      <div className={styles.content_head}>
+        <div className={styles.title}>{title}</div>
+        <Tag link={"none"} tag={tag} id="none" value="all" />
+      </div>
+      <div className={styles.content_content}>
+        {truncateContent(content, 150)}
+      </div>
+    </Link>
   );
 }

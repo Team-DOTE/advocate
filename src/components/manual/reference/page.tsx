@@ -7,15 +7,14 @@ interface ContentProps {
   id: string;
 }
 
-export default function ReferenceItem({ link, title, id}: ContentProps) {
+export default function ReferenceItem({ link, title, id }: ContentProps) {
   return (
-    <div>
-      <Link
-        href={`/class/${id}/contents/references/${link}`}
-        style={{ textDecoration: "none" }}
-      >
-        <div className={styles.content}>{title}</div>
-      </Link>
-    </div>
+    <Link
+      className={styles.content}
+      href={`/class/${id}/contents/references/${link}`}
+      style={{ textDecoration: "none" }}
+    >
+      {title}
+    </Link>
   );
 }

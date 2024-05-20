@@ -1,28 +1,35 @@
 .tag {
-  border-radius: 20px;
-  padding: 8px 15px;
-  font-size: 15px;
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
   transition: all 0.3s;
   background-color: var(--manual-tag-color);
   color: var(--text-black-color);
   text-decoration: none;
+  margin-right: 12px;
+  min-width: fit-content;
 }
-.tag:hover {
-  background-color: var(--manual-tag-hover-color);
-}
-.tag_selected{
-  border-radius: 20px;
-  padding: 8px 15px;
-  font-size: 15px;
+
+.tag_selected {
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
   background-color: var(--manual-tag-hover-color);
   color: var(--text-black-color);
   text-decoration: none;
+  margin-right: 12px;
+  min-width: fit-content;
 }
-.image_tag{
-  border-radius: 20px;
-  padding: 8px 15px;
-  font-size: 15px;
+
+.image_tag {
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
   background-color: var(--manual-tag-color);
   color: var(--text-black-color);
   text-decoration: none;
+  min-width: fit-content;
 }

@@ -27,7 +27,6 @@ body {
   --navbar-scroll-color: #ededed;
   --navbar-toggle-color: #777777;
   --navbar-hover-color: #ededed;
-  --manual-tag-color: #d3d3d3;
-  --manual-tag-hover-color: #777777;
-
+  --manual-tag-color: #ededed;
+  --manual-tag-hover-color: #bebebe;
 }

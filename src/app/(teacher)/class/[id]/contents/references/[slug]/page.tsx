@@ -7,7 +7,6 @@ import rehypeSlug from "rehype-slug";
 import remarkToc from "remark-toc";
 import Link from "next/link";
 import ClassWrap from "@/components/class/wrap/wrap";
-import Back from "@/components/manual/back/page";
 
 const options: any = {
   mdxOptions: {
@@ -26,7 +25,9 @@ const options: any = {
 };
 
 export default function Post({ params }: any) {
-  const props = allContents.filter((content) => content.meta.link == params.slug)[0];
+  const props = allContents.filter(
+    (content) => content.meta.link == params.slug
+  )[0];
   return (
     <ClassWrap>
       <article>
@@ -34,9 +35,7 @@ export default function Post({ params }: any) {
         <Link
           href={`/class/${params.id}/manual/tags/all/search/all`}
           style={{ textDecoration: "none" }}
-        >
-          <div><Back/></div>
-        </Link>
+        ></Link>
         <div style={{ height: 20 }} />
         <div className={styles.content}>
           <h1>{props.meta.title}</h1>
