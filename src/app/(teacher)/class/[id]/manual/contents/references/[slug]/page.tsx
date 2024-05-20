@@ -18,32 +18,32 @@ const options: any = {
         rehypeAutolinkHeadings,
         {
           behavior: "wrap",
+          properties: {
+            className: [styles.anchor],
+          },
         },
       ],
     ],
   },
 };
 
-export default function Post({ params }: any) {
-  const props = allContents.filter(
-    (content) => content.meta.link == params.slug
-  )[0];
-  return (
-    <ClassWrap>
-      <article>
-        <div style={{ height: 20 }} />
-        <Link
-          href={`/class/${params.id}/manual/tags/all/search/all`}
-          style={{ textDecoration: "none" }}
-        ></Link>
-        <div style={{ height: 20 }} />
-        <div className={styles.content}>
-          <h1>{props.meta.title}</h1>
-          <p>{props.meta.description}</p>
+export default function Post({
+  params,
+}: {
+  params: { id: string; slug: string };
+}) {
+  const props = allContents.filter((content) => content.slug == params.slug)[0];
 
-          <MDXRemote source={props.content} options={options} />
-        </div>
-      </article>
-    </ClassWrap>
+  return (
+    <article>
+      <div className={styles.header}>
+        <h1 className={styles.title}>{props.meta.title}</h1>
+        <div className={styles.tag}></div>
+      </div>
+      <div className={styles.content}>
+        <MDXRemote source={props.content} options={options} />
+      </div>
+      <div style={{ height: 20 }} />
+    </article>
   );
 }

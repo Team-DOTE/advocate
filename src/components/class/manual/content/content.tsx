@@ -1,6 +1,6 @@
 import Link from "next/link";
-import styles from "@/components/manual/content/page.module.css";
-import Tag from "@/components/manual/tag/page";
+import styles from "@/components/class/manual/content/content.module.css";
+import Tag from "@/components/class/manual/tag/tag";
 
 interface ContentProps {
   link: string;
@@ -26,7 +26,7 @@ export default function Content({
   return (
     <Link
       className={styles.content}
-      href={`/class/${id}/contents/${link}`}
+      href={`/class/${id}/manual/contents/${link}`}
       style={{ textDecoration: "none" }}
     >
       <div className={styles.content_head}>

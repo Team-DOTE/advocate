@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import styles from "@/components/manual/tag/page.module.css";
+import styles from "@/components/class/manual/tag/tag.module.css";
 import { usePathname } from "next/navigation";
 
 interface TagProps {
@@ -21,7 +21,7 @@ export default function Tag({ link, tag, id, value }: TagProps) {
         className={path == link ? styles.tag_selected : styles.tag}
         href={
           path === link
-            ? `/class/${id}/manual/tags/all/search/all`
+            ? `/class/${id}/manual/tags/all/search/${value}`
             : `/class/${id}/manual/tags/${link}/search/${value}`
         }
         style={{ textDecoration: "none" }}

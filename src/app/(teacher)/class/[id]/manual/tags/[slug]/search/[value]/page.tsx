@@ -1,10 +1,10 @@
 import allContents from "@/utils/getContents";
 import { tags } from "@/utils/getTags";
 import Link from "next/link";
-import Content from "@/components/manual/content/page";
-import Search from "@/components/manual/search/page";
-import Tag from "@/components/manual/tag/page";
-import ReferenceItem from "@/components/manual/reference/page";
+import Content from "@/components/class/manual/content/content";
+import Search from "@/components/class/manual/search/search";
+import Tag from "@/components/class/manual/tag/tag";
+import ReferenceItem from "@/components/class/manual/reference/reference";
 import styles from "@/app/(teacher)/class/[id]/manual/tags/[slug]/search/[value]/page.module.css";
 
 export default function Find({
@@ -56,7 +56,7 @@ export default function Find({
           {Reference.map((content, index) => (
             <div key={index}>
               <ReferenceItem
-                link={content.meta.link}
+                link={content.slug}
                 title={content.meta.title}
                 id={params.id}
               />
