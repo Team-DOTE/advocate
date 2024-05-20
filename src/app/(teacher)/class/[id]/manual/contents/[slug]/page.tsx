@@ -46,7 +46,7 @@ export default function Post({ params }: any) {
       <div className={styles.content}>
         <MDXRemote source={props.content} options={options} />
       </div>
-      <div style={{ height: 20 }} />
+      <div style={{ height: 32 }} />
     </article>
   );
 }

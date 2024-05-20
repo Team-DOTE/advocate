@@ -74,21 +74,18 @@ export default function Find({
         </p>
       )}
 
-      {filterContents.length !== 0 ? (
-        filterContents.map((content, index) => (
-          <div key={index}>
+      {filterContents.length !== 0
+        ? filterContents.map((content, index) => (
             <Content
+              key={index}
               link={content.slug}
               title={content.meta.title}
               tag={content.meta.tag}
               id={params.id}
               content={content.content}
             />
-          </div>
-        ))
-      ) : (
-        <div style={{ padding: "10px" }}>검색결과가 존재하지 않습니다.</div>
-      )}
+          ))
+        : ""}
     </div>
   );
 }
