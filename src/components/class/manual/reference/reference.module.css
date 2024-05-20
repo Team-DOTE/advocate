@@ -1,0 +1,11 @@
+.content {
+  display: flex;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 20px 36px;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  align-items: center;
+  color: var(--text-black-color);
+  margin-bottom: 20px;
+}
