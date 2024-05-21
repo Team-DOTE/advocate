@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import AuthSession from "@/provider/AuthSession";
 import ToastProvider from "@/provider/ToastProvider";
@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   title: "advocate",
   description: "특수교육의 새로운 패러다임을 열다.",
   manifest: "/manifest.webmanifest",
-  themeColor: "#f8f8f8",
   openGraph: {
     title: "advocate",
     description: "특수교육의 새로운 패러다임을 열다.",
@@ -17,6 +16,10 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#f8f8f8",
 };
 
 export default function RootLayout({
