@@ -6,7 +6,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
   var now = new Date();
   var seconds = now.getSeconds();
   var profile;
-  const domain = "https://dote-advocate.vercel.app/profile/";
+  const domain = process.env.URL;
   if (seconds % 3 == 0) {
     profile = domain + "profile0.png";
   } else if (seconds % 3 == 1) {

@@ -1,10 +1,12 @@
-"use client"
+"use client";
+
+import Report from "@/components/class/report/report";
 import { useRef, useEffect, useState } from "react";
 import ReactToPrint from "react-to-print";
-import Report from "@/components/class/Report/Report";
+
 const App = () => {
   const [content, setContent] = useState("");
-  const ref = useRef<HTMLDivElement>(null); 
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetch("https://baconipsum.com/api/?type=all-meat&start-with-lorem=1")
@@ -21,7 +23,7 @@ const App = () => {
           content={() => ref.current}
         />
       </div>
-      <div style={{display:"none"}}>
+      <div style={{ display: "none" }}>
         <Report ref={ref} content={content} />
       </div>
     </div>
