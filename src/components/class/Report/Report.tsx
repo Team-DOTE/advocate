@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useEffect, useState } from "react";
-import styles from "@/components/class/Report/Report.module.css";
+import styles from "@/components/class/report/report.module.css";
 
 interface ReportProps {
   content: string;
