@@ -6,7 +6,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
   var now = new Date();
   var seconds = now.getSeconds();
   var profile;
-  const domain = "https://dote-advocate.vercel.app/profile/";
+  const domain = process.env.URL;
   if (seconds % 3 == 0) {
     profile = domain + "profile0.png";
   } else if (seconds % 3 == 1) {
@@ -35,9 +35,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
     profile,
   };
 
-  const loginUrl = new URL("/signin", request.url);
-  loginUrl.searchParams.set("from", request.nextUrl.pathname);
-
   let db = (await connectDB).db("advocate");
   let dbuser = await db.collection("users").findOne({ userid });
 
@@ -48,7 +45,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
   try {
     let db = (await connectDB).db("advocate");
     await db.collection("users").insertOne(user);
-    return Response.redirect(loginUrl.href);
+    return Response.redirect(process.env.URL + "/signin");
   } catch (error) {
     return Response.json({ status: 500, error });
   }
