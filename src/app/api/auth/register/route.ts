@@ -35,9 +35,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
     profile,
   };
 
-  const loginUrl = new URL("/signin", request.url);
-  loginUrl.searchParams.set("from", request.nextUrl.pathname);
-
   let db = (await connectDB).db("advocate");
   let dbuser = await db.collection("users").findOne({ userid });
 
@@ -48,7 +45,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
   try {
     let db = (await connectDB).db("advocate");
     await db.collection("users").insertOne(user);
-    return Response.redirect(loginUrl.href);
+    return Response.redirect(process.env.URL + "/signin");
   } catch (error) {
     return Response.json({ status: 500, error });
   }
