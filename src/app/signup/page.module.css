@@ -4,6 +4,13 @@
   align-items: center;
 }
 
+.error {
+  margin: 0;
+  margin-bottom: 40px;
+  font-weight: 500;
+  color: var(--warning-color);
+}
+
 .input_wrap {
   display: flex;
   flex-direction: column;
