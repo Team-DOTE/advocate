@@ -1,6 +1,6 @@
 "use client";
 
-import Report from "@/components/class/Report/Report";
+import Report from "@/components/class/report/report";
 import { useRef, useEffect, useState } from "react";
 import ReactToPrint from "react-to-print";
 
