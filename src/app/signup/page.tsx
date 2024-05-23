@@ -12,11 +12,12 @@ import { useEffect, useState } from "react";
 
 export default function Signup() {
   const params = useSearchParams();
+  const [error, setError] = useState(false);
   useEffect(() => {
     if (params.get("error") === "true") {
-      alert.error("해당 아이디는 이미 사용중입니다.");
+      setError(true);
     }
-  });
+  }, [params]);
   const [inputValue, setInputValue] = useState("");
   const handlePress = (e: any) => {
     const regex = /^[0-9\b -]{0,13}$/;
@@ -47,6 +48,11 @@ export default function Signup() {
   return (
     <div className={styles.signin}>
       <SignHeader content="회원가입" />
+      {error ? (
+        <p className={styles.error}>해당 아이디는 이미 사용중입니다.</p>
+      ) : (
+        ""
+      )}
       <form method="POST" action="/api/auth/register">
         <div className={styles.input_wrap}>
           <SignLabel content="아이디" />

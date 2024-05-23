@@ -19,13 +19,10 @@ export async function POST(request: NextRequest, response: NextResponse) {
     profile,
   };
 
-  const classAddUrl = new URL("/class", request.url);
-  classAddUrl.searchParams.set("from", request.nextUrl.pathname);
-
   try {
     let db = (await connectDB).db("advocate");
     await db.collection("class").insertOne(class1);
-    return Response.redirect(classAddUrl.href);
+    return Response.redirect(process.env.URL + "/class");
   } catch (error) {
     return Response.json({ status: 500, error });
   }
