@@ -41,8 +41,6 @@ const IepResult = ({
       const response = await axios.get(
         `${url}/api/student/iep/get?iid=${params.iid}`
       );
-      // fetch 함수 아래에 setUsers를 해주어야 한다.
-      console.log(response.data);
       setContent(response.data.iepdata);
     }
     fetch();
