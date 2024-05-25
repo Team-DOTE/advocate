@@ -2,12 +2,14 @@
   background-color: var(--primary-color);
   border-radius: 20px;
   display: flex;
+  text-decoration: none;
 }
 
 .profile {
   width: 48px;
   height: 48px;
   border-radius: 1000px;
+  aspect-ratio: 1/1;
   margin: 20px 0 24px 20px;
 }
 
@@ -26,10 +28,11 @@
 }
 
 .name {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   margin: 0;
   margin-bottom: 4px;
+  color: var(--text-black-color);
 }
 
 .content {

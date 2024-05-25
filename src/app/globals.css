@@ -18,11 +18,13 @@ body {
   --button-color: #000;
   --sign-input-color: #ededed;
   --sign-button-color: #ededed;
+  --enter-button-color: #ededed;
   --class-enter-button-color: #ededed;
   --warning-color: #f75d5d;
   --text-black-color: #000;
   --text-gray-color: #707070;
   --shadow-color: #bebebe;
+  --gray-border-color: #ededed;
   --navbar-border-color: #ededed;
   --navbar-scroll-color: #ededed;
   --navbar-toggle-color: #777777;

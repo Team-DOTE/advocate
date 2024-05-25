@@ -5,7 +5,6 @@ import SignButton from "@/components/sign/button/button";
 import SignHeader from "@/components/sign/header/header";
 import SignInput from "@/components/sign/input/input";
 import SignLabel from "@/components/sign/label/label";
-import { alert } from "@/utils/alert";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";

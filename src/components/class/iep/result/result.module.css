@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  overflow: scroll;
+}
+
+.container::-webkit-scrollbar {
+  display: block;
+  width: 8px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  display: none;
+}
+
+.container::-webkit-containerbar-button {
+  display: none;
+}
+
+.container::-webkit-scrollbar-thumb {
+  border-width: 1px;
+  border-radius: 30px;
+  background-color: var(--navbar-scroll-color);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 36px;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.icon {
+  cursor: pointer;
+}

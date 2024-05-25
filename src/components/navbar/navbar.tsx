@@ -18,6 +18,17 @@ const parents =
     { id: 0, profile: profile0, name: "황석준 보호자" },
     { id: 1, profile: profile1, name: "황석준 보호자" },
     { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: 2, profile: profile2, name: "황석준 보호자" },
   ] || "";
 
 export default function Navbar({

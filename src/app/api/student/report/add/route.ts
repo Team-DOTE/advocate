@@ -67,5 +67,3 @@ export async function POST(request: NextRequest, response: NextResponse) {
     return Response.json({ status: 500, error });
   }
 }
-
-// redirect
