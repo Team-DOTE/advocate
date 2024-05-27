@@ -1,4 +1,4 @@
-import styles from "@/components/class/view/student/view.module.css";
+import styles from "@/components/parent/view/student/view.module.css";
 import Image from "next/image";
 import Link from "next/link";
 

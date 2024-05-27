@@ -32,3 +32,8 @@ body {
   --manual-tag-color: #e6e6e6;
   --manual-tag-hover-color: #b4b4b4;
 }
+
+img {
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
