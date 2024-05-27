@@ -19,13 +19,25 @@
   font-weight: 500;
 }
 
+.messages {
+  display: flex;
+  flex-direction: column-reverse;
+  height: calc(100% - 72px);
+  overflow-y: scroll;
+}
+
+.messages::-webkit-scrollbar {
+  display: none;
+}
+
+.messages {
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+}
+
 .wrap {
-  width: calc(100% - 72px);
   display: flex;
   align-items: center;
-  justify-content: center;
-  bottom: 102px;
-  position: absolute;
 }
 
 .input {
@@ -54,27 +66,4 @@
 .arrow {
   width: 20px;
   height: 20px;
-}
-
-@media (max-width: 820px) {
-  .input {
-    padding: 20px 0px 20px 36px;
-    box-sizing: border-box;
-    width: calc(100% - 80px);
-    border-radius: 20px;
-    background-color: var(--primary-color);
-    border: none;
-    font-size: 16px;
-    font-weight: 500;
-    margin-right: 16px;
-  }
-
-  .wrap {
-    width: calc(100% - 40px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    bottom: 102px;
-    position: fixed;
-  }
 }
