@@ -1,0 +1,50 @@
+.message {
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  display: flex;
+  text-decoration: none;
+  padding: 20px 24px 20px 24px;
+}
+
+.profile {
+  width: 48px;
+  height: 48px;
+  border-radius: 1000px;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 16px;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 4px;
+  color: var(--text-black-color);
+}
+
+.content {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-gray-color);
+  margin: 0;
+}
+
+.time {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-gray-color);
+  margin: 0;
+  margin-right: 16px;
+}
