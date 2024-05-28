@@ -19,9 +19,9 @@ export default function Content({
 }: ContentProps) {
   const truncateContent = (text: string, maxLength: number) => {
     if (text.length > maxLength) {
-      return text.substring(0, maxLength) + "...";
+      return text.substring(5, maxLength) + "...";
     }
-    return text;
+    return text.substring(3);
   };
   return (
     <Link
