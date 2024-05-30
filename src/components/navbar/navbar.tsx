@@ -12,23 +12,24 @@ import UserInfo from "./info/user/user";
 import ClassInfo from "./info/class/class";
 import Menu from "@/components/navbar/menu/menu";
 import Message from "./message/message";
+import { usePathname } from "next/navigation";
 
 const parents =
   [
-    { id: 0, profile: profile0, name: "황석준 보호자" },
-    { id: 1, profile: profile1, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
+    { id: "0", profile: profile0, name: "황석준 보호자" },
+    { id: "1", profile: profile1, name: "황석준 보호자" },
+    { id: "2", profile: profile2, name: "황석준 보호자" },
+    { id: "3", profile: profile2, name: "황석준 보호자" },
+    { id: "4", profile: profile2, name: "황석준 보호자" },
+    { id: "5", profile: profile2, name: "황석준 보호자" },
+    { id: "6", profile: profile2, name: "황석준 보호자" },
+    { id: "7", profile: profile2, name: "황석준 보호자" },
+    { id: "8", profile: profile2, name: "황석준 보호자" },
+    { id: "9", profile: profile2, name: "황석준 보호자" },
+    { id: "10", profile: profile2, name: "황석준 보호자" },
+    { id: "11", profile: profile2, name: "황석준 보호자" },
+    { id: "12", profile: profile2, name: "황석준 보호자" },
+    { id: "13", profile: profile2, name: "황석준 보호자" },
   ] || "";
 
 export default function Navbar({
@@ -46,6 +47,7 @@ export default function Navbar({
   classprofile: string;
   classid: string;
 }) {
+  const path = usePathname();
   return (
     <div className={styles.container}>
       <input type="checkbox" className={styles.toggle} id="toggle" />
@@ -88,8 +90,11 @@ export default function Navbar({
               ? parents.map((parent, index) => (
                   <Message
                     key={index}
+                    mid={path.split("/")[4]}
+                    id={parent.id}
                     profile={parent.profile}
                     name={parent.name}
+                    classid={classid}
                   />
                 ))
               : ""}

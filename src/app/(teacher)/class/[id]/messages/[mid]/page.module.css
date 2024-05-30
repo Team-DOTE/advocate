@@ -22,7 +22,7 @@
 .messages {
   display: flex;
   flex-direction: column-reverse;
-  height: calc(100% - 72px);
+  height: calc(100% - 200px);
   overflow-y: scroll;
 }
 

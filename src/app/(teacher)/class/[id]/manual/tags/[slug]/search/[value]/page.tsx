@@ -52,7 +52,9 @@ export default function Find({
       </div>
       {params.value == "all" && params.slug == "all" ? (
         <div>
-          <p style={{ fontSize: 24, fontWeight: 500 }}>참고 레퍼런스</p>
+          <p style={{ fontSize: 24, fontWeight: 500, marginTop: 40 }}>
+            참고 레퍼런스
+          </p>
           {Reference.map((content, index) => (
             <div key={index}>
               <ReferenceItem
@@ -67,7 +69,9 @@ export default function Find({
         ""
       )}
       {params.value == "all" && params.slug == "all" ? (
-        <p style={{ fontSize: 24, fontWeight: 500 }}>전체 내용</p>
+        <p style={{ fontSize: 24, fontWeight: 500, marginTop: 40 }}>
+          전체 내용
+        </p>
       ) : (
         <p style={{ fontSize: 24, fontWeight: 500, marginBottom: 24 }}>
           검색 된 내용: {filterContents.length}

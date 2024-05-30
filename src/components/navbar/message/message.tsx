@@ -1,21 +1,34 @@
 import styles from "@/components/navbar/message/message.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Message({
+  mid,
+  id,
+
   profile,
   name,
+  classid,
 }: {
+  mid: string;
+  id: string;
   profile: any;
   name: string;
+  classid: string;
 }) {
   return (
-    <div className={styles.message_button}>
+    <Link
+      href={`/class/${classid}/messages/${id}`}
+      className={
+        mid === id ? styles.message_active_button : styles.message_button
+      }
+    >
       <Image
         className={styles.message_profile}
         src={profile}
         alt="profile img"
       />
       <p className={styles.message_name}>{name}</p>
-    </div>
+    </Link>
   );
 }

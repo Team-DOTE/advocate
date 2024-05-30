@@ -1,9 +1,9 @@
-import styles from "@/components/parent/message/user/user.module.css";
+import styles from "@/components/class/message/view/view.module.css";
 import Image from "next/image";
 import profile0 from "@/../public/profile/profile0.png";
 import Link from "next/link";
 
-export default function ParentMessageUser({
+export default function ClassMessageView({
   name,
   content,
   time,

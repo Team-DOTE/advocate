@@ -8,14 +8,25 @@ import ParentMessageDate from "@/components/parent/message/date/date";
 
 export default function Messages({ params }: { params: { id: string } }) {
   return (
-    <div>
+    <div style={{ height: "calc(100% - 90px)" }}>
       <div className={styles.user}>
         <Image className={styles.profile} src={profile0} alt="profile" />
         <p className={styles.name}>황석준 보호자</p>
       </div>
-      <ParentMessageDate date={"2024년 5월 24일 (금)"} />
-      <ParentMyMessage content={"안녕하세요?"} time={"오후 08:11"} />
-      <ParentOtherMessage content={"야옹"} time={"오후 08:12"} />
+      <div className={styles.messages}>
+        <ParentMyMessage content={"안녕하세요?"} time={"오후 08:11"} />
+        <ParentOtherMessage content={"야옹"} time={"오후 08:12"} />
+        <ParentMessageDate date={"2024년 5월 24일 (금)"} />
+        <ParentMyMessage content={"안녕하세요?"} time={"오후 08:11"} />
+        <ParentOtherMessage content={"야옹"} time={"오후 08:12"} />
+        <ParentMessageDate date={"2024년 5월 24일 (금)"} />
+        <ParentMyMessage content={"안녕하세요?"} time={"오후 08:11"} />
+        <ParentOtherMessage content={"야옹"} time={"오후 08:12"} />
+        <ParentMessageDate date={"2024년 5월 24일 (금)"} />
+        <ParentMyMessage content={"안녕하세요?"} time={"오후 08:11"} />
+        <ParentOtherMessage content={"야옹"} time={"오후 08:12"} />
+        <ParentMessageDate date={"2024년 5월 24일 (금)"} />
+      </div>
       <div className={styles.wrap}>
         <input className={styles.input}></input>
         <div className={styles.enter}>
