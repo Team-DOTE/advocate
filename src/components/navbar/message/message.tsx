@@ -27,6 +27,8 @@ export default function Message({
         className={styles.message_profile}
         src={profile}
         alt="profile img"
+        width={28}
+        height={28}
       />
       <p className={styles.message_name}>{name}</p>
     </Link>

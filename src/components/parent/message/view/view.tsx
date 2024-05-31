@@ -16,7 +16,13 @@ export default function ParentMessageView({
 }) {
   return (
     <Link href={href} className={styles.message}>
-      <Image className={styles.profile} src={profile0} alt="profile image" />
+      <Image
+        className={styles.profile}
+        src={"https://dote-advocate.vercel.app/profile/sungmin.png"}
+        alt="profile image"
+        width={48}
+        height={48}
+      />
       <div className={styles.info}>
         <div className={styles.wrap}>
           <p className={styles.name}>{name}</p>

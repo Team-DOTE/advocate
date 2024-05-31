@@ -10,9 +10,11 @@
   background-color: var(--primary-color);
   border-radius: 20px;
   border: 1px solid var(--gray-border-color);
+  line-height: 24px;
 }
 
 .time {
+  min-width: 52px;
   display: flex;
   flex-direction: column-reverse;
   font-size: 10px;
