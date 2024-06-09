@@ -11,26 +11,31 @@ export default function Messages() {
   return (
     <ClassWrap>
       <div className={styles.user}>
-        <Image className={styles.profile} src={profile0} alt="profile" />
-        <p className={styles.name}>황석준 보호자</p>
+        <Image
+          className={styles.profile}
+          src={"https://dote-advocate.vercel.app/profile/bonchan.png"}
+          width={48}
+          height={48}
+          alt="profile"
+        />
+        <p className={styles.name}>김진호 보호자</p>
       </div>
       <div className={styles.messages}>
-        <ClassOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ClassOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ClassOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ClassMessageDate date={"2024년 5월 24일 (금)"} />
-        <ClassMyMessage content={"안녕하세요? \n 안녕"} time={"오후 08:11"} />
-        <ClassOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ClassOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ClassOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ClassOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ClassOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ClassOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ClassOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ClassOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ClassOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ClassMyMessage content={"안녕하세요? \n 안녕"} time={"오후 08:11"} />
-        <ClassMessageDate date={"2024년 5월 24일 (금)"} />
+        <ClassMyMessage
+          content={"생성된 IEP 확인 부탁드립니다."}
+          time={"오후 02:21"}
+        />
+        <ClassMessageDate date={"2024년 6월 3일 (월)"} />
+        <ClassOtherMessage content={"네 알겠습니다."} time={"오후 04:20"} />
+        <ClassMyMessage
+          content={"교육 계획을 위해 진호 기초조사서 작성을 부탁드립니다."}
+          time={"오후 03:30"}
+        />
+        <ClassMyMessage
+          content={"안녕하세요. 진호 담당교사입니다."}
+          time={"오후 03:30"}
+        />
+        <ClassMessageDate date={"2024년 5월 31일 (금)"} />
       </div>
       <div className={styles.wrap}>
         <input className={styles.input}></input>

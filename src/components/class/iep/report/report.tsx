@@ -37,7 +37,7 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                       style={{ width: "25%" }}
                       className={styles.td}
                     >
-                      {content._id}
+                      ㅋ
                     </td>
                     <th
                       scope="col"
