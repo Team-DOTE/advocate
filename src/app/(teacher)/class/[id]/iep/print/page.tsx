@@ -23,7 +23,7 @@ const App = () => {
           content={() => ref.current}
         />
       </div>
-      <div style={{ display: "none" }}>
+      <div style={{ display: "none"}}>
         <Report ref={ref} content={content} />
       </div>
     </div>
