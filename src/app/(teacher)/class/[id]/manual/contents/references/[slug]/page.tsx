@@ -5,8 +5,7 @@ import styles from "./page.module.css";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import remarkToc from "remark-toc";
-import Link from "next/link";
-import ClassWrap from "@/components/class/wrap/wrap";
+
 
 const options: any = {
   mdxOptions: {
@@ -33,7 +32,7 @@ export default function Post({
   params: { id: string; slug: string };
 }) {
   const props = allContents.filter((content) => content.slug == params.slug)[0];
-
+  
   return (
     <article>
       <div className={styles.header}>
