@@ -132,7 +132,7 @@ export default async function Edit({
             content="학생 사진 주소를 입력해주세요."
             name="profile"
             placeholder="학생 사진 주소를 입력해주세요."
-            defaultValue={profile}
+            defaultValue={student[0].profile}
           />
           <input
             style={{ display: "none" }}
