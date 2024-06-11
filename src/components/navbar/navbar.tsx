@@ -71,7 +71,7 @@ export default function Navbar({
               link={"/class/" + classid + "/manual/tags/all/search/all"}
               src={manual}
               alt="manual icon"
-              title="대처 메뉴얼"
+              title="대처 매뉴얼"
               name="manual"
             />
           </div>
