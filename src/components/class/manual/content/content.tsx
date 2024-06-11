@@ -17,6 +17,15 @@ export default function Content({
   id,
   content,
 }: ContentProps) {
+  function removeMdxSyntax(content: string) {
+    let result = content.replace(/###.*\n/g, "");
+    result = result.replace(/- /g, "");
+    result = result.replace(/\d+\.\s/g, "");
+    result = result.replace(/\n{2,}/g, "\n");
+    result = result.replace(/[<>]/g, "");
+
+    return result;
+  }
   const truncateContent = (text: string, maxLength: number) => {
     if (text.length > maxLength) {
       return text.substring(5, maxLength) + "...";
@@ -34,7 +43,7 @@ export default function Content({
         <Tag link={"none"} tag={tag} id="none" value="all" />
       </div>
       <div className={styles.content_content}>
-        {truncateContent(content, 150)}
+        {truncateContent(removeMdxSyntax(content), 150)}
       </div>
     </Link>
   );

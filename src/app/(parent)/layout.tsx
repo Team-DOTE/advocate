@@ -16,8 +16,9 @@ export default async function ParentRoot({
   }
   return (
     <div style={{ height: "100%" }}>
+      {/* <div style={{ height: 54 }} /> */}
       <ParentWrap>{children}</ParentWrap>
-      <div style={{ bottom: 0, position: "sticky", width: "100%" }}>
+      <div style={{ bottom: 0, position: "fixed", width: "100%" }}>
         <BottomTab />
       </div>
     </div>

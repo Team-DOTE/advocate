@@ -84,7 +84,7 @@ export default function AddStudent({ params }: { params: { id: string } }) {
             name="name"
             placeholder="이름을 입력해주세요."
           />
-          <p className={styles.content}>생년월일을 압력해주세요.</p>
+          <p className={styles.content}>생년월일을 입력해주세요.</p>
           <input
             className={styles.date}
             type="date"

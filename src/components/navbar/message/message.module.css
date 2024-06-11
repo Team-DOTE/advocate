@@ -9,6 +9,28 @@
   border-radius: 10px;
   transition: all 0.3s;
   cursor: pointer;
+  text-decoration: none;
+  color: var(--text-black-color);
+}
+
+.message_button::-webkit-scrollbar {
+  display: none;
+}
+
+.message_active_button {
+  background-color: var(--navbar-hover-color);
+  display: flex;
+  align-items: center;
+  width: 190px;
+  height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text-black-color);
 }
 
 .message_button:hover {
@@ -26,4 +48,7 @@
 .message_name {
   font-size: 14px;
   font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
