@@ -37,7 +37,7 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                       style={{ width: "25%" }}
                       className={styles.td}
                     >
-                      {content._id}
+                      ㅋ
                     </td>
                     <th
                       scope="col"
@@ -234,24 +234,16 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
               </div>
               <div style={{ height: "20px" }}></div>
               <div>
-                <div className={styles.small_title_box}>4. 가족지원방안</div>
+                <div className={styles.small_title_box}>4. 가족지원내용</div>
                 <table className={styles.table}>
                   <tr>
-                    <th className={styles.th}>
-                      가족 특성 및 지원이 필요한 내용
-                    </th>
-                    <th className={styles.th}>지원 방안</th>
+                    <th className={styles.th}>지원 내용</th>
                   </tr>
                   <tr>
                     <td
                       style={{ height: "250px", width: "50%" }}
                       className={`${styles.nocenter} ${styles.td}`}
-                      id="가족 특성 및 지원이 필요한 내용"
-                    ></td>
-                    <td
-                      style={{ height: "250px", width: "50%" }}
-                      className={`${styles.nocenter} ${styles.td}`}
-                      id="지원 방안"
+                      id="지원 내용"
                     ></td>
                   </tr>
                 </table>

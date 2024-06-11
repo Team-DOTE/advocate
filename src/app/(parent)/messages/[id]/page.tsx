@@ -10,22 +10,31 @@ export default function Messages({ params }: { params: { id: string } }) {
   return (
     <div style={{ height: "calc(100% - 90px)" }}>
       <div className={styles.user}>
-        <Image className={styles.profile} src={profile0} alt="profile" />
-        <p className={styles.name}>황석준 보호자</p>
+        <Image
+          className={styles.profile}
+          src={"https://dote-advocate.vercel.app/profile/sungmin.png"}
+          width={48}
+          height={48}
+          alt="profile"
+        />
+        <p className={styles.name}>조성민 선생님</p>
       </div>
       <div className={styles.messages}>
-        <ParentMyMessage content={"안녕하세요?"} time={"오후 08:11"} />
-        <ParentOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ParentMessageDate date={"2024년 5월 24일 (금)"} />
-        <ParentMyMessage content={"안녕하세요?"} time={"오후 08:11"} />
-        <ParentOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ParentMessageDate date={"2024년 5월 24일 (금)"} />
-        <ParentMyMessage content={"안녕하세요?"} time={"오후 08:11"} />
-        <ParentOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ParentMessageDate date={"2024년 5월 24일 (금)"} />
-        <ParentMyMessage content={"안녕하세요?"} time={"오후 08:11"} />
-        <ParentOtherMessage content={"야옹"} time={"오후 08:12"} />
-        <ParentMessageDate date={"2024년 5월 24일 (금)"} />
+        <ParentOtherMessage
+          content={"생성된 IEP 확인 부탁드립니다."}
+          time={"오후 02:21"}
+        />
+        <ParentMessageDate date={"2024년 6월 3일 (월)"} />
+        <ParentMyMessage content={"네 알겠습니다."} time={"오후 04:20"} />
+        <ParentOtherMessage
+          content={"교육 계획을 위해 진호 기초조사서 작성을 부탁드립니다."}
+          time={"오후 03:30"}
+        />
+        <ParentOtherMessage
+          content={"안녕하세요. 진호 담당교사입니다."}
+          time={"오후 03:30"}
+        />
+        <ParentMessageDate date={"2024년 5월 31일 (금)"} />
       </div>
       <div className={styles.wrap}>
         <input className={styles.input}></input>

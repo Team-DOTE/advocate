@@ -13,6 +13,7 @@ export default async function Students() {
   let userStudents = await db
     .collection("student")
     .find({ telephone: session.user.user.telephone })
+    .sort({ name: 1 })
     .toArray();
   return (
     <div>

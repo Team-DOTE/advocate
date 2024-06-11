@@ -16,20 +16,14 @@ import { usePathname } from "next/navigation";
 
 const parents =
   [
-    { id: "0", profile: profile0, name: "황석준 보호자" },
-    { id: "1", profile: profile1, name: "황석준 보호자" },
-    { id: "2", profile: profile2, name: "황석준 보호자" },
+    {
+      id: "0",
+      profile: "https://dote-advocate.vercel.app/profile/bonchan.png",
+      name: "김진호 보호자",
+    },
+    { id: "1", profile: profile0, name: "손희창 보호자" },
+    { id: "2", profile: profile1, name: "이현명 보호자" },
     { id: "3", profile: profile2, name: "황석준 보호자" },
-    { id: "4", profile: profile2, name: "황석준 보호자" },
-    { id: "5", profile: profile2, name: "황석준 보호자" },
-    { id: "6", profile: profile2, name: "황석준 보호자" },
-    { id: "7", profile: profile2, name: "황석준 보호자" },
-    { id: "8", profile: profile2, name: "황석준 보호자" },
-    { id: "9", profile: profile2, name: "황석준 보호자" },
-    { id: "10", profile: profile2, name: "황석준 보호자" },
-    { id: "11", profile: profile2, name: "황석준 보호자" },
-    { id: "12", profile: profile2, name: "황석준 보호자" },
-    { id: "13", profile: profile2, name: "황석준 보호자" },
   ] || "";
 
 export default function Navbar({
@@ -77,7 +71,7 @@ export default function Navbar({
               link={"/class/" + classid + "/manual/tags/all/search/all"}
               src={manual}
               alt="manual icon"
-              title="대처 메뉴얼"
+              title="대처 매뉴얼"
               name="manual"
             />
           </div>

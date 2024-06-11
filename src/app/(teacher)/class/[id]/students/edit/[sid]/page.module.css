@@ -1,0 +1,54 @@
+.date::-webkit-calendar-picker-indicator {
+  padding-right: 36px;
+}
+
+.date::-webkit-datetime-edit-day-field:focus,
+.date::-webkit-datetime-edit-month-field:focus,
+.date::-webkit-datetime-edit-year-field:focus {
+  background-color: white;
+  color: black;
+}
+
+.date {
+  font-family: "SUIT";
+  font-size: 20px;
+  font-weight: 500;
+  padding: 20px 0px 20px 36px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 30px;
+  background-color: var(--primary-color);
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.content {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 20px 0 20px 0;
+}
+
+.input {
+  padding: 20px 0px 20px 36px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 30px;
+  background-color: var(--primary-color);
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.select {
+  width: 100%;
+  padding: 20px 36px 20px 36px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 30px;
+  background-color: var(--primary-color);
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+}

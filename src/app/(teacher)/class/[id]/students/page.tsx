@@ -10,6 +10,7 @@ export default async function Students({ params }: { params: { id: string } }) {
   let userStudents = await db
     .collection("student")
     .find({ classid: params.id })
+    .sort({ name: 1 })
     .toArray();
 
   return (

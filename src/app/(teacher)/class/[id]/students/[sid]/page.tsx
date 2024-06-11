@@ -8,6 +8,7 @@ import { connectDB } from "@/utils/database";
 import { ObjectId } from "mongodb";
 import Image from "next/image";
 import Link from "next/link";
+import edit from "@/../public/icons/edit.svg";
 
 export default async function StudentDetail({
   params,
@@ -50,7 +51,13 @@ export default async function StudentDetail({
         />
 
         <div className={styles.user_info}>
-          <p className={styles.user_name}>{`${student[0].name} 학생`}</p>
+          <div className={styles.top_wrap}>
+            <p className={styles.user_name}>{`${student[0].name} 학생`}</p>
+            <div style={{ marginLeft: "10px" }} />
+            <Link href={`edit/${params.sid}`}>
+              <Image src={edit} alt="modify" />
+            </Link>
+          </div>
           <p
             className={styles.user_school}
           >{`${student[0].school} ${student[0].studentid}`}</p>

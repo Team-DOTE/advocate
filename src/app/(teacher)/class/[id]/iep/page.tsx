@@ -1,7 +1,6 @@
 import styles from "@/app/(teacher)/class/[id]/iep/page.module.css";
 import ClassHeader from "@/components/class/header/header";
 import IepForm from "@/components/class/iep/form/form";
-
 import ClassWrap from "@/components/class/wrap/wrap";
 import { connectDB } from "@/utils/database";
 
