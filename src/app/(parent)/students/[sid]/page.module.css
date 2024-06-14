@@ -1,0 +1,42 @@
+.profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 1000px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.name {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--text-black-color);
+  text-align: center;
+  margin: 0;
+  margin-top: 16px;
+}
+
+.school {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--placeholder-color);
+  text-align: center;
+  margin: 0;
+  margin-top: 8px;
+}
+
+.studentid {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--placeholder-color);
+  text-align: center;
+  margin: 4px 0px 20px 0px;
+}
+
+.report {
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-black-color);
+  margin: 0;
+}

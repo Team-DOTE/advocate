@@ -8,20 +8,22 @@ import user from "@/../public/icons/user.svg";
 import iep from "@/../public/icons/iep.svg";
 import manual from "@/../public/icons/manual.svg";
 import add from "@/../public/icons/chat-add.svg";
-import { useState } from "react";
 import UserInfo from "./info/user/user";
 import ClassInfo from "./info/class/class";
 import Menu from "@/components/navbar/menu/menu";
 import Message from "./message/message";
+import { usePathname } from "next/navigation";
 
 const parents =
   [
-    { id: 0, profile: profile0, name: "황석준 보호자" },
-    { id: 1, profile: profile1, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
-    { id: 2, profile: profile2, name: "황석준 보호자" },
+    {
+      id: "0",
+      profile: "https://dote-advocate.vercel.app/profile/bonchan.png",
+      name: "김진호 보호자",
+    },
+    { id: "1", profile: profile0, name: "손희창 보호자" },
+    { id: "2", profile: profile1, name: "이현명 보호자" },
+    { id: "3", profile: profile2, name: "황석준 보호자" },
   ] || "";
 
 export default function Navbar({
@@ -39,6 +41,7 @@ export default function Navbar({
   classprofile: string;
   classid: string;
 }) {
+  const path = usePathname();
   return (
     <div className={styles.container}>
       <input type="checkbox" className={styles.toggle} id="toggle" />
@@ -65,10 +68,10 @@ export default function Navbar({
               name="iep"
             />
             <Menu
-              link={"/class/" + classid + "/manual"}
+              link={"/class/" + classid + "/manual/tags/all/search/all"}
               src={manual}
               alt="manual icon"
-              title="대처 메뉴얼"
+              title="대처 매뉴얼"
               name="manual"
             />
           </div>
@@ -81,8 +84,11 @@ export default function Navbar({
               ? parents.map((parent, index) => (
                   <Message
                     key={index}
+                    mid={path.split("/")[4]}
+                    id={parent.id}
                     profile={parent.profile}
                     name={parent.name}
+                    classid={classid}
                   />
                 ))
               : ""}

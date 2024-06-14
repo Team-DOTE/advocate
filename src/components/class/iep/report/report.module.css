@@ -1,0 +1,60 @@
+.page {
+  break-after: page;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 0px 5%;
+}
+
+.th {
+  padding: 4px 0px;
+  text-align: center;
+  border: 1px solid #000;
+  vertical-align: middle;
+  background-color: rgb(216, 216, 216);
+}
+
+.td {
+  padding: 4px 0px;
+  text-align: center;
+  border: 1px solid #000;
+  vertical-align: middle;
+}
+
+.nocenter {
+  text-align: left;
+  padding: 10px 8px;
+}
+
+.title {
+  margin: 100px 0 28px 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.small_title_box {
+  border: 1px solid #000;
+  padding: 8px;
+  margin: 10px 5%;
+  font-weight: 600;
+}
+
+@page {
+  size: A4;
+}
+
+@media print {
+  .report + .report {
+    margin-top: 0;
+  }
+}
+
+@media print {
+  .body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    margin: 10mm;
+  }
+}

@@ -1,16 +1,19 @@
 import styles from "@/app/(teacher)/setting/page.module.css";
-
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import { authOptions } from "../../api/auth/[...nextauth]/route";
 import { connectDB } from "@/utils/database";
 import ClassView from "@/components/class/view/class/view";
-import ClassHeader from "@/components/class/header/header";
 import ClassWrap from "@/components/class/wrap/wrap";
 import ClassLink from "@/components/class/link/link";
+import ClassLogout from "@/components/class/logout/logout";
+import { redirect } from "next/navigation";
 
 export default async function Setting() {
   const session: any = await getServerSession(authOptions);
+  if (!session) {
+    redirect("/");
+  }
   let db = (await connectDB).db("advocate");
   let userClass = await db
     .collection("class")
@@ -18,7 +21,10 @@ export default async function Setting() {
     .toArray();
   return (
     <ClassWrap>
-      <ClassHeader content="설정" />
+      <div className={styles.header}>
+        <p className={styles.title}>클래스 관리</p>
+        <ClassLogout />
+      </div>
       <div className={styles.user_default}>
         <Image
           src={session.user.user.profile}

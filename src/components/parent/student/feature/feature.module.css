@@ -1,0 +1,24 @@
+.feature {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  justify-content: space-between;
+  border-radius: 30px;
+  margin-top: 24px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--placeholder-color);
+  margin-bottom: 12px;
+}
+
+.content {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 40px;
+}

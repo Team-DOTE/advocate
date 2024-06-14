@@ -1,0 +1,17 @@
+.link {
+  color: var(--text-black-color);
+  text-decoration: none;
+}
+
+.back {
+  margin: 10px;
+  color: var(--text-gray-color);
+}
+
+.tag_wrap {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: flex;
+  margin-bottom: 20px;
+  overflow-x: scroll;
+}

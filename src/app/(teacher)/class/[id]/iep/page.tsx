@@ -1,36 +1,32 @@
 import styles from "@/app/(teacher)/class/[id]/iep/page.module.css";
-import ClassButton from "@/components/class/button/button";
 import ClassHeader from "@/components/class/header/header";
-import ClassInput from "@/components/class/input/input";
+import IepForm from "@/components/class/iep/form/form";
 import ClassWrap from "@/components/class/wrap/wrap";
+import { connectDB } from "@/utils/database";
 
-export default function Iep() {
+export default async function Iep({ params }: { params: { id: string } }) {
+  let db = (await connectDB).db("advocate");
+  let userStudents = await db
+    .collection("student")
+    .find({ classid: params.id })
+    .toArray();
+
+  function convertIdsToString(data: any) {
+    return data.map((item: any) => {
+      return {
+        ...item,
+        _id: item._id.toString(),
+      };
+    });
+  }
+
   return (
     <ClassWrap>
       <ClassHeader content="IEP 생성" />
-      <form method="POST" action="">
-        <ClassInput
-          content="IEP 생성 대상 학생을 선택해주세요."
-          name=""
-          placeholder="학생을 선택해주세요."
-        />
-        <ClassInput
-          content="IEP 생성 과목을 선택해주세요."
-          name=""
-          placeholder="IEP 생성 과목을 선택해주세요."
-        />
-        <ClassInput
-          content="선택한 과목에 대한 학생의 현행 수준을 자세히 작성해주세요."
-          name=""
-          placeholder="선택한 과목에 대한 학생의 현행 수준을 자세히 작성해주세요."
-        />
-        <ClassInput
-          content="교육 목적 및 기대 효과를 작성해주세요."
-          name=""
-          placeholder="교육 목적 및 기대 효과를 작성해주세요."
-        />
-        <ClassButton content="IEP 생성" />
-      </form>
+      <IepForm
+        params={params}
+        userStudents={convertIdsToString(userStudents)}
+      />
     </ClassWrap>
   );
 }

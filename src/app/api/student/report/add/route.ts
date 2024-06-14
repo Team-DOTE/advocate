@@ -47,12 +47,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
     modifytime: `${hours}시 ${minutes}분 ${seconds}초`,
   };
 
-  const redirectUrl =
-    session.user.user.role === "teacher"
-      ? new URL(`/class/${classid}/students/${student}`, request.url)
-      : new URL("/");
-  redirectUrl.searchParams.set("from", request.nextUrl.pathname);
-
   try {
     let db = (await connectDB).db("advocate");
     await db
@@ -62,11 +56,14 @@ export async function POST(request: NextRequest, response: NextResponse) {
         { $set: { report: true } }
       );
     await db.collection("report").insertOne(report);
-    // return Response.json({ status: 200, success: true, add: true });
-    return Response.redirect(redirectUrl.href);
+    if (session.user.user.role === "teacher") {
+      return Response.redirect(
+        process.env.URL + `/class/${classid}/students/${student}`
+      );
+    } else {
+      return Response.redirect(process.env.URL + "/");
+    }
   } catch (error) {
     return Response.json({ status: 500, error });
   }
 }
-
-// redirect

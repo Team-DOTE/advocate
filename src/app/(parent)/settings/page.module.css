@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 36px;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.info {
+  display: flex;
+  background-color: var(--primary-color);
+  padding: 20px;
+  border-radius: 30px;
+  align-items: center;
+}
+
+.profile {
+  width: 68px;
+  height: 68px;
+  border-radius: 100px;
+  margin-right: 16px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.telephone {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--placeholder-color);
+}
+
+.button_wrap {
+  display: flex;
+  margin-top: 20px;
+}

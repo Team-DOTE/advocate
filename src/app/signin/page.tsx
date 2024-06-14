@@ -14,6 +14,7 @@ export default function Signin() {
   const router = useRouter();
   const useridRef = useRef(null);
   const passwordRef = useRef(null);
+
   const handleSubmit = async () => {
     alert.loading("로딩중", { autoClose: false });
     const result = await signIn("credentials", {
@@ -32,6 +33,13 @@ export default function Signin() {
       alert.error("아이디 혹은 비밀번호가 잘못되었습니다.");
     }
   };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
   return (
     <div className={styles.signin}>
       <SignHeader content="로그인" />
@@ -41,8 +49,10 @@ export default function Signin() {
           name="userid"
           placeholder="아이디를 입력해주세요."
           autoFocus={true}
+          autoCapitalize="off"
           ref={useridRef}
           onChange={(e: any) => (useridRef.current = e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <input
           className={styles.input}
@@ -51,6 +61,7 @@ export default function Signin() {
           type="password"
           ref={passwordRef}
           onChange={(e: any) => (passwordRef.current = e.target.value)}
+          onKeyDown={handleKeyDown}
         />
       </div>
       <SignButton onClick={handleSubmit} content="로그인" />

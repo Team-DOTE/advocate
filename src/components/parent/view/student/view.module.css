@@ -1,0 +1,28 @@
+.student {
+  padding: 12px 24px 12px 24px;
+  display: flex;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: var(--active-color);
+}
+
+.student_info {
+  display: flex;
+  align-items: center;
+}
+
+.profile {
+  width: 48px;
+  height: auto;
+  margin-right: 16px;
+  border-radius: 100px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 500;
+}

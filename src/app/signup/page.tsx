@@ -5,18 +5,18 @@ import SignButton from "@/components/sign/button/button";
 import SignHeader from "@/components/sign/header/header";
 import SignInput from "@/components/sign/input/input";
 import SignLabel from "@/components/sign/label/label";
-import { alert } from "@/utils/alert";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Signup() {
   const params = useSearchParams();
+  const [error, setError] = useState(false);
   useEffect(() => {
     if (params.get("error") === "true") {
-      alert.error("해당 아이디는 이미 사용중입니다.");
+      setError(true);
     }
-  });
+  }, [params]);
   const [inputValue, setInputValue] = useState("");
   const handlePress = (e: any) => {
     const regex = /^[0-9\b -]{0,13}$/;
@@ -43,9 +43,15 @@ export default function Signup() {
       setInputValue(inputValue.replace(/-/g, ""));
     }
   }, [inputValue]);
+  const [role, setRole] = useState("");
   return (
     <div className={styles.signin}>
       <SignHeader content="회원가입" />
+      {error ? (
+        <p className={styles.error}>해당 아이디는 이미 사용중입니다.</p>
+      ) : (
+        ""
+      )}
       <form method="POST" action="/api/auth/register">
         <div className={styles.input_wrap}>
           <SignLabel content="아이디" />
@@ -72,8 +78,6 @@ export default function Signup() {
             onChange={handlePress}
             value={inputValue}
           />
-          <SignLabel content="학교명" />
-          <SignInput name="school" placeholder="학교명을 입력해주세요." />
           <div className={styles.radio_wrap}>
             <input
               required
@@ -81,6 +85,9 @@ export default function Signup() {
               type="radio"
               name="role"
               value="teacher"
+              onClick={() => {
+                setRole("teacher");
+              }}
             />
             선생님
             <input
@@ -89,8 +96,19 @@ export default function Signup() {
               type="radio"
               name="role"
               value="parent"
+              onClick={() => {
+                setRole("parent");
+              }}
             />
             보호자
+          </div>
+          <div style={role === "parent" ? { display: "none" } : {}}>
+            <SignLabel content="학교명" />
+            <SignInput
+              name="school"
+              placeholder="학교명을 입력해주세요."
+              nonRequired={role === "parent" ? true : false}
+            />
           </div>
           <div className={styles.radio}>
             <input

@@ -10,14 +10,15 @@ export default async function Students({ params }: { params: { id: string } }) {
   let userStudents = await db
     .collection("student")
     .find({ classid: params.id })
+    .sort({ name: 1 })
     .toArray();
 
   return (
     <ClassWrap>
       <ClassHeader content="학생 관리" />
-      {userStudents.map((student1, i) => (
+      {userStudents.map((student1, index) => (
         <StudentView
-          key={i}
+          key={index}
           name={student1.name}
           image={student1.profile}
           id={student1._id.toString()}

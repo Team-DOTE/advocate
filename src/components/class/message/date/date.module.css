@@ -1,0 +1,6 @@
+.date {
+  text-align: center;
+  font-size: 14px;
+  margin: 30px;
+  color: var(--text-gray-color);
+}

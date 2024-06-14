@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://dote-advocate.vercel.app"),
   title: "advocate",
   description: "특수교육의 새로운 패러다임을 열다.",
+  manifest: "/manifest.webmanifest",
+  themeColor: "#f8f8f8",
   openGraph: {
     title: "advocate",
     description: "특수교육의 새로운 패러다임을 열다.",

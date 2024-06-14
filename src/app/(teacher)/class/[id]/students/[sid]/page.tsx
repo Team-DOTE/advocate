@@ -8,6 +8,7 @@ import { connectDB } from "@/utils/database";
 import { ObjectId } from "mongodb";
 import Image from "next/image";
 import Link from "next/link";
+import edit from "@/../public/icons/edit.svg";
 
 export default async function StudentDetail({
   params,
@@ -48,9 +49,14 @@ export default async function StudentDetail({
           width={100}
           height={100}
         />
-
         <div className={styles.user_info}>
-          <p className={styles.user_name}>{`${student[0].name} 학생`}</p>
+          <div className={styles.top_wrap}>
+            <p className={styles.user_name}>{`${student[0].name} 학생`}</p>
+            <div style={{ marginLeft: "12px" }} />
+            <Link href={`edit/${params.sid}`}>
+              <Image src={edit} alt="modify" width={24} height={24} />
+            </Link>
+          </div>
           <p
             className={styles.user_school}
           >{`${student[0].school} ${student[0].studentid}`}</p>
@@ -68,6 +74,7 @@ export default async function StudentDetail({
       </div>
       <StudentFeature title="특이사항" content={student[0].significant} />
       <StudentInfo title="기초 조사서" content={<BasicReport />} />
+      <StudentInfo title="ID" content={student[0]._id.toString()} />
       <StudentDelete id={params.sid} />
     </ClassWrap>
   );
