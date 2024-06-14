@@ -49,13 +49,12 @@ export default async function StudentDetail({
           width={100}
           height={100}
         />
-
         <div className={styles.user_info}>
           <div className={styles.top_wrap}>
             <p className={styles.user_name}>{`${student[0].name} 학생`}</p>
-            <div style={{ marginLeft: "10px" }} />
+            <div style={{ marginLeft: "12px" }} />
             <Link href={`edit/${params.sid}`}>
-              <Image src={edit} alt="modify" />
+              <Image src={edit} alt="modify" width={24} height={24} />
             </Link>
           </div>
           <p
