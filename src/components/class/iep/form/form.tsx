@@ -25,7 +25,6 @@ export default function IepForm({
     });
 
     const data = await response.json();
-
     if (data.success == true) {
       router.push(
         `/class/${params.id}/iep/result/${data.iepdata._id.toString()}`
