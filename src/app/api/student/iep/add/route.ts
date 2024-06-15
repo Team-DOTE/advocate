@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/utils/database";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { ObjectId } from "mongodb";
 
 export async function POST(request: NextRequest, response: NextResponse) {
   const date = new Date();
@@ -23,6 +24,12 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
   try {
     let db = (await connectDB).db("advocate");
+    await db
+      .collection("student")
+      .updateOne(
+        { _id: new ObjectId(student?.toString()) },
+        { $set: { iep: true } }
+      );
     await db.collection("iep").insertOne(iep);
     let iepdata = await db
       .collection("iep")
