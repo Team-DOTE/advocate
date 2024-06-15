@@ -20,7 +20,6 @@ export default async function StudentDetail({
     .collection("student")
     .find({ _id: new ObjectId(params.sid) })
     .toArray();
-
   const report: boolean = student[0].report;
   function BasicReport() {
     if (report === true) {
@@ -33,6 +32,21 @@ export default async function StudentDetail({
       return (
         <Link className={styles.report} href={`/report/${params.sid}`}>
           없음 (작성하기)
+        </Link>
+      );
+    }
+  }
+  function BasicIEP() {
+    if (report === true) {
+      return (
+        <Link className={styles.report} href={`/class/${params.id}/students/${params.sid}/IEPlist`}>
+          보기
+        </Link>
+      );
+    } else {
+      return (
+        <Link className={styles.report} href={`/class/${params.id}/iep`}>
+          없음 (생성하기)
         </Link>
       );
     }
@@ -74,6 +88,7 @@ export default async function StudentDetail({
       </div>
       <StudentFeature title="특이사항" content={student[0].significant} />
       <StudentInfo title="기초 조사서" content={<BasicReport />} />
+      <StudentInfo title="IEP" content={<BasicIEP />} />
       <StudentInfo title="ID" content={student[0]._id.toString()} />
       <StudentDelete id={params.sid} />
     </ClassWrap>
