@@ -1,5 +1,5 @@
 'use client'
-import styles from "@/components/class/evaluate/evaluate.module.css";
+import styles from "@/components/class/evaluate/add/add.module.css";
 import ClassInput from "@/components/class/input/input";
 import { useRouter } from "next/navigation";
 import { alert } from "@/utils/alert";
@@ -18,7 +18,7 @@ export default function EvaluateForm({
         event.preventDefault();
     
         const formData = new FormData(event.currentTarget);
-        const response = await fetch("/api/students/evaluate", {
+        const response = await fetch("/api/student/evaluate/add", {
           method: "POST",
           body: formData,
         });
@@ -26,11 +26,11 @@ export default function EvaluateForm({
         const data = await response.json();
         if (data.success == true) {
           router.push(
-            `/class/${params.id}/students`
+            `/class/${params.id}/evaluate`
           );
           alert.success("평가가 완료되었습니다.");
         } else {
-          router.push(`/class/${params.id}/evaluate`);
+          router.push(`/class/${params.id}/evaluate/add`);
           alert.error("평가에 실패했습니다.");
         }
       }
@@ -47,7 +47,7 @@ export default function EvaluateForm({
           학생 목록
         </option>
         {userStudents.map((student, index) => (
-          <option key={index}>{student.name} 학생</option>
+          <option value={student._id} key={index}>{student.name} 학생</option>
         ))}
       </select>
       <ClassInput
@@ -62,7 +62,11 @@ export default function EvaluateForm({
         defaultValue={params.id}
         name="classid"
       />
-      <ClassButton content="평가 주제 추가" />
+      <input
+        style={{ display: "none" }}
+        name="classid"
+      />
+      <ClassButton content="평가 항목 추가" />
     </form>
   );
 }

@@ -23,6 +23,7 @@ export default async function Students({ params }: { params: { id: string } }) {
           image={student1.profile}
           id={student1._id.toString()}
           classid={params.id}
+          link="students"
         />
       ))}
       <ClassLink

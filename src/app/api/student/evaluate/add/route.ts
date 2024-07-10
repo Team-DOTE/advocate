@@ -1,22 +1,28 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "../../auth/[...nextauth]/route";
+
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/utils/database";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 
 
 export async function POST(request: NextRequest, response: NextResponse) {
-  const session: any = await getServerSession(authOptions);
   const date: any = new Date();
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const startdate: any = `${year}년 ${month}월 ${day}일`;
   const formData: any = await request.formData();
-  const student: any = formData.get("student");
+  const studentid: any = formData.get("student");
   const classid = formData.get("classid");
   const subject: any = formData.get("subject");
   const enddate = formData.get("enddate");
   const evaluate = {
+    startdate,
     enddate: `${enddate?.toString().substring(0, 4)}년 ${enddate
       ?.toString()
       .substring(5, 7)}월 ${enddate?.toString().substring(8, 10)}일`,
-    student,
+    studentid,
     subject,
     classid,
   };
