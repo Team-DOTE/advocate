@@ -28,10 +28,10 @@ export default function EvaluateForm({
           router.push(
             `/class/${params.id}/evaluate`
           );
-          alert.success("평가가 완료되었습니다.");
+          alert.success("평가 항목이 추가되었습니다.");
         } else {
           router.push(`/class/${params.id}/evaluate/add`);
-          alert.error("평가에 실패했습니다.");
+          alert.error("평가 항목 추가에 실패했습니다.");
         }
       }
   return (
