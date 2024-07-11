@@ -21,6 +21,15 @@ export default async function EvaluateList({params}:{params:{id:string, sid:stri
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
     const Converteddate: any = `${year}년 ${month}월 ${day}일`;
+    const startyear = evaluate.startdate.slice(0, 4);
+    const startmonth = evaluate.startdate.slice(6, 8);
+    const startday = evaluate.startdate.slice(10, 12);
+    const endyear = evaluate.enddate.slice(0, 4);
+    const endmonth = evaluate.enddate.slice(6, 8);
+    const endday = evaluate.enddate.slice(10, 12);
+    const dyear = endyear - startyear;
+    const dmonth = endmonth - startmonth;
+    const dday = endday - startday;
     let did = (Converteddate == evaluate.dates[evaluate.dates.length - 1]) ? true : false;
     
     
@@ -45,7 +54,7 @@ export default async function EvaluateList({params}:{params:{id:string, sid:stri
                     </div>
                     <div className={styles.date_wrap} style={{margin:"0"}}>
                         <div className={styles.date_title}>종료일 까지</div>
-                        <div className={styles.date_content}>{evaluate.startdate}</div>
+                        <div className={styles.date_content}>{(dyear)?`${dyear}년`:null} {(dmonth)?`${dmonth}개월`:null} {(dday)?`${dday}일`:null}{(dyear || dmonth || dday)?`남음`:`D-Day`}</div>
                     </div>
                 </div>
             </div>
