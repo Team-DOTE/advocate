@@ -9,16 +9,6 @@
       margin: 20px 0 20px 0;
     }
     
-    .input {
-      padding: 20px 0px 20px 36px;
-      box-sizing: border-box;
-      width: 100%;
-      border-radius: 30px;
-      background-color: var(--primary-color);
-      border: none;
-      font-size: 16px;
-      font-weight: 500;
-    }
     
     .button {
       width: 100%;
@@ -40,10 +30,28 @@
       font-weight: 500;
       margin: 20px 0 20px 0;
     }
+    .input {
+      padding: 20px 0px 20px 36px;
+      box-sizing: border-box;
+      width: 13%;
+      border-radius: 30px;
+      background-color: var(--primary-color);
+      border: none;
+      font-size: 40px;
+      font-weight: 500;
+    }
+    .range_wrap{
+      display: flex;
+      justify-content: space-between;
+      background-color: var(--primary-color);
+      padding: 30px;
+      border-radius: 30px;
+      align-items: center;
+    }
     .rangeInput {
       -webkit-appearance: none;
       appearance: none;
-      width: 100%; 
+      width: 90%; 
       height: 10px;
       border-radius: 10px; 
       background: var(--graph-color); 

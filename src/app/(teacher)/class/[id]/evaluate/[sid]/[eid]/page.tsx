@@ -16,16 +16,23 @@ export default async function EvaluateList({params}:{params:{id:string, sid:stri
     let student:any = await db.collection("student").findOne({ _id : studentObjectId });
     let name:any = student.name;
     let evaluate:any = await db.collection("evaluate").findOne({ _id : evaluateObjectId});
+    const date: any = new Date();
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const Converteddate: any = `${year}년 ${month}월 ${day}일`;
+    let did = (Converteddate == evaluate.dates[evaluate.dates.length - 1]) ? true : false;
+    
     
     return(
         <ClassWrap>
             <ClassHeader content={`${name}의 ${evaluate.subject} 성취도 평가`}/>
-            <EvaluatecontentForm params={params} firstvalue={evaluate.content[evaluate.content.length - 1]}/>
+            <EvaluatecontentForm params={params} firstvalue={evaluate.content[evaluate.content.length - 1]} did = {did}/>
             <div className={styles.evaluate_info}>
                 <div className={styles.level_wrap}>
-                    <div className={styles.level_title}>저번 성취도</div>
+                    <div className={styles.level_title}>최근 성취도</div>
                     <div className={styles.level_date}>{evaluate.startdate}</div>
-                    <div className={styles.level_content}>{`${evaluate.content[evaluate.content.length - 1]}%`}</div>
+                    <div className={styles.level_content}>{(did)?`${evaluate.content[evaluate.content.length - 1]}%`:`0%`}</div>
                 </div>
                 <div className={styles.dates_wrap}>
                     <div className={styles.date_wrap}>
