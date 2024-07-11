@@ -17,6 +17,8 @@ export async function POST(request: NextRequest, response: NextResponse) {
   const classid = formData.get("classid");
   const subject: any = formData.get("subject");
   const enddate = formData.get("enddate");
+  const content:any = [];
+  const dates:any = [];
   const evaluate = {
     startdate,
     enddate: `${enddate?.toString().substring(0, 4)}년 ${enddate
@@ -25,6 +27,8 @@ export async function POST(request: NextRequest, response: NextResponse) {
     studentid,
     subject,
     classid,
+    content,
+    dates
   };
   try {
     let db = (await connectDB).db("advocate");
