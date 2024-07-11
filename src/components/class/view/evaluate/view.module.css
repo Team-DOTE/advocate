@@ -6,6 +6,12 @@
     margin-bottom: 20px;
     justify-content: space-between;
     align-items: center;
+  }
+  .wrap{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
     text-decoration: none;
     color: var(--active-color);
   }
@@ -18,9 +24,17 @@
   .date{
     color: var(--text-gray-color);
   }
-  
+  .end_wrap{
+    display: flex;
+    align-items: center;
+  }
   .name {
     font-size: 30px;
     font-weight: 500;
   }
-  
+  .class_button_del {
+    background-color: var(--primary-color);
+    border: none;
+    margin-left: 8px;
+    cursor: pointer;
+  }
