@@ -23,6 +23,7 @@ export default function Graph({
     const ctx = chartRef.current.getContext('2d');
     const style = getComputedStyle(document.body);
     const graphcolor = style.getPropertyValue('--graph-color');
+    
     const config:any = {
       type: 'line', 
       data: {
@@ -37,14 +38,30 @@ export default function Graph({
         }]
       },
       options: {
+        layout: {
+          padding: {
+            top: 10,
+            bottom: 20,
+            left: 20,
+            right: 20
+          }
+        },
         scales: {
           x: {
-            type: 'category', 
+            type: 'category',
+            position: 'bottom', 
           },
           y: {
             type: 'linear',
             beginAtZero: true,
-            max: 100
+            max: 100,
+            position: 'left'
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'bottom',
+            align: 'end'
           }
         }
       }
@@ -55,7 +72,7 @@ export default function Graph({
     return () => {
       myChart.destroy();
     };
-  }, );
+}, []);
 
   return (
     <div className={styles.container}>
