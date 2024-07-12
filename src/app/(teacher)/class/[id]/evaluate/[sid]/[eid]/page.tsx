@@ -90,7 +90,7 @@ export default async function EvaluateList({
                     {dyear ? `${dyear}년` : null}{" "}
                     {dmonth ? `${vmonth}개월` : null}{" "}
                     {dday ? `${vday}일` : null}
-                    {dyear || dmonth || dday ? `남음` : `D-Day`}
+                    {dyear || dmonth || dday ? ` 남음` : `D-Day`}
                   </div>
                 </div>
               </div>

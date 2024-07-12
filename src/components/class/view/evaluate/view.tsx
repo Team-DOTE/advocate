@@ -13,16 +13,16 @@ export default async function EvaluateView({
   id,
 }: {
   subject: string;
-  enddate: string;
+  enddate: any;
   startdate: string;
   studentid: string;
   classid: string;
   id: string;
 }) {
-  const date: any = new Date();
+  const date = new Date();
   const year = date.getFullYear();
-  const month: any = String(date.getMonth() + 1).padStart(2, "0");
-  const day: any = String(date.getDate()).padStart(2, "0");
+  const month:any = String(date.getMonth() + 1).padStart(2, "0");
+  const day:any = String(date.getDate()).padStart(2, "0");
   const endyear:any = enddate.slice(0, 4);
   const endmonth:any = enddate.slice(6, 8);
   const endday:any = enddate.slice(10, 12);
