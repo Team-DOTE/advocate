@@ -11,7 +11,7 @@ export default async function EvaluateList({params}:{params:{id:string, sid:stri
     let studentObjectId = new ObjectId(params.sid);
     let student:any = await db.collection("student").findOne({ _id : studentObjectId });
     let name:any = student.name;
-    let evaluates = await db.collection("evaluate").find({ studentid: params.sid }).toArray();
+    let evaluates = await db.collection("evaluate").find({ studentid: params.sid }).sort({ startdate: -1 }).toArray();
     return(
         <ClassWrap>
             <ClassHeader content={`${name}의 평가 항목`}/>
