@@ -28,7 +28,7 @@ export default async function EvaluateList({
 
   return (
     <ClassWrap>
-      <ClassHeader content={`${name}의 평가 항목`} />
+      <ClassHeader content={`${name} 학생의 평가 항목`} />
       {evaluates.length > 0 ? (
         <FilterEvaluate evaluates={evaluates} />
       ) : (

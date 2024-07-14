@@ -48,7 +48,7 @@ export default async function EvaluateList({
 
   return (
     <ClassWrap>
-      <ClassHeader content={`${name}의 ${evaluate.subject} 성취도 평가`} />
+      <ClassHeader content={`${name} 학생의 ${evaluate.subject} 성취도 평가`} />
       <div>
         {expired ? (
           <div className={styles.expired}>평가가 종료되었습니다.</div>
@@ -97,7 +97,7 @@ export default async function EvaluateList({
         )}
       </div>
       <div className={styles.graph_wrap}>
-        <div className={styles.graph_title}>성취도 그래프</div>
+        <div className={styles.graph_title}>{`${name} 학생의 성취도 그래프`}</div>
         <div className={styles.graph_content}>
           <Graph
             title={`${evaluate.subject}`}
