@@ -1,7 +1,9 @@
 "use client";
 
 import styles from "@/components/class/evaluate/form/form.module.css";
-import { useState } from "react";
+import { alert } from "@/utils/alert";
+import { useRouter } from "next/navigation";
+import { FormEvent, useState } from "react";
 
 export default function EvaluatecontentForm({
   params,
@@ -14,6 +16,25 @@ export default function EvaluatecontentForm({
 }) {
   const [content, setContent] = useState(did ? firstvalue : 0);
   const [url, setUrl] = useState("/api/student/evaluate/edit");
+  const router = useRouter();
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const response = await fetch(url, {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+    if (data.success == true) {
+      router.push(`/class/${params.id}/evaluate/${params.sid}/${params.eid}`);
+      alert.success(did ? "평가가 취소되었습니다." : "평가 완료!");
+    } else {
+      router.push(`/class/${params.id}/evaluate/add`);
+      alert.error(did ? "평가 취소 실패" : "평가 실패!");
+    }
+  }
 
   const NumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let value: any = event.target.value.replace("%", "");
@@ -25,7 +46,7 @@ export default function EvaluatecontentForm({
   };
 
   return (
-    <form action={url} method="POST">
+    <form onSubmit={onSubmit}>
       <p className={styles.content}>오늘의 성취도</p>
       <div className={styles.input_wrap}>
         <div className={styles.range_wrap}>

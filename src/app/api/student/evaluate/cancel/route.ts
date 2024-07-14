@@ -19,14 +19,12 @@ export async function POST(request: NextRequest, response: NextResponse) {
       { _id: new ObjectId(id?.toString()) },
       {
         $pop: {
-          content: 1, 
-          dates: 1, 
+          content: 1,
+          dates: 1,
         },
       }
     );
-    return Response.redirect(
-      process.env.URL + `/class/${classid}/evaluate/${studentid}/${id}`
-    );
+    return Response.json({ status: 200, success: true });
   } catch (error) {
     return Response.json({ status: 500, error });
   }
