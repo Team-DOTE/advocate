@@ -14,15 +14,13 @@ export default async function EvaluateList({
   params: { id: string; sid: string; eid: string };
 }) {
   let db = (await connectDB).db("advocate");
-  let studentObjectId = new ObjectId(params.sid);
-  let evaluateObjectId = new ObjectId(params.eid);
   let student: any = await db
     .collection("student")
-    .findOne({ _id: studentObjectId });
+    .findOne({ _id: new ObjectId(params.sid) });
   let name: any = student.name;
   let evaluate: any = await db
     .collection("evaluate")
-    .findOne({ _id: evaluateObjectId });
+    .findOne({ _id: new ObjectId(params.eid) });
   const maxcontent = Math.max(...evaluate.content);
   const date: any = new Date();
   const year = date.getFullYear();
@@ -126,7 +124,7 @@ export default async function EvaluateList({
               </div>
             </div>
           </div>
-        ) : null}
+        ) : <div></div>}
       </div>
     </ClassWrap>
   );

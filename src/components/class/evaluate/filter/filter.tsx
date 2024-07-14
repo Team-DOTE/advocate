@@ -25,13 +25,13 @@ export default function FilterEvaluate({ evaluates }: { evaluates: any }) {
           onClick={() => setFilterState(2)}
           className={filterState === 2 ? styles.btn_selected : styles.btn}
         >
-          평가 중
+          평가 중인 항목
         </button>
         <button
           onClick={() => setFilterState(1)}
           className={filterState === 1 ? styles.btn_selected : styles.btn}
         >
-          평가 완료
+          평가가 완료된 항목
         </button>
       </div>
 

@@ -72,7 +72,7 @@ export default function Graph({
     return () => {
       myChart.destroy();
     };
-}, []);
+}, );
 
   return (
     <div className={styles.container}>

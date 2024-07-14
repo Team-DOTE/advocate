@@ -20,7 +20,7 @@ export default function StudentView({
       <div className={styles.student_info}>
         <Image
           className={styles.profile}
-          src={image} //image
+          src={image} 
           alt="students-img"
           width={48}
           height={48}

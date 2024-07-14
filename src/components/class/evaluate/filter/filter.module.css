@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 40px;
+    padding: 0px 40px 40px 40px;
 
 }
 .btn{
@@ -10,7 +10,7 @@
     cursor: pointer;
     border: none;
     background-color: var(--manual-tag-color);
-    border-radius: 20px;
+    border-radius: 30px;
     font-size: 20px;
     font-weight: 500;
 }
@@ -19,7 +19,7 @@
     cursor: pointer;
     border: none;
     background-color: var(--manual-tag-hover-color);
-    border-radius: 20px;
+    border-radius: 30px;
     font-size: 20px;
     font-weight: 500;
 }

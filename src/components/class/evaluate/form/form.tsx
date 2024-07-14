@@ -13,73 +13,50 @@ export default function EvaluatecontentForm({
   did: boolean;
 }) {
   const [content, setContent] = useState(did ? firstvalue : 0);
-  const [actionUrl, setActionUrl] = useState("/api/student/evaluate/edit");
-  const handleNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const [url, setUrl] = useState("/api/student/evaluate/edit");
+
+  const NumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let value: any = event.target.value.replace("%", "");
     setContent(value);
   };
-  const gradientStyle = {
+
+  const gradient = {
     background: `linear-gradient(to right, var(--graph-color) ${content}%, var(--range-color) ${content}%)`,
   };
 
   return (
-    <form action={actionUrl} method="POST">
+    <form action={url} method="POST">
       <p className={styles.content}>오늘의 성취도</p>
       <div className={styles.input_wrap}>
         <div className={styles.range_wrap}>
-          {did ? (
-            <input className={styles.input} value={`${content}%`} required />
-          ) : (
-            <input
-              className={styles.input}
-              value={`${content}%`}
-              onChange={handleNumberChange}
-              required
-            />
-          )}
-          {did ? (
-            <input
-              type="range"
-              name="content"
-              className={styles.rangeInput}
-              min="0"
-              max="100"
-              value={content}
-              style={gradientStyle}
-            />
-          ) : (
-            <input
-              type="range"
-              name="content"
-              className={styles.rangeInput}
-              min="0"
-              max="100"
-              value={content}
-              onChange={(event: any) => setContent(event.target.value)}
-              style={gradientStyle}
-            />
-          )}
+          <input
+            className={styles.input}
+            value={`${content}%`}
+            onChange={NumberChange}
+            required
+            readOnly={did}
+          />
+          <input
+            type="range"
+            name="content"
+            className={styles.rangeInput}
+            min="0"
+            max="100"
+            value={content}
+            onChange={(event: any) => setContent(event.target.value)}
+            style={gradient}
+            readOnly={did}
+            disabled={did}
+          />
         </div>
-        <input
-          style={{ display: "none" }}
-          defaultValue={params.id}
-          name="classid"
-        />
-        <input
-          style={{ display: "none" }}
-          defaultValue={params.sid}
-          name="studentid"
-        />
-        <input
-          style={{ display: "none" }}
-          defaultValue={params.eid}
-          name="id"
-        />
+        <input type="hidden" defaultValue={params.id} name="classid" />
+        <input type="hidden" defaultValue={params.sid} name="studentid" />
+        <input type="hidden" defaultValue={params.eid} name="id" />
         {did ? (
           <button
             type="submit"
             className={styles.button}
-            onClick={() => setActionUrl("/api/student/evaluate/cancel")}
+            onClick={() => setUrl("/api/student/evaluate/cancel")}
           >
             평가 취소
           </button>
@@ -87,7 +64,7 @@ export default function EvaluatecontentForm({
           <button
             type="submit"
             className={styles.button}
-            onClick={() => setActionUrl("/api/student/evaluate/edit")}
+            onClick={() => setUrl("/api/student/evaluate/edit")}
           >
             평가
           </button>
