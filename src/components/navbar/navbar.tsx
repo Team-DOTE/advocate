@@ -8,6 +8,7 @@ import user from "@/../public/icons/user.svg";
 import iep from "@/../public/icons/iep.svg";
 import manual from "@/../public/icons/manual.svg";
 import add from "@/../public/icons/chat-add.svg";
+import evaluate from "@/../public/icons/evaluate.svg"
 import UserInfo from "./info/user/user";
 import ClassInfo from "./info/class/class";
 import Menu from "@/components/navbar/menu/menu";
@@ -73,6 +74,13 @@ export default function Navbar({
               alt="manual icon"
               title="대처 매뉴얼"
               name="manual"
+            />
+            <Menu
+              link={"/class/" + classid + "/evaluate"}
+              src={evaluate}
+              alt="evaluate icon"
+              title="성취도 평가"
+              name="evaluate"
             />
           </div>
           <div>
