@@ -1,0 +1,61 @@
+.evaluate {
+  background-color: var(--primary-color);
+    padding-right: 36px;
+    display: flex;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .evaluate_expired {
+    background-color: var(--evaluate-expired-color);
+    padding-right: 36px;
+    display: flex;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .wrap{
+    padding: 30px 36px 30px 36px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--active-color);
+  }
+  
+  .student_info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .date{
+    color: var(--text-gray-color);
+  }
+  .end_wrap{
+    display: flex;
+    align-items: center;
+  }
+  .name {
+    font-size: 30px;
+    font-weight: 500;
+  }
+  .name_expired {
+    color: var(--text-gray-color);
+    font-size: 30px;
+    font-weight: 500;
+  }
+  .evaluate_button_del {
+    background-color: var(--primary-color);
+    border: none;
+    margin-left: 8px;
+    cursor: pointer;
+  }
+  .evaluate_button_del_expired {
+    background-color: var(--evaluate-expired-color);
+    border: none;
+    margin-left: 8px;
+    cursor: pointer;
+  }

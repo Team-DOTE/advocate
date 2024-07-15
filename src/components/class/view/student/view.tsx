@@ -7,18 +7,20 @@ export default function StudentView({
   image,
   id,
   classid,
+  link
 }: {
   name: string;
   image: string;
   id: string;
   classid: string;
+  link: string
 }) {
   return (
-    <Link href={`/class/${classid}/students/${id}`} className={styles.student}>
+    <Link href={`/class/${classid}/${link}/${id}`} className={styles.student}>
       <div className={styles.student_info}>
         <Image
           className={styles.profile}
-          src={image} //image
+          src={image} 
           alt="students-img"
           width={48}
           height={48}

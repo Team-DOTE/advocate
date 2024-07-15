@@ -1,0 +1,78 @@
+
+  .container {
+      margin: 36px 36px 0 36px;
+    }
+    
+    .content {
+      font-size: 20px;
+      font-weight: 500;
+      margin: 20px 0 20px 0;
+    }
+    
+    
+    .button {
+      width: 100%;
+      border: none;
+      background-color: var(--button-color);
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 500;
+      margin-top: 36px;
+      padding: 16px 0 16px 0;
+      justify-content: center;
+      border-radius: 70px;
+      margin-bottom: 36px;
+      cursor: pointer;
+    }
+    .content{
+      font-size: 20px;
+      font-weight: 500;
+      margin: 20px 0 20px 0;
+    }
+    .input {
+      padding: 20px 0px 20px 0px;
+      text-align: center;
+      box-sizing: border-box;
+      width: 13%;
+      border-radius: 30px;
+      background-color: var(--primary-color);
+      border: none;
+      font-size: 3vw;
+      font-weight: 500;
+    }
+    .range_wrap{
+      display: flex;
+      justify-content: space-between;
+      background-color: var(--primary-color);
+      padding: 30px;
+      border-radius: 30px;
+      align-items: center;
+    }
+    .rangeInput {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 90%; 
+      height: 10px;
+      border-radius: 10px; 
+      outline: none; 
+      margin: 10px 0; 
+    }
+    
+    .rangeInput::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 30px; 
+      height: 30px; 
+      background: var(--graph-color); 
+      cursor: pointer; 
+      border-radius: 50%; 
+    }
+    
+    .rangeInput::-moz-range-thumb {
+      width: 25px; 
+      height: 25px; 
+      background: var(--graph-color);
+      cursor: pointer; 
+      border-radius: 50%;
+    }
