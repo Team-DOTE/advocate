@@ -15,6 +15,7 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
     useEffect(() => {
       setIsClient(true);
     }, []);
+    console.log(content);
     return (
       <section ref={ref} className={styles.body}>
         {isClient && content._id !== null ? (
@@ -37,7 +38,7 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                       style={{ width: "25%" }}
                       className={styles.td}
                     >
-                      ㅋ
+                      {content.name}
                     </td>
                     <th
                       scope="col"
@@ -50,7 +51,9 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                       scope="col"
                       style={{ width: "25%" }}
                       className={styles.td}
-                    ></td>
+                    >
+                      {content.birthdate}
+                    </td>
                   </tr>
                   <tr>
                     <th
@@ -64,7 +67,9 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                       scope="col"
                       style={{ width: "25%" }}
                       className={styles.td}
-                    ></td>
+                    >
+                      {content.sex}
+                    </td>
                     <th
                       scope="col"
                       style={{ width: "25%" }}
@@ -76,15 +81,21 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                       scope="col"
                       style={{ width: "25%" }}
                       className={styles.td}
-                    ></td>
+                    >
+                      {content.studentid}
+                    </td>
                   </tr>
                   <tr>
                     <th className={styles.th}>장애 유형/정도</th>
-                    <td colSpan={3} className={styles.td}></td>
+                    <td colSpan={3} className={styles.td}>
+                      {content.disability}
+                    </td>
                   </tr>
                   <tr>
                     <th className={styles.th}>작성일</th>
-                    <td colSpan={3} className={styles.td}></td>
+                    <td colSpan={3} className={styles.td}>
+                      {content.date.slice(0, 10)}
+                    </td>
                   </tr>
                 </table>
               </div>
@@ -119,7 +130,15 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                       scope="col"
                       style={{ width: "78%" }}
                       className={`${styles.nocenter} ${styles.td}`}
-                    ></td>
+                    >
+                      {content.content.strength.map(
+                        (element: string, index: number) => (
+                          <div key={index}>
+                            <p>{element}</p>
+                          </div>
+                        )
+                      )}
+                    </td>
                   </tr>
                   <tr>
                     <th
@@ -132,7 +151,15 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                     <td
                       scope="col"
                       className={`${styles.nocenter} ${styles.td}`}
-                    ></td>
+                    >
+                      {content.content.weakness.map(
+                        (element: string, index: number) => (
+                          <div key={index}>
+                            <p>{element}</p>
+                          </div>
+                        )
+                      )}
+                    </td>
                   </tr>
                 </table>
               </div>
@@ -152,7 +179,9 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                     >
                       이름
                     </th>
-                    <td colSpan={2} className={styles.td}></td>
+                    <td colSpan={2} className={styles.td}>
+                      {content.name}
+                    </td>
                     <th
                       scope="col"
                       style={{ width: "18.75%" }}
@@ -185,7 +214,9 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                       scope="col"
                       style={{ width: "18.75%" }}
                       className={styles.td}
-                    ></td>
+                    >
+                      {content.date.slice(0, 10)}
+                    </td>
                     <th
                       scope="col"
                       style={{ width: "18.75%" }}
@@ -201,16 +232,26 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                   </tr>
                   <tr>
                     <th className={styles.th}>과목/영역</th>
-                    <td colSpan={4} className={styles.td}></td>
+                    <td colSpan={4} className={styles.td}>
+                      {content.subject}
+                    </td>
                   </tr>
                   <tr>
                     <th style={{ padding: "50px 0px" }} className={styles.th}>
-                      교육목표
+                      문제행동
                     </th>
                     <td
                       colSpan={4}
                       className={`${styles.nocenter} ${styles.td}`}
-                    ></td>
+                    >
+                      {content.content.problem.map(
+                        (element: string, index: number) => (
+                          <div key={index}>
+                            <p>{element}</p>
+                          </div>
+                        )
+                      )}
+                    </td>
                   </tr>
                   <tr>
                     <th style={{ padding: "100px 0px" }} className={styles.th}>
@@ -219,7 +260,15 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                     <td
                       colSpan={4}
                       className={`${styles.nocenter} ${styles.td}`}
-                    ></td>
+                    >
+                      {content.content.lesson.map(
+                        (element: string, index: number) => (
+                          <div key={index}>
+                            <p>{element}</p>
+                          </div>
+                        )
+                      )}
+                    </td>
                   </tr>
                   <tr>
                     <th style={{ padding: "50px 0px" }} className={styles.th}>
@@ -228,7 +277,15 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                     <td
                       colSpan={4}
                       className={`${styles.nocenter} ${styles.td}`}
-                    ></td>
+                    >
+                      {content.content.evaluate.map(
+                        (element: string, index: number) => (
+                          <div key={index}>
+                            <p>{element}</p>
+                          </div>
+                        )
+                      )}
+                    </td>
                   </tr>
                 </table>
               </div>
@@ -244,7 +301,15 @@ const IepReport = forwardRef<HTMLDivElement, ReportProps>(
                       style={{ height: "250px", width: "50%" }}
                       className={`${styles.nocenter} ${styles.td}`}
                       id="지원 내용"
-                    ></td>
+                    >
+                      {content.content.family.map(
+                        (element: string, index: number) => (
+                          <div key={index}>
+                            <p>{element}</p>
+                          </div>
+                        )
+                      )}
+                    </td>
                   </tr>
                 </table>
                 <div style={{ height: "20px" }}></div>

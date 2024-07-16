@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 import ClassInput from "@/components/class/input/input";
 import ClassButton from "@/components/class/button/button";
+import ClassTextarea from "../../textarea/textarea";
 
 export default function IepForm({
   params,
@@ -58,12 +59,12 @@ export default function IepForm({
         name="subject"
         placeholder="IEP 생성 과목을 선택해주세요."
       />
-      <ClassInput
+      <ClassTextarea
         content="선택한 과목에 대한 학생의 현행 수준을 자세히 작성해주세요."
         name="level"
         placeholder="선택한 과목에 대한 학생의 현행 수준을 자세히 작성해주세요."
       />
-      <ClassInput
+      <ClassTextarea
         content="교육 목적 및 기대 효과를 작성해주세요."
         name="purpose"
         placeholder="교육 목적 및 기대 효과를 작성해주세요."
