@@ -25,9 +25,7 @@ export default function EvaluateForm({
     
         const data = await response.json();
         if (data.success == true) {
-          router.push(
-            `/class/${params.id}/evaluate`
-          );
+          router.back();
           alert.success("평가 항목이 추가되었습니다.");
         } else {
           router.push(`/class/${params.id}/evaluate/add`);

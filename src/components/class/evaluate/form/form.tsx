@@ -28,7 +28,7 @@ export default function EvaluatecontentForm({
 
     const data = await response.json();
     if (data.success == true) {
-      router.push(`/class/${params.id}/evaluate/${params.sid}/${params.eid}`);
+      router.refresh()
       alert.success(did ? "평가가 취소되었습니다." : "평가 완료!");
     } else {
       router.push(`/class/${params.id}/evaluate/add`);
