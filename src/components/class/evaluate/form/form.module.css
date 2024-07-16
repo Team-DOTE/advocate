@@ -76,3 +76,8 @@
       cursor: pointer; 
       border-radius: 50%;
     }
+    .comment_wrap{
+      padding: 10px;
+      background-color: var(--primary-color);
+      border-radius: 30px;
+    }

@@ -21,6 +21,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
         $pop: {
           content: 1,
           dates: 1,
+          comments: 1
         },
       }
     );

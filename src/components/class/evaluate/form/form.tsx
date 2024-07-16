@@ -4,6 +4,8 @@ import styles from "@/components/class/evaluate/form/form.module.css";
 import { alert } from "@/utils/alert";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
+import ClassInput from "../../input/input";
+import ClassTextarea from "../../textarea/textarea";
 
 export default function EvaluatecontentForm({
   params,
@@ -28,7 +30,7 @@ export default function EvaluatecontentForm({
 
     const data = await response.json();
     if (data.success == true) {
-      router.refresh()
+      router.refresh();
       alert.success(did ? "평가가 취소되었습니다." : "평가 완료!");
     } else {
       router.push(`/class/${params.id}/evaluate/add`);
@@ -70,6 +72,11 @@ export default function EvaluatecontentForm({
             disabled={did}
           />
         </div>
+        <ClassTextarea
+          content="오늘의 코멘트"
+          placeholder="오늘의 코멘트를 남겨주세요."
+          name="comment"
+        />
         <input type="hidden" defaultValue={params.id} name="classid" />
         <input type="hidden" defaultValue={params.sid} name="studentid" />
         <input type="hidden" defaultValue={params.eid} name="id" />

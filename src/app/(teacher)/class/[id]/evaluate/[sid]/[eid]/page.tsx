@@ -36,11 +36,12 @@ export default async function EvaluateList({
   const dyear = endyear - year;
   const dmonth = endmonth - month;
   const dday = endday - day;
-  const vmonth = dmonth>0?dmonth:12+dmonth;
-  const getLastDayOfMonth = (year:number, month:number) => {
+  const vmonth = dmonth > 0 ? dmonth : 12 + dmonth;
+  const getLastDayOfMonth = (year: number, month: number) => {
     return new Date(year, month, 0).getDate();
   };
-  const vday = dday>0?dday: getLastDayOfMonth(startyear,startmonth) + dday;
+  const vday =
+    dday > 0 ? dday : getLastDayOfMonth(startyear, startmonth) + dday;
   let did =
     Converteddate == evaluate.dates[evaluate.dates.length - 1] ? true : false;
   let first = evaluate.dates[0] ? false : true;
@@ -61,14 +62,16 @@ export default async function EvaluateList({
             />
             <div className={styles.evaluate_info}>
               <div className={styles.level_wrap}>
-                <div className={styles.level_title}>최근 성취도</div>
-                <div className={styles.level_date}>
-                  {evaluate.dates[evaluate.dates.length - 1]}
-                </div>
-                <div className={styles.level_content}>
-                  {!first
-                    ? `${evaluate.content[evaluate.content.length - 1]}%`
-                    : `0%`}
+                <div className={styles.level_wrap_wrap}>
+                  <div className={styles.level_title}>최근 성취도</div>
+                  <div className={styles.level_date}>
+                    {evaluate.dates[evaluate.dates.length - 1]}
+                  </div>
+                  <div className={styles.level_content}>
+                    {!first
+                      ? `${evaluate.content[evaluate.content.length - 1]}%`
+                      : `0%`}
+                  </div>
                 </div>
               </div>
               <div className={styles.dates_wrap}>
@@ -97,7 +100,9 @@ export default async function EvaluateList({
         )}
       </div>
       <div className={styles.graph_wrap}>
-        <div className={styles.graph_title}>{`${name} 학생의 성취도 그래프`}</div>
+        <div
+          className={styles.graph_title}
+        >{`${name} 학생의 성취도 그래프`}</div>
         <div className={styles.graph_content}>
           <Graph
             title={`${evaluate.subject}`}
@@ -124,7 +129,9 @@ export default async function EvaluateList({
               </div>
             </div>
           </div>
-        ) : <div></div>}
+        ) : (
+          <div></div>
+        )}
       </div>
     </ClassWrap>
   );
