@@ -17,6 +17,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
   const studentid = formData.get("studentid");
   const id = formData.get("id");
   const content = formData.get("content");
+  const comment = formData.get("comment");
 
   try {
     let db = (await connectDB).db("advocate");
@@ -26,6 +27,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
         $push: {
           content: content,
           dates: Converteddate,
+          comments: comment
         },
       }
     );

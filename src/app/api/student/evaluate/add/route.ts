@@ -16,6 +16,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
   const enddate = formData.get("enddate");
   const content:any = [];
   const dates:any = [];
+  const comments:any = [];
   const evaluate = {
     startdate,
     enddate: `${enddate?.toString().substring(0, 4)}년 ${enddate

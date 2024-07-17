@@ -11,7 +11,7 @@ export default async function IEPList({
   let db = (await connectDB).db("advocate");
   let IEP = await db
     .collection("iep")
-    .find({ "content.student": params.sid })
+    .find({ "student": params.sid })
     .toArray();
   return (
     <ClassWrap>
@@ -22,7 +22,7 @@ export default async function IEPList({
           <IEPView
             key={i}
             subject={iep.subject}
-            classid={iep.classid}
+            classid={params.id}
             iepid={iep._id.toString()}
             iepdate={iep.date.toString()}
           />
