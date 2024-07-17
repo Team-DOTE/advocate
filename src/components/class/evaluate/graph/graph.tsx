@@ -144,8 +144,8 @@ export default function Graph({
         <div className={styles.graph_content}>
           <div className={styles.container}>
             <h1>{title}</h1>
-            <div className={styles.chart_container}>
-              <canvas ref={chartRef} className={styles.chart}></canvas>
+            <div className={styles.graph_container}>
+              <canvas ref={chartRef} className={styles.graph}></canvas>
             </div>
           </div>
         </div>
