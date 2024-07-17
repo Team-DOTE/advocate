@@ -64,13 +64,13 @@ export default async function StudentReport({
             content="강점"
             placeholder="학생이 대근육과 소근육을 사용하여 걷기, 뛰기, 이동하기, 놀이도구 사용, 사물조작능력, 도구사용능력 등의 신체활동에서 원활히 잘 수행하는 부분을 설명해주세요."
             name="exercise_strength"
-            defaultValue={report[0]?.adaption_strength || ""}
+            defaultValue={report[0]?.exercise_strength || ""}
           />
           <ClassTextarea
             content="지도점"
             placeholder="학생이 대근육과 소근육을 사용하여 걷기, 뛰기, 이동하기, 놀이도구 사용, 사물조작능력, 도구사용능력 등을 수행하는데 지도가 필요한 부분을 설명해주세요."
             name="exercise_weakness"
-            defaultValue={report[0]?.adaption_weakness || ""}
+            defaultValue={report[0]?.exercise_weakness || ""}
           />
         </div>
         <div className={styles.content}>3. 사회성</div>
@@ -79,13 +79,13 @@ export default async function StudentReport({
             content="강점"
             placeholder="학생의 인사하기, 기다리기, 규칙 지키기, 감정 표현하기와 이해하기, 놀이 등의 능력에서 원활히 잘 수행하는 부분을 설명해주세요."
             name="sociality_strength"
-            defaultValue={report[0]?.adaption_strength || ""}
+            defaultValue={report[0]?.sociality_strength || ""}
           />
           <ClassTextarea
             content="지도점"
             placeholder="학생의 인사하기, 기다리기, 규칙 지키기, 감정 표현하기와 이해하기, 놀이 등의 능력을 수행하는데 지도가 필요한 부분을 설명해주세요."
             name="sociality_weakness"
-            defaultValue={report[0]?.adaption_weakness || ""}
+            defaultValue={report[0]?.sociality_weakness || ""}
           />
         </div>
         <div className={styles.content}>4. 인지</div>
@@ -94,13 +94,13 @@ export default async function StudentReport({
             content="강점"
             placeholder="학생의 나이에 적절한 또래와 동일한 행동에 대한 수행능력, 사물의 비교, 특징(크기, 양, 색) 등의 개념 이해능력에서 부족하지 않은 부분을 설명해주세요."
             name="recognition_strength"
-            defaultValue={report[0]?.adaption_strength || ""}
+            defaultValue={report[0]?.recognition_strength || ""}
           />
           <ClassTextarea
             content="지도점"
             placeholder="학생의 나이에 적절한 또래와 동일한 행동에 대한 수행능력, 사물의 비교, 특징(크기, 양, 색) 등의 개념 이해능력에서 부족한 부분을 설명해주세요."
             name="recognition_weakness"
-            defaultValue={report[0]?.adaption_weakness || ""}
+            defaultValue={report[0]?.recognition_weakness || ""}
           />
         </div>
         <div className={styles.content}>5. 의사소통</div>
@@ -109,13 +109,13 @@ export default async function StudentReport({
             content="강점"
             placeholder="학생의 언어 이해력과 표현력에서 부족하지 않은 부분을 설명해주세요."
             name="communication_strength"
-            defaultValue={report[0]?.adaption_strength || ""}
+            defaultValue={report[0]?.communication_strength || ""}
           />
           <ClassTextarea
             content="지도점"
             placeholder="학생의 언어 이해력과 표현력에서 부족한 부분을 설명해주세요."
             name="communication_weakness"
-            defaultValue={report[0]?.adaption_weakness || ""}
+            defaultValue={report[0]?.communication_weakness || ""}
           />
         </div>
         <div className={styles.content}>6. 문제행동</div>
