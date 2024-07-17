@@ -14,11 +14,16 @@ export async function POST(request: NextRequest, response: NextResponse) {
   var minutes = now.getMinutes();
   var seconds = now.getSeconds();
   const formData = await request.formData();
-  const adaption = formData.get("adaption");
-  const exercise = formData.get("exercise");
-  const sociality = formData.get("sociality");
-  const recognition = formData.get("recognition");
-  const communication = formData.get("communication");
+  const adaption_strength = formData.get("adaption_strength");
+  const adaption_weakness = formData.get("adaption_weakness");
+  const exercise_strength = formData.get("exercise_strength");
+  const exercise_weakness = formData.get("exercise_weakness");
+  const sociality_strength = formData.get("sociality_strength");
+  const sociality_weakness = formData.get("sociality_weakness");
+  const recognition_strength = formData.get("recognition_strength");
+  const recognition_weakness = formData.get("recognition_weakness");
+  const communication_strength = formData.get("communication_strength");
+  const communication_weakness = formData.get("communication_weakness");
   const problem = formData.get("problem");
   const family = formData.get("family");
   const postscript = formData.get("postscript");
@@ -32,11 +37,16 @@ export async function POST(request: NextRequest, response: NextResponse) {
   const classid = studentInfo?.classid;
 
   const report = {
-    adaption,
-    exercise,
-    sociality,
-    recognition,
-    communication,
+    adaption_strength,
+    adaption_weakness,
+    exercise_strength,
+    exercise_weakness,
+    sociality_strength,
+    sociality_weakness,
+    recognition_strength,
+    recognition_weakness,
+    communication_strength,
+    communication_weakness,
     problem,
     family,
     postscript,
