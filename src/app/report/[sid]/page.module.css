@@ -10,3 +10,11 @@
   font-weight: 600;
   margin: 0;
 }
+.content {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 20px 0 20px 0;
+}
+.textarea_wrap{
+  padding-left: 30px;
+}
