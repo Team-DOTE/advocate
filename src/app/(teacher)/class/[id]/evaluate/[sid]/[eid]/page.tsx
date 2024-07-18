@@ -96,6 +96,7 @@ export default async function EvaluateList({
           </div>
         )}
       </div>
+
       <Graph
         name={name}
         expired={expired}
@@ -106,6 +107,41 @@ export default async function EvaluateList({
         content={evaluate.content}
         dates={evaluate.dates}
       />
+
+      <div className={styles.graph_wrap}>
+        <div
+          className={styles.graph_title}
+        >{`${name} 학생의 성취도 그래프`}</div>
+        <div className={styles.graph_content}>
+          <Graph
+            title={`${evaluate.subject}`}
+            content={evaluate.content}
+            dates={evaluate.dates}
+          />
+        </div>
+        {expired ? (
+          <div className={styles.expired_content}>
+            <div className={styles.expired_achivement}>
+              <div className={styles.expired_achivement_title}>
+                최종 성취도:
+              </div>
+              <div className={styles.expired_achivement_content}>
+                {first ? 0 : evaluate.content[evaluate.content.length - 1]}%
+              </div>
+            </div>
+            <div className={styles.expired_achivement}>
+              <div className={styles.expired_achivement_title}>
+                최고 성취도:
+              </div>
+              <div className={styles.expired_achivement_content}>
+                {first ? 0 : maxcontent}%
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div></div>
+        )}
+      </div>
     </ClassWrap>
   );
 }
