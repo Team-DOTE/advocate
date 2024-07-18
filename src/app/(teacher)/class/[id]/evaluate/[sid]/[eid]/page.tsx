@@ -3,9 +3,7 @@ import ClassWrap from "@/components/class/wrap/wrap";
 import styles from "@/app/(teacher)/class/[id]/evaluate/[sid]/[eid]/page.module.css";
 import { connectDB } from "@/utils/database";
 import { ObjectId } from "mongodb";
-import StudentFeature from "@/components/class/student/feature/feature";
 import Graph from "@/components/class/evaluate/graph/graph";
-import ClassInput from "@/components/class/input/input";
 import EvaluatecontentForm from "@/components/class/evaluate/form/form";
 
 export default async function EvaluateList({
@@ -46,7 +44,6 @@ export default async function EvaluateList({
     Converteddate == evaluate.dates[evaluate.dates.length - 1] ? true : false;
   let first = evaluate.dates[0] ? false : true;
   const expired = dyear <= 0 && dmonth <= 0 && dday < 0 ? true : false;
-
   return (
     <ClassWrap>
       <ClassHeader content={`${name} 학생의 ${evaluate.subject} 성취도 평가`} />
@@ -99,6 +96,18 @@ export default async function EvaluateList({
           </div>
         )}
       </div>
+
+      <Graph
+        name={name}
+        expired={expired}
+        first={first}
+        final={evaluate.content[evaluate.content.length - 1]}
+        maxcontent={maxcontent}
+        title={evaluate.subject}
+        content={evaluate.content}
+        dates={evaluate.dates}
+      />
+
       <div className={styles.graph_wrap}>
         <div
           className={styles.graph_title}
